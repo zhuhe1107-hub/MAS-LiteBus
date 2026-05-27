@@ -31,7 +31,15 @@ class OllamaBackend(LLMBackend):
         # environment would otherwise try (and fail) to relay our request.
         self._client = httpx.Client(timeout=timeout, trust_env=False)
 
-    def chat(self, system: str, user: str, *, temperature: float = 0.0, max_tokens: int = 1024) -> LLMResponse:
+    def chat(
+        self,
+        system: str,
+        user: str,
+        *,
+        temperature: float = 0.0,
+        max_tokens: int = 1024,
+        json_mode: bool = False,
+    ) -> LLMResponse:
         payload: dict[str, Any] = {
             "model": self.model,
             "messages": [
@@ -44,6 +52,11 @@ class OllamaBackend(LLMBackend):
                 "num_predict": int(max_tokens),
             },
         }
+        if json_mode:
+            # Ollama's grammar-constrained JSON mode forces the next-token
+            # sampler to follow a JSON schema, eliminating "wrapping in
+            # markdown fence" / "prefix with explanation" failure modes.
+            payload["format"] = "json"
         t0 = time.perf_counter()
         resp = self._client.post(f"{self.host}/api/chat", json=payload)
         resp.raise_for_status()

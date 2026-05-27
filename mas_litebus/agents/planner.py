@@ -80,6 +80,9 @@ class PlannerAgent(BaseAgent):
     ) -> dict[str, object]:
         assert self.llm is not None
         user = planner_user_prompt(ctx, memory_refs, memory_summaries, llm_mode)
+        # Ollama's format=json was measured to 4x latency on llama3:8b without
+        # reducing parse failures (see commit history). We rely on the strict
+        # format reminder in PLANNER_SYSTEM + the lenient JSON extractor instead.
         resp = self.llm.chat(PLANNER_SYSTEM, user, temperature=0.0, max_tokens=512)
         if metrics is not None:
             metrics.record_llm(resp)

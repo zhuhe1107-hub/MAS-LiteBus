@@ -1,6 +1,6 @@
 # MAS-LiteBus Benchmark — IPC Focus (protocol vs protocol_ipc)
 
-本报告专门对比 **in-process protocol** 和 **multi-process protocol_ipc** 两种模式 (均使用确定性模板 Agent, 排除 LLM 噪声). 看点: protocol_ipc 多付出的 latency 完全是Unix socket + fork + POSIX shm 系统调用开销, 而 `state_transfer_count` / `state_bytes` / `protocol_chars` 与 in-proc 完全对齐, 协议层结构性收益不受 IPC 影响.
+本报告专门对比 **in-process protocol** 和 **multi-process protocol_ipc** 两种模式 (均使用确定性模板 Agent, 排除 LLM 噪声). 基线为 `protocol` (而非 text_v2), 因为这里想看的是「IPC 带来的纯系统调用开销」, 不是「协议相对 NL 的收益」. 看点: 协议层指标 (`state_transfer_count` / `state_bytes` / `protocol_chars` / `message_count`) 与 in-proc 完全对齐, **协议结构性收益不受 IPC 重构影响**; 多出的延迟完全是 Unix socket + fork + POSIX shm 系统调用代价.
 
 _(每模式重复运行 3 次, 易抖动指标显示 mean ± std)_
 
@@ -13,15 +13,15 @@ _(每模式重复运行 3 次, 易抖动指标显示 mean ± std)_
 | 估算 token (chars / 1.8) | 9417 | 9463 |
 | 非文本状态传递次数 | 40 | 40 |
 | 状态字节数 (累计) | 25600 | 25600 |
-| 总耗时 (秒) | 0.513414 ± 0.010346 | 0.613135 ± 0.024946 |
+| 总耗时 (秒) | 0.420917 ± 0.008294 | 0.518056 ± 0.032640 |
 | 记忆检索次数 | 10 | 10 |
 | 记忆命中率 | 80.0% | 80.0% |
 | 本地语料检索次数 | 3 | 3 |
 | **--- IPC 专属指标 ---** | — | — |
 | IPC 发送帧数 | - | 44 |
 | IPC 接收帧数 | - | 44 |
-| IPC 出向字节数 (含 4B 长度头) | - | 25141 ± 45.5 |
-| IPC 单次往返平均 (μs) | - | 8152.7 ± 472.5 |
+| IPC 出向字节数 (含 4B 长度头) | - | 25173 ± 0.9 |
+| IPC 单次往返平均 (μs) | - | 6984.3 ± 346.3 |
 | shm 分配次数 (POSIX) | - | 30 |
 | shm 峰值字节 | - | 1536 |
 
@@ -29,8 +29,7 @@ _(每模式重复运行 3 次, 易抖动指标显示 mean ± std)_
 
 > 符号规则: **正号 = 优于基线**, 负号 = 劣于基线. 例如 `耗时 +20%` = 比基线快 20%, `耗时 -40%` = 比基线慢 40%.
 
-- **protocol (full)** 相对 text (累积): token +0.0%, 通信字符 +0.0%, 耗时 +0.0%, 本地检索次数 +0.0%, 消息数 +0.0%, 命中率 +80.0%
-- **protocol + IPC** 相对 text (累积): token +0.0%, 通信字符 +0.0%, 耗时 +0.0%, 本地检索次数 +0.0%, 消息数 +0.0%, 命中率 +80.0%
+- **protocol + IPC** 相对 protocol (full): token -0.5%, 通信字符 -0.5%, 耗时 -23.1%, 本地检索次数 +0.0%, 消息数 +0.0%, 命中率 +0.0%
 
 
 ## 记忆复用准确性 (vs gold prior task ids)
@@ -46,7 +45,7 @@ _(每模式重复运行 3 次, 易抖动指标显示 mean ± std)_
 
 ## IPC 侧观察
 
-- 共 44 次 send + 44 次 recv, 单次往返均值 8152.7 μs.
+- 共 44 次 send + 44 次 recv, 单次往返均值 6984.3 μs.
 - POSIX 共享内存分配 30 次, 峰值 1536 bytes (同一时刻只持有一个任务的 query/retr/sum 三个块).
 - 协议 JSON 通过 4 字节长度头 + UTF-8 帧在 AF_UNIX 上交换; embedding 向量通过 shm_name 传引用, 不经过 socket 序列化, 因此 ipc_bytes_sent 不含向量本体.
 - protocol_ipc 与 in-proc protocol 模式的 message_count / state_transfer_count / state_bytes 完全对齐, 协议结构性收益保留; 多出的耗时来自跨进程系统调用, 是真实分布式场景的代价.

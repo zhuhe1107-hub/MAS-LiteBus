@@ -34,5 +34,13 @@ class LLMBackend(ABC):
     name: str = "base"
 
     @abstractmethod
-    def chat(self, system: str, user: str, *, temperature: float = 0.0, max_tokens: int = 1024) -> LLMResponse:
+    def chat(
+        self,
+        system: str,
+        user: str,
+        *,
+        temperature: float = 0.0,
+        max_tokens: int = 1024,
+        json_mode: bool = False,
+    ) -> LLMResponse:
         raise NotImplementedError

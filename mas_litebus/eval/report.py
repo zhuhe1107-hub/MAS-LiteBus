@@ -66,7 +66,16 @@ def build_summary(results: dict[str, Any]) -> dict[str, Any]:
     for mode in MODE_DISPLAY_ORDER:
         if _has(results, mode):
             summary["metrics"][mode] = results[mode].get("metrics", {})
-    baseline = "text_v2" if _has(results, "text_v2") else "text"
+    # Pick the most meaningful baseline that is actually present in `results`.
+    # For the offline / llm partitions text_v2 is canonical; for the IPC
+    # partition only protocol and protocol_ipc are present, so the IPC
+    # overhead is reported relative to in-process protocol instead.
+    for candidate in ("text_v2", "text", "protocol", "protocol_no_memory", "text_with_memory"):
+        if _has(results, candidate):
+            baseline = candidate
+            break
+    else:
+        baseline = next(iter(results), "text_v2")
     summary["baseline"] = baseline
 
     base_chars = _chars_for(results, baseline)
@@ -439,13 +448,22 @@ REPORT_PREAMBLES = {
         "本报告所有模式都接入 **Ollama llama3:8b**, token 计数为 Ollama "
         "`/api/chat` 报回的真实 BPE 数 (`prompt_eval_count` / `eval_count`), 不是 chars/1.8 估算. "
         "**不包含 `protocol_ipc` 模式** — IPC worker 子进程暂未集成 LLM 后端 (httpx client 在 fork 后状态冲突), "
-        "因此把它放在 `benchmark_ipc.md` 里跟模板 protocol 对比, 避免不公平 latency 比较."
+        "因此把它放在 `benchmark_ipc.md` 里跟模板 protocol 对比, 避免不公平 latency 比较.\n\n"
+        "**关于 `llm_parse_failures`**: 该指标统计的是开源小模型 (llama3:8b Q4_0) 偶尔不严格遵守 "
+        "「只输出 JSON」指令的次数, 例如包了一层 markdown 代码块或前面加了一句解释. "
+        "系统在 `mas_litebus/agents/*.py` 的每个 Agent 入口都用 try/except 兜底, **解析失败时自动"
+        "降级到确定性模板逻辑**, 任务不会丢失, 流水线不会中断 (这一行为也包含在 11 个单元测试中). "
+        "所以 parse_failure 反映的是「LLM 输出格式稳定性」, 而不是「系统失败率」. "
+        "实测把失败率压到 0 需要换更大模型 (Qwen2.5-32B / Llama3.3-70B) 或专门的 fine-tune; "
+        "我们试过 Ollama 的 `format=json` 强约束模式, 在 llama3:8b 上单次延迟从 3s 涨到 13s 但失败率没显著下降, "
+        "因此最终选择: 保留强格式提示 + 容错 JSON 抽取 + 失败自动回退到模板, 不开 `format=json`."
     ),
     "ipc": (
         "本报告专门对比 **in-process protocol** 和 **multi-process protocol_ipc** 两种模式 "
-        "(均使用确定性模板 Agent, 排除 LLM 噪声). 看点: protocol_ipc 多付出的 latency 完全是"
-        "Unix socket + fork + POSIX shm 系统调用开销, 而 `state_transfer_count` / `state_bytes` / "
-        "`protocol_chars` 与 in-proc 完全对齐, 协议层结构性收益不受 IPC 影响."
+        "(均使用确定性模板 Agent, 排除 LLM 噪声). 基线为 `protocol` (而非 text_v2), 因为这里"
+        "想看的是「IPC 带来的纯系统调用开销」, 不是「协议相对 NL 的收益」. 看点: 协议层指标 "
+        "(`state_transfer_count` / `state_bytes` / `protocol_chars` / `message_count`) 与 in-proc 完全对齐, "
+        "**协议结构性收益不受 IPC 重构影响**; 多出的延迟完全是 Unix socket + fork + POSIX shm 系统调用代价."
     ),
 }
 

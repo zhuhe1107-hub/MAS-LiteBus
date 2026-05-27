@@ -3,66 +3,66 @@
     "protocol_ipc": {
       "mode": "protocol_ipc",
       "metrics": {
-        "ipc_send_count": 44,
-        "ipc_bytes_sent": 25141.333333,
-        "shm_alloc_count": 30,
-        "latency_seconds": 0.613135,
-        "shm_peak_bytes": 1536,
-        "llm_call_count": 0,
-        "retrieval_count": 3,
-        "message_count": 44,
-        "ipc_round_trip_avg_us": 8152.686667,
-        "memory_hit_rate": 0.8,
-        "llm_cached_tokens": 0,
-        "llm_total_tokens": 0,
-        "memory_hit_count": 8,
-        "memory_search_count": 10,
-        "tasks_completed": 10,
-        "llm_prompt_tokens": 0,
-        "execution_count": 10,
         "state_bytes": 25600,
-        "state_transfer_count": 40,
-        "text_chars": 0,
-        "mode": "protocol_ipc",
-        "shm_attach_count": 0,
         "llm_avg_latency_ms": 0.0,
-        "llm_parse_failures": 0,
+        "ipc_round_trip_avg_us": 6984.31,
+        "llm_call_count": 0,
+        "mode": "protocol_ipc",
+        "execution_count": 10,
         "protocol_chars": 17034,
-        "ipc_round_trip_us_sum": 358718.333333,
-        "estimated_tokens": 9463,
+        "ipc_send_count": 44,
+        "memory_hit_rate": 0.8,
+        "shm_peak_bytes": 1536,
         "llm_completion_tokens": 0,
-        "ipc_recv_count": 44
+        "memory_search_count": 10,
+        "estimated_tokens": 9463,
+        "ipc_round_trip_us_sum": 307309.666667,
+        "state_transfer_count": 40,
+        "ipc_bytes_sent": 25173.333333,
+        "shm_attach_count": 0,
+        "ipc_recv_count": 44,
+        "text_chars": 0,
+        "llm_total_tokens": 0,
+        "llm_parse_failures": 0,
+        "retrieval_count": 3,
+        "latency_seconds": 0.518056,
+        "memory_hit_count": 8,
+        "llm_cached_tokens": 0,
+        "llm_prompt_tokens": 0,
+        "message_count": 44,
+        "shm_alloc_count": 30,
+        "tasks_completed": 10
       },
       "metrics_std": {
-        "ipc_send_count": 0.0,
-        "ipc_bytes_sent": 45.492368,
-        "shm_alloc_count": 0.0,
-        "latency_seconds": 0.024946,
-        "shm_peak_bytes": 0.0,
-        "llm_call_count": 0.0,
-        "retrieval_count": 0.0,
-        "message_count": 0.0,
-        "ipc_round_trip_avg_us": 472.464912,
-        "memory_hit_rate": 0.0,
-        "llm_cached_tokens": 0.0,
-        "llm_total_tokens": 0.0,
-        "memory_hit_count": 0.0,
-        "memory_search_count": 0.0,
-        "tasks_completed": 0.0,
-        "llm_prompt_tokens": 0.0,
-        "execution_count": 0.0,
         "state_bytes": 0.0,
-        "state_transfer_count": 0.0,
-        "text_chars": 0.0,
-        "mode": 0,
-        "shm_attach_count": 0.0,
         "llm_avg_latency_ms": 0.0,
-        "llm_parse_failures": 0.0,
+        "ipc_round_trip_avg_us": 346.278754,
+        "llm_call_count": 0.0,
+        "mode": 0,
+        "execution_count": 0.0,
         "protocol_chars": 0.0,
-        "ipc_round_trip_us_sum": 20788.445995,
-        "estimated_tokens": 0.0,
+        "ipc_send_count": 0.0,
+        "memory_hit_rate": 0.0,
+        "shm_peak_bytes": 0.0,
         "llm_completion_tokens": 0.0,
-        "ipc_recv_count": 0.0
+        "memory_search_count": 0.0,
+        "estimated_tokens": 0.0,
+        "ipc_round_trip_us_sum": 15236.165798,
+        "state_transfer_count": 0.0,
+        "ipc_bytes_sent": 0.942809,
+        "shm_attach_count": 0.0,
+        "ipc_recv_count": 0.0,
+        "text_chars": 0.0,
+        "llm_total_tokens": 0.0,
+        "llm_parse_failures": 0.0,
+        "retrieval_count": 0.0,
+        "latency_seconds": 0.03264,
+        "memory_hit_count": 0.0,
+        "llm_cached_tokens": 0.0,
+        "llm_prompt_tokens": 0.0,
+        "message_count": 0.0,
+        "shm_alloc_count": 0.0,
+        "tasks_completed": 0.0
       },
       "runs": 3,
       "tasks": [
@@ -71,16 +71,16 @@
           "topic": "openEuler 24.03 Python Web 服务部署调研",
           "mode": "protocol_ipc",
           "memory_refs": [],
-          "new_memory_id": "mem-32fe0e1f51",
+          "new_memory_id": "mem-f164058412",
           "state_refs": [
-            "state-9396583c93",
-            "state-a1d878024a",
-            "state-c0f900bfb9"
+            "state-abb85ec3ed",
+            "state-1665547e56",
+            "state-14076f461d"
           ],
           "shm_names": [
-            "mas_state_132bd986a6754f95",
-            "mas_state_a8d2a6e44c7c40be",
-            "mas_state_c55a44055eb342a5"
+            "mas_state_a531a305db35449c",
+            "mas_state_420193c656c4476e",
+            "mas_state_775f273d49f34165"
           ],
           "summary": "openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -90,20 +90,20 @@
           "topic": "生成 Python Web 服务部署脚本",
           "mode": "protocol_ipc",
           "memory_refs": [
-            "mem-32fe0e1f51"
+            "mem-f164058412"
           ],
-          "new_memory_id": "mem-bae6dff4ab",
+          "new_memory_id": "mem-c209c732ea",
           "state_refs": [
-            "state-0513d19895",
-            "state-dffc6ffb4d",
-            "state-0e32c0195c"
+            "state-a6edcb730c",
+            "state-be8c0b0fed",
+            "state-51a62ff1bd"
           ],
           "shm_names": [
-            "mas_state_faa645aa37054731",
-            "mas_state_da481fc2f058445a",
-            "mas_state_9f4d2c251b2c4866"
+            "mas_state_567b2ffdf8ef4ffa",
+            "mas_state_4064822e1e5b4a1a",
+            "mas_state_47602f75012d4029"
           ],
-          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-32fe0e1f51。",
+          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-f164058412。",
           "skipped_local_retrieval": false
         },
         {
@@ -111,21 +111,21 @@
           "topic": "检查部署依赖和环境问题",
           "mode": "protocol_ipc",
           "memory_refs": [
-            "mem-32fe0e1f51",
-            "mem-bae6dff4ab"
+            "mem-f164058412",
+            "mem-c209c732ea"
           ],
-          "new_memory_id": "mem-05a377d393",
+          "new_memory_id": "mem-2310e5f591",
           "state_refs": [
-            "state-e13d69202c",
-            "state-5fe2f70cf2",
-            "state-c170f37cd8"
+            "state-aba6ab4a24",
+            "state-d2376ad622",
+            "state-90a424f813"
           ],
           "shm_names": [
-            "mas_state_177d65ec399d4847",
-            "mas_state_cc45df9235e94e7e",
-            "mas_state_17e68b85e52b45de"
+            "mas_state_7ca69415fc1c41ea",
+            "mas_state_728b065bbdc84cab",
+            "mas_state_485997bde3d74172"
           ],
-          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-32fe0e1f51, mem-bae6dff4ab。",
+          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-f164058412, mem-c209c732ea。",
           "skipped_local_retrieval": true
         },
         {
@@ -133,22 +133,22 @@
           "topic": "生成 systemd 服务配置",
           "mode": "protocol_ipc",
           "memory_refs": [
-            "mem-bae6dff4ab",
-            "mem-32fe0e1f51",
-            "mem-05a377d393"
+            "mem-c209c732ea",
+            "mem-f164058412",
+            "mem-2310e5f591"
           ],
-          "new_memory_id": "mem-aa3901b4ab",
+          "new_memory_id": "mem-d785d68f18",
           "state_refs": [
-            "state-494bec55bc",
-            "state-cc7bafdf17",
-            "state-0df0b8ff22"
+            "state-cf12d8fc19",
+            "state-ba5599d34b",
+            "state-0bf8e0679d"
           ],
           "shm_names": [
-            "mas_state_9fa6ca98129a4838",
-            "mas_state_207bc93928be4c2a",
-            "mas_state_b4577125341b449d"
+            "mas_state_43b479e28382436c",
+            "mas_state_c061e7e6e9bf4ddd",
+            "mas_state_15742b2ff0424b1c"
           ],
-          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-bae6dff4ab, mem-32fe0e1f51, mem-05a377d393。",
+          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-c209c732ea, mem-f164058412, mem-2310e5f591。",
           "skipped_local_retrieval": true
         },
         {
@@ -156,22 +156,22 @@
           "topic": "生成完整部署文档",
           "mode": "protocol_ipc",
           "memory_refs": [
-            "mem-bae6dff4ab",
-            "mem-32fe0e1f51",
-            "mem-aa3901b4ab"
+            "mem-c209c732ea",
+            "mem-f164058412",
+            "mem-d785d68f18"
           ],
-          "new_memory_id": "mem-04b889bed1",
+          "new_memory_id": "mem-a3ceb4277a",
           "state_refs": [
-            "state-e6552ae445",
-            "state-b39fea382b",
-            "state-f2b713d283"
+            "state-428bc0c0d4",
+            "state-efd51303c5",
+            "state-bf9392072e"
           ],
           "shm_names": [
-            "mas_state_a21ec7855f4f4734",
-            "mas_state_9bbe932e5da74cef",
-            "mas_state_6abf9ceaba76434b"
+            "mas_state_48dfa9bfd8c04564",
+            "mas_state_957d68a6fbdb45ad",
+            "mas_state_3626486c89204fd8"
           ],
-          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-bae6dff4ab, mem-32fe0e1f51, mem-aa3901b4ab。",
+          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-c209c732ea, mem-f164058412, mem-d785d68f18。",
           "skipped_local_retrieval": true
         },
         {
@@ -179,16 +179,16 @@
           "topic": "CSV 数据字段和质量分析",
           "mode": "protocol_ipc",
           "memory_refs": [],
-          "new_memory_id": "mem-8db9575894",
+          "new_memory_id": "mem-da03bdb766",
           "state_refs": [
-            "state-ab620fb6ff",
-            "state-02e84b4901",
-            "state-5747a4d880"
+            "state-5baeed048e",
+            "state-5cff5ac9e1",
+            "state-63b8e6c2c4"
           ],
           "shm_names": [
-            "mas_state_bf9e506cf1224f44",
-            "mas_state_ac865dee038a480f",
-            "mas_state_606036e179424c32"
+            "mas_state_5b9cb68c8aca4e00",
+            "mas_state_1701883ee5c44a7a",
+            "mas_state_18da8afd894045cc"
           ],
           "summary": "CSV 数据字段和质量分析: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -198,22 +198,22 @@
           "topic": "生成 CSV 数据清洗代码",
           "mode": "protocol_ipc",
           "memory_refs": [
-            "mem-8db9575894",
-            "mem-bae6dff4ab",
-            "mem-04b889bed1"
+            "mem-da03bdb766",
+            "mem-c209c732ea",
+            "mem-a3ceb4277a"
           ],
-          "new_memory_id": "mem-0e74e3cc8e",
+          "new_memory_id": "mem-13f0e79587",
           "state_refs": [
-            "state-65a019975e",
-            "state-dccef24f87",
-            "state-023c328028"
+            "state-7226aa331c",
+            "state-65dfb69539",
+            "state-818a37c5fb"
           ],
           "shm_names": [
-            "mas_state_951f0f574b32432d",
-            "mas_state_0d2cef93f9de4aa3",
-            "mas_state_5f7bc1245e1547af"
+            "mas_state_4a519283c65c461b",
+            "mas_state_328b10549a304db7",
+            "mas_state_9a5ad7ccf1c64da8"
           ],
-          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-8db9575894, mem-bae6dff4ab, mem-04b889bed1。",
+          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-da03bdb766, mem-c209c732ea, mem-a3ceb4277a。",
           "skipped_local_retrieval": true
         },
         {
@@ -221,22 +221,22 @@
           "topic": "执行统计分析并输出摘要",
           "mode": "protocol_ipc",
           "memory_refs": [
-            "mem-8db9575894",
-            "mem-0e74e3cc8e",
-            "mem-32fe0e1f51"
+            "mem-da03bdb766",
+            "mem-13f0e79587",
+            "mem-f164058412"
           ],
-          "new_memory_id": "mem-09e0d13444",
+          "new_memory_id": "mem-295080ab60",
           "state_refs": [
-            "state-fcb160303e",
-            "state-fa07df9977",
-            "state-27173a189d"
+            "state-4563a92ff3",
+            "state-e52cb0d56a",
+            "state-a6c710c326"
           ],
           "shm_names": [
-            "mas_state_c511653b5f644729",
-            "mas_state_516fb2ed7c9b414d",
-            "mas_state_55d4836fd1234bd4"
+            "mas_state_1427144711cb4dfa",
+            "mas_state_fc2ccadea9ed4a79",
+            "mas_state_121f8d8ce2b34557"
           ],
-          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-8db9575894, mem-0e74e3cc8e, mem-32fe0e1f51。",
+          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-da03bdb766, mem-13f0e79587, mem-f164058412。",
           "skipped_local_retrieval": true
         },
         {
@@ -244,22 +244,22 @@
           "topic": "生成图表和报告结构",
           "mode": "protocol_ipc",
           "memory_refs": [
-            "mem-09e0d13444",
-            "mem-0e74e3cc8e",
-            "mem-8db9575894"
+            "mem-295080ab60",
+            "mem-13f0e79587",
+            "mem-da03bdb766"
           ],
-          "new_memory_id": "mem-ef82344e9d",
+          "new_memory_id": "mem-de1f413f23",
           "state_refs": [
-            "state-0ae4017893",
-            "state-0862bd050b",
-            "state-ffae13b105"
+            "state-4e86c00660",
+            "state-a5d5dc0f05",
+            "state-fbe11e2cff"
           ],
           "shm_names": [
-            "mas_state_4173270d0859481e",
-            "mas_state_db84836e5be446b5",
-            "mas_state_6a41169012c448cf"
+            "mas_state_061454a6db754a81",
+            "mas_state_c65bca9ebea74516",
+            "mas_state_621e5e678a234d8a"
           ],
-          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-09e0d13444, mem-0e74e3cc8e, mem-8db9575894。",
+          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-295080ab60, mem-13f0e79587, mem-da03bdb766。",
           "skipped_local_retrieval": true
         },
         {
@@ -267,22 +267,22 @@
           "topic": "生成自动化数据分析模板",
           "mode": "protocol_ipc",
           "memory_refs": [
-            "mem-ef82344e9d",
-            "mem-0e74e3cc8e",
-            "mem-09e0d13444"
+            "mem-de1f413f23",
+            "mem-13f0e79587",
+            "mem-295080ab60"
           ],
-          "new_memory_id": "mem-3cbf29a009",
+          "new_memory_id": "mem-89f943665d",
           "state_refs": [
-            "state-9a662e43d6",
-            "state-00ed214e1f",
-            "state-e28e5fae0b"
+            "state-05fbfc5066",
+            "state-1b0ca7f82c",
+            "state-5213b64631"
           ],
           "shm_names": [
-            "mas_state_24a5ade795264920",
-            "mas_state_38c787aab1db4c0c",
-            "mas_state_ebb5273a1b4742d9"
+            "mas_state_56a6baed2bdf453f",
+            "mas_state_b3a1b0f36ba746f2",
+            "mas_state_ab3f5220242146f4"
           ],
-          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-ef82344e9d, mem-0e74e3cc8e, mem-09e0d13444。",
+          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-de1f413f23, mem-13f0e79587, mem-295080ab60。",
           "skipped_local_retrieval": true
         }
       ],
@@ -290,7 +290,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-0c2f36513e",
+            "msg_id": "msg-32ab2540f3",
             "task_id": "handshake",
             "from": "planner",
             "to": "runtime",
@@ -298,7 +298,7 @@
             "params": {
               "protocol_version": "1.0",
               "agent_type": "planner",
-              "worker_pid": 27276,
+              "worker_pid": 30087,
               "capabilities": [
                 "task_decomposition",
                 "memory_reuse_decision"
@@ -307,13 +307,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:27"
+            "timestamp": "2026-05-27T09:49:22"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-e873569124",
+            "msg_id": "msg-88812f740b",
             "task_id": "handshake",
             "from": "retriever",
             "to": "runtime",
@@ -321,7 +321,7 @@
             "params": {
               "protocol_version": "1.0",
               "agent_type": "retriever",
-              "worker_pid": 27277,
+              "worker_pid": 30088,
               "capabilities": [
                 "keyword_search",
                 "semantic_memory_search"
@@ -330,13 +330,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:27"
+            "timestamp": "2026-05-27T09:49:22"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-383696bd22",
+            "msg_id": "msg-1a304d8292",
             "task_id": "handshake",
             "from": "executor",
             "to": "runtime",
@@ -344,7 +344,7 @@
             "params": {
               "protocol_version": "1.0",
               "agent_type": "executor",
-              "worker_pid": 27281,
+              "worker_pid": 30089,
               "capabilities": [
                 "python_exec",
                 "template_render"
@@ -353,13 +353,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:27"
+            "timestamp": "2026-05-27T09:49:22"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-1ec99688f2",
+            "msg_id": "msg-0c10a69ebe",
             "task_id": "handshake",
             "from": "summarizer",
             "to": "runtime",
@@ -367,7 +367,7 @@
             "params": {
               "protocol_version": "1.0",
               "agent_type": "summarizer",
-              "worker_pid": 27285,
+              "worker_pid": 30090,
               "capabilities": [
                 "summary_generation",
                 "memory_write"
@@ -376,13 +376,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:27"
+            "timestamp": "2026-05-27T09:49:22"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-950abf7d5d",
+            "msg_id": "msg-e321ee001a",
             "task_id": "A1",
             "from": "planner",
             "to": "runtime",
@@ -399,16 +399,16 @@
               "task_decomposition"
             ],
             "state_refs": [
-              "state-9396583c93"
+              "state-abb85ec3ed"
             ],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:27"
+            "timestamp": "2026-05-27T09:49:22"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-c6edf99bb4",
+            "msg_id": "msg-ed89f23c8a",
             "task_id": "A1",
             "from": "retriever",
             "to": "executor",
@@ -423,10 +423,10 @@
               "semantic_memory_search"
             ],
             "state_refs": [
-              "state-a1d878024a"
+              "state-1665547e56"
             ],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:27",
+            "timestamp": "2026-05-27T09:49:22",
             "result": {
               "items": [
                 "openEuler Python service deployment",
@@ -440,7 +440,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-c99b6a04e0",
+            "msg_id": "msg-d2b630f67c",
             "task_id": "A1",
             "from": "executor",
             "to": "summarizer",
@@ -451,10 +451,10 @@
               "template_render"
             ],
             "state_refs": [
-              "state-a1d878024a"
+              "state-1665547e56"
             ],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:27",
+            "timestamp": "2026-05-27T09:49:22",
             "result": {
               "status": "ok",
               "artifact_kind": "deployment_script",
@@ -465,7 +465,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-93dd9a8ac4",
+            "msg_id": "msg-a79079e948",
             "task_id": "A1",
             "from": "summarizer",
             "to": "runtime",
@@ -476,14 +476,14 @@
               "memory_write"
             ],
             "state_refs": [
-              "state-c0f900bfb9"
+              "state-14076f461d"
             ],
             "memory_refs": [
-              "mem-32fe0e1f51"
+              "mem-f164058412"
             ],
-            "timestamp": "2026-05-27T07:44:27",
+            "timestamp": "2026-05-27T09:49:22",
             "result": {
-              "memory_id": "mem-32fe0e1f51",
+              "memory_id": "mem-f164058412",
               "summary_chars": 205,
               "strategy_code": "deployment_script"
             }
@@ -492,7 +492,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-a0a00ad13d",
+            "msg_id": "msg-8f1cabe5a9",
             "task_id": "A2",
             "from": "planner",
             "to": "runtime",
@@ -510,18 +510,18 @@
               "task_decomposition"
             ],
             "state_refs": [
-              "state-0513d19895"
+              "state-a6edcb730c"
             ],
             "memory_refs": [
-              "mem-32fe0e1f51"
+              "mem-f164058412"
             ],
-            "timestamp": "2026-05-27T07:44:27"
+            "timestamp": "2026-05-27T09:49:22"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-83b8f56544",
+            "msg_id": "msg-2b143dedae",
             "task_id": "A2",
             "from": "retriever",
             "to": "executor",
@@ -536,12 +536,12 @@
               "semantic_memory_search"
             ],
             "state_refs": [
-              "state-dffc6ffb4d"
+              "state-be8c0b0fed"
             ],
             "memory_refs": [
-              "mem-32fe0e1f51"
+              "mem-f164058412"
             ],
-            "timestamp": "2026-05-27T07:44:27",
+            "timestamp": "2026-05-27T09:49:22",
             "result": {
               "items": [
                 "openEuler Python service deployment",
@@ -549,7 +549,7 @@
                 "Python dependency troubleshooting"
               ],
               "memory_hits": [
-                "mem-32fe0e1f51"
+                "mem-f164058412"
               ]
             }
           }
@@ -557,7 +557,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-f2b0e2fe54",
+            "msg_id": "msg-a65956077c",
             "task_id": "A2",
             "from": "executor",
             "to": "summarizer",
@@ -568,12 +568,12 @@
               "template_render"
             ],
             "state_refs": [
-              "state-dffc6ffb4d"
+              "state-be8c0b0fed"
             ],
             "memory_refs": [
-              "mem-32fe0e1f51"
+              "mem-f164058412"
             ],
-            "timestamp": "2026-05-27T07:44:27",
+            "timestamp": "2026-05-27T09:49:22",
             "result": {
               "status": "ok",
               "artifact_kind": "deployment_script",
@@ -584,7 +584,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-3fb316b6da",
+            "msg_id": "msg-238b875fbf",
             "task_id": "A2",
             "from": "summarizer",
             "to": "runtime",
@@ -595,14 +595,14 @@
               "memory_write"
             ],
             "state_refs": [
-              "state-0e32c0195c"
+              "state-51a62ff1bd"
             ],
             "memory_refs": [
-              "mem-bae6dff4ab"
+              "mem-c209c732ea"
             ],
-            "timestamp": "2026-05-27T07:44:27",
+            "timestamp": "2026-05-27T09:49:22",
             "result": {
-              "memory_id": "mem-bae6dff4ab",
+              "memory_id": "mem-c209c732ea",
               "summary_chars": 194,
               "strategy_code": "deployment_script"
             }
@@ -633,10 +633,10 @@
               "A1"
             ],
             "gold_memory_ids": [
-              "mem-32fe0e1f51"
+              "mem-f164058412"
             ],
             "retrieved": [
-              "mem-32fe0e1f51"
+              "mem-f164058412"
             ],
             "tp": 1,
             "precision": 1.0,
@@ -652,12 +652,12 @@
               "A2"
             ],
             "gold_memory_ids": [
-              "mem-32fe0e1f51",
-              "mem-bae6dff4ab"
+              "mem-c209c732ea",
+              "mem-f164058412"
             ],
             "retrieved": [
-              "mem-32fe0e1f51",
-              "mem-bae6dff4ab"
+              "mem-f164058412",
+              "mem-c209c732ea"
             ],
             "tp": 2,
             "precision": 1.0,
@@ -674,14 +674,14 @@
               "A3"
             ],
             "gold_memory_ids": [
-              "mem-05a377d393",
-              "mem-32fe0e1f51",
-              "mem-bae6dff4ab"
+              "mem-2310e5f591",
+              "mem-c209c732ea",
+              "mem-f164058412"
             ],
             "retrieved": [
-              "mem-bae6dff4ab",
-              "mem-32fe0e1f51",
-              "mem-05a377d393"
+              "mem-c209c732ea",
+              "mem-f164058412",
+              "mem-2310e5f591"
             ],
             "tp": 3,
             "precision": 1.0,
@@ -699,15 +699,15 @@
               "A4"
             ],
             "gold_memory_ids": [
-              "mem-05a377d393",
-              "mem-32fe0e1f51",
-              "mem-aa3901b4ab",
-              "mem-bae6dff4ab"
+              "mem-2310e5f591",
+              "mem-c209c732ea",
+              "mem-d785d68f18",
+              "mem-f164058412"
             ],
             "retrieved": [
-              "mem-bae6dff4ab",
-              "mem-32fe0e1f51",
-              "mem-aa3901b4ab"
+              "mem-c209c732ea",
+              "mem-f164058412",
+              "mem-d785d68f18"
             ],
             "tp": 3,
             "precision": 1.0,
@@ -730,12 +730,12 @@
               "B1"
             ],
             "gold_memory_ids": [
-              "mem-8db9575894"
+              "mem-da03bdb766"
             ],
             "retrieved": [
-              "mem-8db9575894",
-              "mem-bae6dff4ab",
-              "mem-04b889bed1"
+              "mem-da03bdb766",
+              "mem-c209c732ea",
+              "mem-a3ceb4277a"
             ],
             "tp": 1,
             "precision": 0.3333,
@@ -751,13 +751,13 @@
               "B2"
             ],
             "gold_memory_ids": [
-              "mem-0e74e3cc8e",
-              "mem-8db9575894"
+              "mem-13f0e79587",
+              "mem-da03bdb766"
             ],
             "retrieved": [
-              "mem-8db9575894",
-              "mem-0e74e3cc8e",
-              "mem-32fe0e1f51"
+              "mem-da03bdb766",
+              "mem-13f0e79587",
+              "mem-f164058412"
             ],
             "tp": 2,
             "precision": 0.6667,
@@ -775,15 +775,15 @@
               "A5"
             ],
             "gold_memory_ids": [
-              "mem-04b889bed1",
-              "mem-09e0d13444",
-              "mem-0e74e3cc8e",
-              "mem-8db9575894"
+              "mem-13f0e79587",
+              "mem-295080ab60",
+              "mem-a3ceb4277a",
+              "mem-da03bdb766"
             ],
             "retrieved": [
-              "mem-09e0d13444",
-              "mem-0e74e3cc8e",
-              "mem-8db9575894"
+              "mem-295080ab60",
+              "mem-13f0e79587",
+              "mem-da03bdb766"
             ],
             "tp": 3,
             "precision": 1.0,
@@ -802,16 +802,16 @@
               "A5"
             ],
             "gold_memory_ids": [
-              "mem-04b889bed1",
-              "mem-09e0d13444",
-              "mem-0e74e3cc8e",
-              "mem-8db9575894",
-              "mem-ef82344e9d"
+              "mem-13f0e79587",
+              "mem-295080ab60",
+              "mem-a3ceb4277a",
+              "mem-da03bdb766",
+              "mem-de1f413f23"
             ],
             "retrieved": [
-              "mem-ef82344e9d",
-              "mem-0e74e3cc8e",
-              "mem-09e0d13444"
+              "mem-de1f413f23",
+              "mem-13f0e79587",
+              "mem-295080ab60"
             ],
             "tp": 3,
             "precision": 1.0,
@@ -826,66 +826,66 @@
     "protocol": {
       "mode": "protocol",
       "metrics": {
-        "ipc_send_count": 0,
-        "ipc_bytes_sent": 0,
-        "shm_alloc_count": 0,
-        "latency_seconds": 0.513414,
-        "shm_peak_bytes": 0,
-        "llm_call_count": 0,
-        "retrieval_count": 3,
-        "message_count": 44,
-        "ipc_round_trip_avg_us": 0.0,
-        "memory_hit_rate": 0.8,
-        "llm_cached_tokens": 0,
-        "llm_total_tokens": 0,
-        "memory_hit_count": 8,
-        "memory_search_count": 10,
-        "tasks_completed": 10,
-        "llm_prompt_tokens": 0,
-        "execution_count": 10,
         "state_bytes": 25600,
-        "state_transfer_count": 40,
-        "text_chars": 0,
-        "mode": "protocol",
-        "shm_attach_count": 0,
         "llm_avg_latency_ms": 0.0,
-        "llm_parse_failures": 0,
+        "ipc_round_trip_avg_us": 0.0,
+        "llm_call_count": 0,
+        "mode": "protocol",
+        "execution_count": 10,
         "protocol_chars": 16950,
-        "ipc_round_trip_us_sum": 0,
-        "estimated_tokens": 9417,
+        "ipc_send_count": 0,
+        "memory_hit_rate": 0.8,
+        "shm_peak_bytes": 0,
         "llm_completion_tokens": 0,
-        "ipc_recv_count": 0
+        "memory_search_count": 10,
+        "estimated_tokens": 9417,
+        "ipc_round_trip_us_sum": 0,
+        "state_transfer_count": 40,
+        "ipc_bytes_sent": 0,
+        "shm_attach_count": 0,
+        "ipc_recv_count": 0,
+        "text_chars": 0,
+        "llm_total_tokens": 0,
+        "llm_parse_failures": 0,
+        "retrieval_count": 3,
+        "latency_seconds": 0.420917,
+        "memory_hit_count": 8,
+        "llm_cached_tokens": 0,
+        "llm_prompt_tokens": 0,
+        "message_count": 44,
+        "shm_alloc_count": 0,
+        "tasks_completed": 10
       },
       "metrics_std": {
-        "ipc_send_count": 0.0,
-        "ipc_bytes_sent": 0.0,
-        "shm_alloc_count": 0.0,
-        "latency_seconds": 0.010346,
-        "shm_peak_bytes": 0.0,
-        "llm_call_count": 0.0,
-        "retrieval_count": 0.0,
-        "message_count": 0.0,
-        "ipc_round_trip_avg_us": 0.0,
-        "memory_hit_rate": 0.0,
-        "llm_cached_tokens": 0.0,
-        "llm_total_tokens": 0.0,
-        "memory_hit_count": 0.0,
-        "memory_search_count": 0.0,
-        "tasks_completed": 0.0,
-        "llm_prompt_tokens": 0.0,
-        "execution_count": 0.0,
         "state_bytes": 0.0,
-        "state_transfer_count": 0.0,
-        "text_chars": 0.0,
-        "mode": 0,
-        "shm_attach_count": 0.0,
         "llm_avg_latency_ms": 0.0,
-        "llm_parse_failures": 0.0,
+        "ipc_round_trip_avg_us": 0.0,
+        "llm_call_count": 0.0,
+        "mode": 0,
+        "execution_count": 0.0,
         "protocol_chars": 0.0,
-        "ipc_round_trip_us_sum": 0.0,
-        "estimated_tokens": 0.0,
+        "ipc_send_count": 0.0,
+        "memory_hit_rate": 0.0,
+        "shm_peak_bytes": 0.0,
         "llm_completion_tokens": 0.0,
-        "ipc_recv_count": 0.0
+        "memory_search_count": 0.0,
+        "estimated_tokens": 0.0,
+        "ipc_round_trip_us_sum": 0.0,
+        "state_transfer_count": 0.0,
+        "ipc_bytes_sent": 0.0,
+        "shm_attach_count": 0.0,
+        "ipc_recv_count": 0.0,
+        "text_chars": 0.0,
+        "llm_total_tokens": 0.0,
+        "llm_parse_failures": 0.0,
+        "retrieval_count": 0.0,
+        "latency_seconds": 0.008294,
+        "memory_hit_count": 0.0,
+        "llm_cached_tokens": 0.0,
+        "llm_prompt_tokens": 0.0,
+        "message_count": 0.0,
+        "shm_alloc_count": 0.0,
+        "tasks_completed": 0.0
       },
       "runs": 3,
       "tasks": [
@@ -894,11 +894,11 @@
           "topic": "openEuler 24.03 Python Web 服务部署调研",
           "mode": "protocol",
           "memory_refs": [],
-          "new_memory_id": "mem-34a26a918e",
+          "new_memory_id": "mem-9c4c29333e",
           "state_refs": [
-            "state-472c97c3ce",
-            "state-ebe196c7c7",
-            "state-f63b0c8067"
+            "state-421f2fb739",
+            "state-f2c0e8f737",
+            "state-5353597e58"
           ],
           "summary": "openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -908,15 +908,15 @@
           "topic": "生成 Python Web 服务部署脚本",
           "mode": "protocol",
           "memory_refs": [
-            "mem-34a26a918e"
+            "mem-9c4c29333e"
           ],
-          "new_memory_id": "mem-c3690ead9d",
+          "new_memory_id": "mem-2afaded910",
           "state_refs": [
-            "state-39cfe6c558",
-            "state-0289b5b07c",
-            "state-41e683f8b4"
+            "state-d0601fa093",
+            "state-449a68cdb0",
+            "state-3081059df7"
           ],
-          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-34a26a918e。",
+          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-9c4c29333e。",
           "skipped_local_retrieval": false
         },
         {
@@ -924,16 +924,16 @@
           "topic": "检查部署依赖和环境问题",
           "mode": "protocol",
           "memory_refs": [
-            "mem-34a26a918e",
-            "mem-c3690ead9d"
+            "mem-9c4c29333e",
+            "mem-2afaded910"
           ],
-          "new_memory_id": "mem-d87ea7043d",
+          "new_memory_id": "mem-bfe6e9ebdc",
           "state_refs": [
-            "state-825f0bf116",
-            "state-1d2a5f3342",
-            "state-85128bdf28"
+            "state-5844de132c",
+            "state-1c20b52e2d",
+            "state-7be514a872"
           ],
-          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-34a26a918e, mem-c3690ead9d。",
+          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-9c4c29333e, mem-2afaded910。",
           "skipped_local_retrieval": true
         },
         {
@@ -941,17 +941,17 @@
           "topic": "生成 systemd 服务配置",
           "mode": "protocol",
           "memory_refs": [
-            "mem-c3690ead9d",
-            "mem-34a26a918e",
-            "mem-d87ea7043d"
+            "mem-2afaded910",
+            "mem-9c4c29333e",
+            "mem-bfe6e9ebdc"
           ],
-          "new_memory_id": "mem-3aea7d22c4",
+          "new_memory_id": "mem-1394bd34ce",
           "state_refs": [
-            "state-02d536b13d",
-            "state-a976139862",
-            "state-78617cd371"
+            "state-c0f1651b79",
+            "state-dc036b1d09",
+            "state-c3132e4709"
           ],
-          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-c3690ead9d, mem-34a26a918e, mem-d87ea7043d。",
+          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-2afaded910, mem-9c4c29333e, mem-bfe6e9ebdc。",
           "skipped_local_retrieval": true
         },
         {
@@ -959,17 +959,17 @@
           "topic": "生成完整部署文档",
           "mode": "protocol",
           "memory_refs": [
-            "mem-c3690ead9d",
-            "mem-34a26a918e",
-            "mem-3aea7d22c4"
+            "mem-2afaded910",
+            "mem-9c4c29333e",
+            "mem-1394bd34ce"
           ],
-          "new_memory_id": "mem-c6d9f3f646",
+          "new_memory_id": "mem-960a573d69",
           "state_refs": [
-            "state-7965f26e48",
-            "state-e8867ae7f7",
-            "state-0164bd6724"
+            "state-e14220acd7",
+            "state-c940a1b270",
+            "state-e20a3fcb70"
           ],
-          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-c3690ead9d, mem-34a26a918e, mem-3aea7d22c4。",
+          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-2afaded910, mem-9c4c29333e, mem-1394bd34ce。",
           "skipped_local_retrieval": true
         },
         {
@@ -977,11 +977,11 @@
           "topic": "CSV 数据字段和质量分析",
           "mode": "protocol",
           "memory_refs": [],
-          "new_memory_id": "mem-99d4358f9d",
+          "new_memory_id": "mem-f2b10645fd",
           "state_refs": [
-            "state-8829d38351",
-            "state-080e35f456",
-            "state-b48d3edaf1"
+            "state-b81e73d181",
+            "state-13d69a0c21",
+            "state-b07dd3cfb5"
           ],
           "summary": "CSV 数据字段和质量分析: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -991,17 +991,17 @@
           "topic": "生成 CSV 数据清洗代码",
           "mode": "protocol",
           "memory_refs": [
-            "mem-99d4358f9d",
-            "mem-c3690ead9d",
-            "mem-c6d9f3f646"
+            "mem-f2b10645fd",
+            "mem-2afaded910",
+            "mem-960a573d69"
           ],
-          "new_memory_id": "mem-268107e5b6",
+          "new_memory_id": "mem-446bb73e26",
           "state_refs": [
-            "state-3655a10fe2",
-            "state-c560e41860",
-            "state-6a4cd47425"
+            "state-97020f9960",
+            "state-355c76111c",
+            "state-e1fb85af39"
           ],
-          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-99d4358f9d, mem-c3690ead9d, mem-c6d9f3f646。",
+          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-f2b10645fd, mem-2afaded910, mem-960a573d69。",
           "skipped_local_retrieval": true
         },
         {
@@ -1009,17 +1009,17 @@
           "topic": "执行统计分析并输出摘要",
           "mode": "protocol",
           "memory_refs": [
-            "mem-99d4358f9d",
-            "mem-268107e5b6",
-            "mem-34a26a918e"
+            "mem-f2b10645fd",
+            "mem-446bb73e26",
+            "mem-9c4c29333e"
           ],
-          "new_memory_id": "mem-234c92ae73",
+          "new_memory_id": "mem-acf12bd887",
           "state_refs": [
-            "state-ffaf968ed1",
-            "state-1086d246b7",
-            "state-c42aa61fd9"
+            "state-1d32e7aa1f",
+            "state-f0a8df1742",
+            "state-3881c3a947"
           ],
-          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-99d4358f9d, mem-268107e5b6, mem-34a26a918e。",
+          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-f2b10645fd, mem-446bb73e26, mem-9c4c29333e。",
           "skipped_local_retrieval": true
         },
         {
@@ -1027,17 +1027,17 @@
           "topic": "生成图表和报告结构",
           "mode": "protocol",
           "memory_refs": [
-            "mem-234c92ae73",
-            "mem-268107e5b6",
-            "mem-99d4358f9d"
+            "mem-acf12bd887",
+            "mem-446bb73e26",
+            "mem-f2b10645fd"
           ],
-          "new_memory_id": "mem-5d6e9222d0",
+          "new_memory_id": "mem-69f5d9d64c",
           "state_refs": [
-            "state-de319064e0",
-            "state-40dbc4a968",
-            "state-83f459eb46"
+            "state-96812b8155",
+            "state-4f2a6558c6",
+            "state-07481718ab"
           ],
-          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-234c92ae73, mem-268107e5b6, mem-99d4358f9d。",
+          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-acf12bd887, mem-446bb73e26, mem-f2b10645fd。",
           "skipped_local_retrieval": true
         },
         {
@@ -1045,17 +1045,17 @@
           "topic": "生成自动化数据分析模板",
           "mode": "protocol",
           "memory_refs": [
-            "mem-5d6e9222d0",
-            "mem-268107e5b6",
-            "mem-234c92ae73"
+            "mem-69f5d9d64c",
+            "mem-446bb73e26",
+            "mem-acf12bd887"
           ],
-          "new_memory_id": "mem-78f4eee813",
+          "new_memory_id": "mem-d9ac9595d8",
           "state_refs": [
-            "state-92246742b6",
-            "state-65d50ce8dd",
-            "state-57705afc06"
+            "state-1c19129892",
+            "state-2c9f9178e1",
+            "state-22dad7cee7"
           ],
-          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-5d6e9222d0, mem-268107e5b6, mem-234c92ae73。",
+          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-69f5d9d64c, mem-446bb73e26, mem-acf12bd887。",
           "skipped_local_retrieval": true
         }
       ],
@@ -1063,7 +1063,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-2e0a2bd94f",
+            "msg_id": "msg-20068ebd74",
             "task_id": "runtime",
             "from": "planner",
             "to": "runtime",
@@ -1079,13 +1079,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:25"
+            "timestamp": "2026-05-27T09:49:20"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-d82edf4630",
+            "msg_id": "msg-16bc03730a",
             "task_id": "runtime",
             "from": "retriever",
             "to": "runtime",
@@ -1101,13 +1101,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:25"
+            "timestamp": "2026-05-27T09:49:20"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-1ae91dd71a",
+            "msg_id": "msg-43171ec108",
             "task_id": "runtime",
             "from": "executor",
             "to": "runtime",
@@ -1123,13 +1123,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:25"
+            "timestamp": "2026-05-27T09:49:20"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-ec3c9fb0fb",
+            "msg_id": "msg-e1c15f5127",
             "task_id": "runtime",
             "from": "summarizer",
             "to": "runtime",
@@ -1145,13 +1145,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:25"
+            "timestamp": "2026-05-27T09:49:20"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-7fb4aaf194",
+            "msg_id": "msg-317b344bdf",
             "task_id": "A1",
             "from": "planner",
             "to": "runtime",
@@ -1168,16 +1168,16 @@
               "task_decomposition"
             ],
             "state_refs": [
-              "state-472c97c3ce"
+              "state-421f2fb739"
             ],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:25"
+            "timestamp": "2026-05-27T09:49:20"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-858ef63f44",
+            "msg_id": "msg-dc3497c0d0",
             "task_id": "A1",
             "from": "retriever",
             "to": "executor",
@@ -1192,10 +1192,10 @@
               "semantic_memory_search"
             ],
             "state_refs": [
-              "state-ebe196c7c7"
+              "state-f2c0e8f737"
             ],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:25",
+            "timestamp": "2026-05-27T09:49:20",
             "result": {
               "items": [
                 "openEuler Python service deployment",
@@ -1209,7 +1209,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-11bae1119b",
+            "msg_id": "msg-71b2b77b5a",
             "task_id": "A1",
             "from": "executor",
             "to": "summarizer",
@@ -1220,10 +1220,10 @@
               "template_render"
             ],
             "state_refs": [
-              "state-ebe196c7c7"
+              "state-f2c0e8f737"
             ],
             "memory_refs": [],
-            "timestamp": "2026-05-27T07:44:25",
+            "timestamp": "2026-05-27T09:49:20",
             "result": {
               "status": "ok",
               "artifact_kind": "deployment_script",
@@ -1234,7 +1234,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-fd303d7831",
+            "msg_id": "msg-ca9c7a9a03",
             "task_id": "A1",
             "from": "summarizer",
             "to": "runtime",
@@ -1245,14 +1245,14 @@
               "memory_write"
             ],
             "state_refs": [
-              "state-f63b0c8067"
+              "state-5353597e58"
             ],
             "memory_refs": [
-              "mem-34a26a918e"
+              "mem-9c4c29333e"
             ],
-            "timestamp": "2026-05-27T07:44:25",
+            "timestamp": "2026-05-27T09:49:20",
             "result": {
-              "memory_id": "mem-34a26a918e",
+              "memory_id": "mem-9c4c29333e",
               "summary_chars": 205,
               "strategy_code": "deployment_script"
             }
@@ -1261,7 +1261,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-99be143704",
+            "msg_id": "msg-e8372d8ba9",
             "task_id": "A2",
             "from": "planner",
             "to": "runtime",
@@ -1279,18 +1279,18 @@
               "task_decomposition"
             ],
             "state_refs": [
-              "state-39cfe6c558"
+              "state-d0601fa093"
             ],
             "memory_refs": [
-              "mem-34a26a918e"
+              "mem-9c4c29333e"
             ],
-            "timestamp": "2026-05-27T07:44:25"
+            "timestamp": "2026-05-27T09:49:20"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-067acd7a44",
+            "msg_id": "msg-c9699c0b35",
             "task_id": "A2",
             "from": "retriever",
             "to": "executor",
@@ -1305,12 +1305,12 @@
               "semantic_memory_search"
             ],
             "state_refs": [
-              "state-0289b5b07c"
+              "state-449a68cdb0"
             ],
             "memory_refs": [
-              "mem-34a26a918e"
+              "mem-9c4c29333e"
             ],
-            "timestamp": "2026-05-27T07:44:25",
+            "timestamp": "2026-05-27T09:49:20",
             "result": {
               "items": [
                 "openEuler Python service deployment",
@@ -1318,7 +1318,7 @@
                 "Python dependency troubleshooting"
               ],
               "memory_hits": [
-                "mem-34a26a918e"
+                "mem-9c4c29333e"
               ]
             }
           }
@@ -1326,7 +1326,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-2166db8e64",
+            "msg_id": "msg-d837b9194f",
             "task_id": "A2",
             "from": "executor",
             "to": "summarizer",
@@ -1337,12 +1337,12 @@
               "template_render"
             ],
             "state_refs": [
-              "state-0289b5b07c"
+              "state-449a68cdb0"
             ],
             "memory_refs": [
-              "mem-34a26a918e"
+              "mem-9c4c29333e"
             ],
-            "timestamp": "2026-05-27T07:44:25",
+            "timestamp": "2026-05-27T09:49:20",
             "result": {
               "status": "ok",
               "artifact_kind": "deployment_script",
@@ -1353,7 +1353,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-7c9ce3dedb",
+            "msg_id": "msg-d27f13aa7f",
             "task_id": "A2",
             "from": "summarizer",
             "to": "runtime",
@@ -1364,14 +1364,14 @@
               "memory_write"
             ],
             "state_refs": [
-              "state-41e683f8b4"
+              "state-3081059df7"
             ],
             "memory_refs": [
-              "mem-c3690ead9d"
+              "mem-2afaded910"
             ],
-            "timestamp": "2026-05-27T07:44:25",
+            "timestamp": "2026-05-27T09:49:20",
             "result": {
-              "memory_id": "mem-c3690ead9d",
+              "memory_id": "mem-2afaded910",
               "summary_chars": 194,
               "strategy_code": "deployment_script"
             }
@@ -1402,10 +1402,10 @@
               "A1"
             ],
             "gold_memory_ids": [
-              "mem-34a26a918e"
+              "mem-9c4c29333e"
             ],
             "retrieved": [
-              "mem-34a26a918e"
+              "mem-9c4c29333e"
             ],
             "tp": 1,
             "precision": 1.0,
@@ -1421,12 +1421,12 @@
               "A2"
             ],
             "gold_memory_ids": [
-              "mem-34a26a918e",
-              "mem-c3690ead9d"
+              "mem-2afaded910",
+              "mem-9c4c29333e"
             ],
             "retrieved": [
-              "mem-34a26a918e",
-              "mem-c3690ead9d"
+              "mem-9c4c29333e",
+              "mem-2afaded910"
             ],
             "tp": 2,
             "precision": 1.0,
@@ -1443,14 +1443,14 @@
               "A3"
             ],
             "gold_memory_ids": [
-              "mem-34a26a918e",
-              "mem-c3690ead9d",
-              "mem-d87ea7043d"
+              "mem-2afaded910",
+              "mem-9c4c29333e",
+              "mem-bfe6e9ebdc"
             ],
             "retrieved": [
-              "mem-c3690ead9d",
-              "mem-34a26a918e",
-              "mem-d87ea7043d"
+              "mem-2afaded910",
+              "mem-9c4c29333e",
+              "mem-bfe6e9ebdc"
             ],
             "tp": 3,
             "precision": 1.0,
@@ -1468,15 +1468,15 @@
               "A4"
             ],
             "gold_memory_ids": [
-              "mem-34a26a918e",
-              "mem-3aea7d22c4",
-              "mem-c3690ead9d",
-              "mem-d87ea7043d"
+              "mem-1394bd34ce",
+              "mem-2afaded910",
+              "mem-9c4c29333e",
+              "mem-bfe6e9ebdc"
             ],
             "retrieved": [
-              "mem-c3690ead9d",
-              "mem-34a26a918e",
-              "mem-3aea7d22c4"
+              "mem-2afaded910",
+              "mem-9c4c29333e",
+              "mem-1394bd34ce"
             ],
             "tp": 3,
             "precision": 1.0,
@@ -1499,12 +1499,12 @@
               "B1"
             ],
             "gold_memory_ids": [
-              "mem-99d4358f9d"
+              "mem-f2b10645fd"
             ],
             "retrieved": [
-              "mem-99d4358f9d",
-              "mem-c3690ead9d",
-              "mem-c6d9f3f646"
+              "mem-f2b10645fd",
+              "mem-2afaded910",
+              "mem-960a573d69"
             ],
             "tp": 1,
             "precision": 0.3333,
@@ -1520,13 +1520,13 @@
               "B2"
             ],
             "gold_memory_ids": [
-              "mem-268107e5b6",
-              "mem-99d4358f9d"
+              "mem-446bb73e26",
+              "mem-f2b10645fd"
             ],
             "retrieved": [
-              "mem-99d4358f9d",
-              "mem-268107e5b6",
-              "mem-34a26a918e"
+              "mem-f2b10645fd",
+              "mem-446bb73e26",
+              "mem-9c4c29333e"
             ],
             "tp": 2,
             "precision": 0.6667,
@@ -1544,15 +1544,15 @@
               "A5"
             ],
             "gold_memory_ids": [
-              "mem-234c92ae73",
-              "mem-268107e5b6",
-              "mem-99d4358f9d",
-              "mem-c6d9f3f646"
+              "mem-446bb73e26",
+              "mem-960a573d69",
+              "mem-acf12bd887",
+              "mem-f2b10645fd"
             ],
             "retrieved": [
-              "mem-234c92ae73",
-              "mem-268107e5b6",
-              "mem-99d4358f9d"
+              "mem-acf12bd887",
+              "mem-446bb73e26",
+              "mem-f2b10645fd"
             ],
             "tp": 3,
             "precision": 1.0,
@@ -1571,16 +1571,16 @@
               "A5"
             ],
             "gold_memory_ids": [
-              "mem-234c92ae73",
-              "mem-268107e5b6",
-              "mem-5d6e9222d0",
-              "mem-99d4358f9d",
-              "mem-c6d9f3f646"
+              "mem-446bb73e26",
+              "mem-69f5d9d64c",
+              "mem-960a573d69",
+              "mem-acf12bd887",
+              "mem-f2b10645fd"
             ],
             "retrieved": [
-              "mem-5d6e9222d0",
-              "mem-268107e5b6",
-              "mem-234c92ae73"
+              "mem-69f5d9d64c",
+              "mem-446bb73e26",
+              "mem-acf12bd887"
             ],
             "tp": 3,
             "precision": 1.0,
@@ -1596,88 +1596,79 @@
   "summary": {
     "metrics": {
       "protocol": {
-        "ipc_send_count": 0,
-        "ipc_bytes_sent": 0,
-        "shm_alloc_count": 0,
-        "latency_seconds": 0.513414,
-        "shm_peak_bytes": 0,
-        "llm_call_count": 0,
-        "retrieval_count": 3,
-        "message_count": 44,
-        "ipc_round_trip_avg_us": 0.0,
-        "memory_hit_rate": 0.8,
-        "llm_cached_tokens": 0,
-        "llm_total_tokens": 0,
-        "memory_hit_count": 8,
-        "memory_search_count": 10,
-        "tasks_completed": 10,
-        "llm_prompt_tokens": 0,
-        "execution_count": 10,
         "state_bytes": 25600,
-        "state_transfer_count": 40,
-        "text_chars": 0,
-        "mode": "protocol",
-        "shm_attach_count": 0,
         "llm_avg_latency_ms": 0.0,
-        "llm_parse_failures": 0,
+        "ipc_round_trip_avg_us": 0.0,
+        "llm_call_count": 0,
+        "mode": "protocol",
+        "execution_count": 10,
         "protocol_chars": 16950,
-        "ipc_round_trip_us_sum": 0,
-        "estimated_tokens": 9417,
+        "ipc_send_count": 0,
+        "memory_hit_rate": 0.8,
+        "shm_peak_bytes": 0,
         "llm_completion_tokens": 0,
-        "ipc_recv_count": 0
+        "memory_search_count": 10,
+        "estimated_tokens": 9417,
+        "ipc_round_trip_us_sum": 0,
+        "state_transfer_count": 40,
+        "ipc_bytes_sent": 0,
+        "shm_attach_count": 0,
+        "ipc_recv_count": 0,
+        "text_chars": 0,
+        "llm_total_tokens": 0,
+        "llm_parse_failures": 0,
+        "retrieval_count": 3,
+        "latency_seconds": 0.420917,
+        "memory_hit_count": 8,
+        "llm_cached_tokens": 0,
+        "llm_prompt_tokens": 0,
+        "message_count": 44,
+        "shm_alloc_count": 0,
+        "tasks_completed": 10
       },
       "protocol_ipc": {
-        "ipc_send_count": 44,
-        "ipc_bytes_sent": 25141.333333,
-        "shm_alloc_count": 30,
-        "latency_seconds": 0.613135,
-        "shm_peak_bytes": 1536,
-        "llm_call_count": 0,
-        "retrieval_count": 3,
-        "message_count": 44,
-        "ipc_round_trip_avg_us": 8152.686667,
-        "memory_hit_rate": 0.8,
-        "llm_cached_tokens": 0,
-        "llm_total_tokens": 0,
-        "memory_hit_count": 8,
-        "memory_search_count": 10,
-        "tasks_completed": 10,
-        "llm_prompt_tokens": 0,
-        "execution_count": 10,
         "state_bytes": 25600,
-        "state_transfer_count": 40,
-        "text_chars": 0,
-        "mode": "protocol_ipc",
-        "shm_attach_count": 0,
         "llm_avg_latency_ms": 0.0,
-        "llm_parse_failures": 0,
+        "ipc_round_trip_avg_us": 6984.31,
+        "llm_call_count": 0,
+        "mode": "protocol_ipc",
+        "execution_count": 10,
         "protocol_chars": 17034,
-        "ipc_round_trip_us_sum": 358718.333333,
-        "estimated_tokens": 9463,
+        "ipc_send_count": 44,
+        "memory_hit_rate": 0.8,
+        "shm_peak_bytes": 1536,
         "llm_completion_tokens": 0,
-        "ipc_recv_count": 44
+        "memory_search_count": 10,
+        "estimated_tokens": 9463,
+        "ipc_round_trip_us_sum": 307309.666667,
+        "state_transfer_count": 40,
+        "ipc_bytes_sent": 25173.333333,
+        "shm_attach_count": 0,
+        "ipc_recv_count": 44,
+        "text_chars": 0,
+        "llm_total_tokens": 0,
+        "llm_parse_failures": 0,
+        "retrieval_count": 3,
+        "latency_seconds": 0.518056,
+        "memory_hit_count": 8,
+        "llm_cached_tokens": 0,
+        "llm_prompt_tokens": 0,
+        "message_count": 44,
+        "shm_alloc_count": 30,
+        "tasks_completed": 10
       }
     },
     "improvements": {
-      "protocol": {
-        "vs_baseline": "text",
-        "token_saving": 0.0,
-        "char_saving": 0.0,
-        "latency_improvement": 0.0,
-        "retrieval_reduction": 0.0,
-        "message_reduction": 0.0,
-        "memory_hit_rate_delta": 0.8
-      },
       "protocol_ipc": {
-        "vs_baseline": "text",
-        "token_saving": 0.0,
-        "char_saving": 0.0,
-        "latency_improvement": 0.0,
+        "vs_baseline": "protocol",
+        "token_saving": -0.004884782839545521,
+        "char_saving": -0.004955752212389308,
+        "latency_improvement": -0.23077946483511003,
         "retrieval_reduction": 0.0,
         "message_reduction": 0.0,
-        "memory_hit_rate_delta": 0.8
+        "memory_hit_rate_delta": 0.0
       }
     },
-    "baseline": "text"
+    "baseline": "protocol"
   }
 }

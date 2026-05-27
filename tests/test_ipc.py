@@ -2,10 +2,21 @@ from __future__ import annotations
 
 import multiprocessing as mp
 import os
+import platform
 import tempfile
 import time
 import unittest
 from pathlib import Path
+
+
+# protocol_ipc relies on AF_UNIX, fork(), and POSIX shared memory via /dev/shm.
+# Windows lacks all three; macOS is missing a complete multiprocessing/AF_UNIX
+# story on some Python builds. Skip the whole suite outside Linux so reviewers
+# running the test suite on non-target platforms do not see false failures.
+_REQUIRES_LINUX = unittest.skipUnless(
+    platform.system() == "Linux",
+    f"IPC tests require Linux (AF_UNIX + fork + /dev/shm); current platform: {platform.system()}",
+)
 
 from mas_litebus.ipc.shm_store import SharedStateStore
 from mas_litebus.ipc.socket_bus import (
@@ -45,6 +56,7 @@ def _reader_proc(shm_name: str, dim: int, queue: "mp.Queue") -> None:
     queue.put(store.attach(shm_name, dim))
 
 
+@_REQUIRES_LINUX
 class SocketBusTests(unittest.TestCase):
     def test_encode_frame_includes_length_header(self) -> None:
         frame = encode_frame({"hello": "world"})
@@ -78,6 +90,7 @@ class SocketBusTests(unittest.TestCase):
         self.assertEqual(proc.exitcode, 0)
 
 
+@_REQUIRES_LINUX
 class SharedStateStoreTests(unittest.TestCase):
     def test_create_and_attach_cross_process(self) -> None:
         emb = HashEmbedding(dim=64)
@@ -118,6 +131,7 @@ class SharedStateStoreTests(unittest.TestCase):
             store.close_all()
 
 
+@_REQUIRES_LINUX
 class WorkerProcessTests(unittest.TestCase):
     def test_planner_worker_handles_ping_and_plan(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -163,6 +177,7 @@ class WorkerProcessTests(unittest.TestCase):
         self.assertEqual(proc.exitcode, 0)
 
 
+@_REQUIRES_LINUX
 class IPCRuntimeTests(unittest.TestCase):
     def test_ten_tasks_with_real_processes(self) -> None:
         tasks = load_tasks(ROOT / "tasks" / "continuous_tasks.json", rounds=10)

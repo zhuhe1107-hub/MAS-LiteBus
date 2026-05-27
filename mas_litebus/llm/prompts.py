@@ -23,8 +23,10 @@ def _json_compact(data: Any) -> str:
 PLANNER_SYSTEM = (
     "你是多智能体系统中的 Planner. 收到一个任务时, 你需要把任务拆解成有序步骤. "
     "步骤的 action 取值必须来自集合 {retrieve, reuse_memory, execute, summarize}, "
-    "通常顺序是 retrieve → execute → summarize; 当历史可复用记忆非空时, 在 retrieve 后插入一步 reuse_memory. "
-    "**只输出一个 JSON 对象**, 字段为 {\"steps\": list[str], \"reasoning\": str}, 不要任何额外文字或代码块标记."
+    "通常顺序是 retrieve → execute → summarize; 当历史可复用记忆非空时, 在 retrieve 后插入一步 reuse_memory.\n\n"
+    "**严格输出格式**: 一行 JSON 对象, 不要 markdown 代码块, 不要前置或后置任何说明文字. 例如:\n"
+    "{\"steps\":[\"retrieve\",\"execute\",\"summarize\"],\"reasoning\":\"简短理由\"}\n"
+    "字段说明: steps 是字符串列表 (action 取值从上述集合), reasoning 是一句话理由."
 )
 
 
@@ -61,8 +63,10 @@ def planner_user_prompt(ctx: Any, memory_refs: list[str], memory_summaries: list
 
 RETRIEVER_SYSTEM = (
     "你是多智能体系统中的 Retriever. 给定一个任务和一个候选证据列表 (corpus 标题 + 标签), "
-    "你需要选出最相关的 1-3 条证据, 并简要给出选中理由. "
-    "**只输出 JSON 对象**, 字段为 {\"selected_titles\": list[str], \"reasoning\": str}, 不要 markdown 代码块."
+    "你需要选出最相关的 1-3 条证据, 并简要给出选中理由.\n\n"
+    "**严格输出格式**: 一行 JSON 对象, 不要 markdown 代码块, 不要前后任何说明文字. 例如:\n"
+    "{\"selected_titles\":[\"openEuler Python service deployment\",\"systemd service checklist\"],\"reasoning\":\"简短理由\"}\n"
+    "selected_titles 里的标题必须严格匹配候选证据列表中提供的标题字符串, 不要造新标题."
 )
 
 
@@ -111,7 +115,7 @@ EXECUTOR_SYSTEM = (
     "---CODE---\n"
     "<your raw Python source code, no fences, no escaping>\n\n"
     "JSON 头部只包含 artifact_kind 和 reasoning 两个字段; 真正的 Python 代码写在 ---CODE--- 之后, "
-    "不需要塞进 JSON 字符串里, 也不需要转义引号."
+    "不需要塞进 JSON 字符串里, 也不需要转义引号. 末尾 print(json.dumps({...})) 把产物字典打印出来供沙箱捕获."
 )
 
 
@@ -145,8 +149,10 @@ def executor_user_prompt(
 
 SUMMARIZER_SYSTEM = (
     "你是多智能体系统中的 Summarizer. 综合任务、证据、执行产物和可复用历史记忆, "
-    "输出最终总结和一句可复用策略 (供以后类似任务复用). "
-    "**只输出 JSON 对象**, 字段为 {\"summary\": str, \"strategy\": str, \"tags\": list[str]}, 不要 markdown 代码块."
+    "输出最终总结和一句可复用策略 (供以后类似任务复用).\n\n"
+    "**严格输出格式**: 一行 JSON 对象, 不要 markdown 代码块, 不要前后任何说明文字. 例如:\n"
+    "{\"summary\":\"任务最终结论的一段中文总结\",\"strategy\":\"未来类似任务可直接复用的一句话策略\",\"tags\":[\"tag1\",\"tag2\"]}\n"
+    "summary 是面向用户的最终交付文字, strategy 是可在共享记忆库中检索复用的关键经验."
 )
 
 

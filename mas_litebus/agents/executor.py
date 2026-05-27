@@ -8,7 +8,7 @@ from statistics import mean
 from mas_litebus.agents.base import AgentContext, BaseAgent
 from mas_litebus.eval.metrics import Metrics
 from mas_litebus.llm.base import LLMBackend
-from mas_litebus.llm.parse import extract_json_then_code
+from mas_litebus.llm.parse import extract_json, extract_json_then_code
 from mas_litebus.llm.prompts import EXECUTOR_SYSTEM, executor_user_prompt
 from mas_litebus.runtime.protocol import Capability
 from mas_litebus.sandbox import run_python
@@ -105,6 +105,11 @@ class ExecutorAgent(BaseAgent):
     ) -> dict[str, object]:
         assert self.llm is not None
         user = executor_user_prompt(ctx, evidence_titles, retr_payload, llm_mode)
+        # Executor cannot use json_mode because its output mixes a JSON
+        # header with a raw Python code block; format=json on Ollama would
+        # force the model to embed code as an escaped JSON string, which
+        # llama3:8b handles unreliably. Use the `---CODE---` delimiter
+        # format with the tolerant extractor instead.
         resp = self.llm.chat(EXECUTOR_SYSTEM, user, temperature=0.0, max_tokens=900)
         if metrics is not None:
             metrics.record_llm(resp)
