@@ -12,6 +12,7 @@ class Task:
     topic: str
     request: str
     tags: list[str]
+    gold_prior_task_ids: list[str]
 
     @classmethod
     def from_dict(cls, data: dict[str, object]) -> "Task":
@@ -21,6 +22,7 @@ class Task:
             topic=str(data["topic"]),
             request=str(data["request"]),
             tags=[str(item) for item in data["tags"]],
+            gold_prior_task_ids=[str(item) for item in (data.get("gold_prior_task_ids") or [])],
         )
 
 

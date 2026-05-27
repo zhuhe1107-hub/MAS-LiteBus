@@ -136,19 +136,76 @@ MultiAgentRuntime
 
 协议模式会在任务开始时生成任务 embedding，并执行共享记忆检索。命中记忆后，Planner 和 Retriever 会通过 `memory_refs` 复用历史经验。当命中不少于 2 条记忆时，系统会跳过本地语料重复检索，体现跨任务复用带来的计算节省。
 
-## 7. 双模式对比
+## 7. 四模式对比
 
-纯文本模式：
+系统支持四种协作模式, 共用同一套 Agent 实现和同一套 10 轮任务, 通过运行时层差异制造可对比条件:
 
-- Agent 间传递完整自然语言上下文。
-- 不使用协议 `state_refs`。
-- 不在任务开始阶段做共享记忆复用。
+| 模式 | 通信媒介 | 状态传递 | 记忆复用 | 进程拓扑 |
+|---|---|---|---|---|
+| `text` | NL, **累积全部上下文** | 无 | 无 | 单进程函数调用 |
+| `text_v2` | NL, 每步只传上一步产出 | 无 | 无 | 单进程函数调用 |
+| `protocol` | 紧凑 JSON `to_json(separators=(",", ":"))` | `state_id` 引用 in-proc dict | 启用 | 单进程函数调用 |
+| `protocol_ipc` | JSON over AF_UNIX socket (4B 长度头) | `shm_name` 引用 POSIX 共享内存 | 启用 | 1 coordinator + 4 worker 独立子进程 |
 
-结构化协议模式：
+报告把 `text_v2` 作为基线 (而不是 `text` 累积基线), 以便答辩时能解释"协议本身的结构化收益"而非"刻意做差的文本基线带来的虚高"。
 
-- Agent 间传递紧凑 JSON 协议。
-- 使用 `state_refs` 传递 embedding。
-- 使用 `memory_refs` 复用历史记忆。
+## 8. 跨进程协议 + 共享内存状态 (protocol_ipc)
 
-两种模式使用相同 Agent、相同任务集和相同执行逻辑。
+`protocol_ipc` 模式把协议总线落到真实的多进程系统机制上:
+
+### 8.1 进程拓扑
+
+```text
+                 ┌────────────────────────────────────┐
+                 │ Coordinator Process (runtime)      │
+                 │ - 任务编排, Metrics, 共享记忆写入 │
+                 └──┬─────┬─────┬─────┬──────────────┘
+                    │     │     │     │   AF_UNIX SOCK_STREAM
+              ┌─────▼─┐ ┌─▼──┐ ┌▼───┐ ┌▼────────┐
+              │planner│ │retr│ │exec│ │summarizer│
+              └───────┘ └────┘ └────┘ └─────────┘
+                              │     │
+                              └──┬──┘
+                                 │  POSIX shm (/dev/shm)
+                          ┌──────▼──────┐
+                          │ state pool  │
+                          │ float32 ×128│
+                          └─────────────┘
+```
+
+- Worker 启动方式: `multiprocessing.get_context("fork").Process(target=agent_worker_main, ...)`. Coordinator 通过 ready 文件等待 worker 完成 `bind+listen`, 再 connect.
+- 每个 worker 独占一个 socket 路径 `/tmp/mas_litebus_ipc_<rand>/<agent>.sock`, 与 coordinator 1:1 长连接.
+- Coordinator 中心化调度, 没有 agent-to-agent P2P, 简化 metrics 收集与故障定位.
+
+### 8.2 协议帧格式
+
+```text
+[ 4 字节 big-endian uint32 长度 N ][ N 字节 UTF-8 JSON ]
+```
+
+JSON 内容字段与 in-process 协议模式一致 (`action / params / result / capability_required / state_refs / memory_refs / ...`), 由 `mas_litebus/ipc/socket_bus.py` 的 `encode_frame` / `recv_framed` 实现.
+
+### 8.3 非文本状态传递
+
+embedding 向量 (128 维 float32, 512 字节) 不经过 socket, 而是:
+
+1. 生产方 (coordinator 或 retriever/summarizer worker) 在 `multiprocessing.shared_memory` 创建一个命名块 `mas_state_<uuid16>`, 写入 `array.array('f', vec).tobytes()`.
+2. 协议消息只携带短字符串 `shm_name` (~20 字节) 作为引用.
+3. 消费方按名 `SharedMemory(name=...)` attach, 直接读 float32 字节, 不需要 JSON 反序列化.
+4. Coordinator 维护 `task_id → [shm_names]`, 任务结束时统一 `unlink`.
+5. Worker 创建的 shm 用 `resource_tracker.unregister` 标记"由 coordinator 接管", 避免 worker 退出时误删尚未消费的块.
+
+这就是赛题要求的"非文本中间状态在 Agent 间直接交换": socket 上只跑 ~20 字节的引用, 实际 512 字节向量本体留在 `/dev/shm`, 评审现场可用 `ls /dev/shm` 验证.
+
+### 8.4 共享记忆并发
+
+`SharedMemoryStore.__init__` 启用 SQLite WAL 模式. coordinator (memory.search) 与 summarizer worker (memory.write) 在不同进程对同一 .sqlite3 并发读写; WAL 保证读不阻塞写, 写串行化.
+
+### 8.5 评测口径
+
+`protocol_ipc` 模式与 `protocol` 模式的 `message_count` / `state_transfer_count` / `state_bytes` / `protocol_chars` 全部对齐, 证明协议层结构化收益没有因 IPC 重构而改变. 多出的指标:
+
+- `ipc_send_count`, `ipc_recv_count`, `ipc_bytes_sent` — 包含 4 字节长度头的实际 socket 流量.
+- `ipc_round_trip_us_sum`, `ipc_round_trip_avg_us` — coordinator 视角的请求-响应往返延迟.
+- `shm_alloc_count`, `shm_peak_bytes` — POSIX 共享内存的分配次数和峰值占用.
 

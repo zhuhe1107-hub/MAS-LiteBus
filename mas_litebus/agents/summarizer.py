@@ -35,6 +35,7 @@ class SummarizerAgent(BaseAgent):
         evidence: list[dict[str, object]],
         execution: dict[str, object],
         memory_hits: list[dict[str, object]],
+        write_memory: bool = True,
     ) -> dict[str, object]:
         artifact = execution["artifact"]
         evidence_titles = [str(item["title"]) for item in evidence]
@@ -51,18 +52,21 @@ class SummarizerAgent(BaseAgent):
         strategy = self._strategy_from_artifact(artifact)
         full_memory_summary = f"{summary} 可复用策略：{strategy}"
         state = self.states.create(full_memory_summary, producer=self.name, task_id=ctx.task_id)
-        memory = self.memory.write(
-            source_agent=self.name,
-            task_topic=ctx.topic,
-            summary=full_memory_summary,
-            tags=ctx.tags + [str(artifact.get("kind"))],
-            evidence=evidence_titles + [str(execution["stdout"])],
-            vector=state.vector,
-        )
+        memory_id = ""
+        if write_memory:
+            memory = self.memory.write(
+                source_agent=self.name,
+                task_topic=ctx.topic,
+                summary=full_memory_summary,
+                tags=ctx.tags + [str(artifact.get("kind"))],
+                evidence=evidence_titles + [str(execution["stdout"])],
+                vector=state.vector,
+            )
+            memory_id = memory.memory_id
         return {
             "summary": summary,
             "strategy": strategy,
-            "memory_id": memory.memory_id,
+            "memory_id": memory_id,
             "state": state,
         }
 

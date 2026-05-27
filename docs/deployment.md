@@ -23,8 +23,10 @@ pip install -r requirements.txt
 
 ## 3. 运行基准实验
 
+跑全部四种模式 (text / text_v2 / protocol / protocol_ipc):
+
 ```bash
-python scripts/run_benchmark.py --mode both --rounds 10
+python scripts/run_benchmark.py --mode all --rounds 10
 ```
 
 输出文件：
@@ -33,15 +35,28 @@ python scripts/run_benchmark.py --mode both --rounds 10
 outputs/benchmark_summary.json
 outputs/benchmark_report.md
 outputs/memory_text.sqlite3
+outputs/memory_text_v2.sqlite3
 outputs/memory_protocol.sqlite3
+outputs/memory_protocol_ipc.sqlite3
 ```
 
 ## 4. 单独运行某个模式
 
 ```bash
 python scripts/run_benchmark.py --mode text --rounds 10
+python scripts/run_benchmark.py --mode text_v2 --rounds 10
 python scripts/run_benchmark.py --mode protocol --rounds 10
+python scripts/run_benchmark.py --mode protocol_ipc --rounds 10
 ```
+
+## 4.1 protocol_ipc 模式的系统要求
+
+`protocol_ipc` 在 4 个独立子进程上跑, 需要:
+
+- POSIX 共享内存挂载点 `/dev/shm`. openEuler 24.03-LTS-SP3 默认开启, 大小通常为 tmpfs 总内存的 50%, 远远满足 10 轮任务的 ~1.5 KB 峰值占用.
+- Unix Domain Socket 支持 (`AF_UNIX`). 临时 socket 路径建在 `/tmp/mas_litebus_ipc_*/`, 程序结束时自动清理.
+- 共享内存名前缀 `mas_state_`. 如果上次异常退出残留, 可执行 `rm -f /dev/shm/mas_state_*` 清理 (正常退出会自动 unlink, 不会残留).
+- Python 3.9+ 的 `multiprocessing.shared_memory` (3.8+ 已具备). 在 openEuler 默认 Python 上无额外依赖.
 
 ## 5. 运行测试
 

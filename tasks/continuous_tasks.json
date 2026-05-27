@@ -1,76 +1,85 @@
 {
-  "description": "Two related continuous task groups for MAS-LiteBus evaluation.",
+  "description": "Two related continuous task groups for MAS-LiteBus evaluation. gold_prior_task_ids encodes which earlier tasks a system SHOULD reuse memory from, used by eval/accuracy.py to compute P@K / R@K / F1 for memory retrieval.",
   "tasks": [
     {
       "task_id": "A1",
       "group": "openEuler-deployment",
       "topic": "openEuler 24.03 Python Web 服务部署调研",
       "request": "调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。",
-      "tags": ["openEuler", "Python", "deployment", "venv"]
+      "tags": ["openEuler", "Python", "deployment", "venv"],
+      "gold_prior_task_ids": []
     },
     {
       "task_id": "A2",
       "group": "openEuler-deployment",
       "topic": "生成 Python Web 服务部署脚本",
       "request": "基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。",
-      "tags": ["openEuler", "Python", "deployment", "script"]
+      "tags": ["openEuler", "Python", "deployment", "script"],
+      "gold_prior_task_ids": ["A1"]
     },
     {
       "task_id": "A3",
       "group": "openEuler-deployment",
       "topic": "检查部署依赖和环境问题",
       "request": "检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。",
-      "tags": ["Python", "dependency", "venv", "testing"]
+      "tags": ["Python", "dependency", "venv", "testing"],
+      "gold_prior_task_ids": ["A1", "A2"]
     },
     {
       "task_id": "A4",
       "group": "openEuler-deployment",
       "topic": "生成 systemd 服务配置",
       "request": "为 Python Web 服务生成 systemd 单元配置，并给出 daemon-reload、enable、start 和 status 测试命令。",
-      "tags": ["openEuler", "systemd", "deployment", "testing"]
+      "tags": ["openEuler", "systemd", "deployment", "testing"],
+      "gold_prior_task_ids": ["A1", "A2", "A3"]
     },
     {
       "task_id": "A5",
       "group": "openEuler-deployment",
       "topic": "生成完整部署文档",
       "request": "复用前序部署、依赖检查和 systemd 经验，生成完整部署文档结构和风险清单。",
-      "tags": ["openEuler", "Python", "systemd", "report"]
+      "tags": ["openEuler", "Python", "systemd", "report"],
+      "gold_prior_task_ids": ["A1", "A2", "A3", "A4"]
     },
     {
       "task_id": "B1",
       "group": "data-analysis",
       "topic": "CSV 数据字段和质量分析",
       "request": "分析 CSV 数据字段、缺失值、重复行、数值范围和数据质量风险。",
-      "tags": ["CSV", "data", "analysis", "quality"]
+      "tags": ["CSV", "data", "analysis", "quality"],
+      "gold_prior_task_ids": []
     },
     {
       "task_id": "B2",
       "group": "data-analysis",
       "topic": "生成 CSV 数据清洗代码",
       "request": "基于字段质量分析生成 Python 数据清洗代码，包括空值、重复行和异常值处理。",
-      "tags": ["CSV", "Python", "cleaning", "data"]
+      "tags": ["CSV", "Python", "cleaning", "data"],
+      "gold_prior_task_ids": ["B1"]
     },
     {
       "task_id": "B3",
       "group": "data-analysis",
       "topic": "执行统计分析并输出摘要",
       "request": "执行统计分析，输出行数、平均值、缺失单元格、重复行和业务摘要。",
-      "tags": ["CSV", "analysis", "Python", "summary"]
+      "tags": ["CSV", "analysis", "Python", "summary"],
+      "gold_prior_task_ids": ["B1", "B2"]
     },
     {
       "task_id": "B4",
       "group": "data-analysis",
       "topic": "生成图表和报告结构",
       "request": "复用前序数据分析经验，生成图表规划、报告结构和证据链组织方式。",
-      "tags": ["CSV", "report", "template", "summary"]
+      "tags": ["CSV", "report", "template", "summary"],
+      "gold_prior_task_ids": ["B1", "B2", "B3", "A5"]
     },
     {
       "task_id": "B5",
       "group": "data-analysis",
       "topic": "生成自动化数据分析模板",
       "request": "复用部署任务和数据分析任务中的执行策略、错误处理和报告格式，生成自动化分析模板。",
-      "tags": ["CSV", "Python", "template", "report"]
+      "tags": ["CSV", "Python", "template", "report"],
+      "gold_prior_task_ids": ["B1", "B2", "B3", "B4", "A5"]
     }
   ]
 }
-

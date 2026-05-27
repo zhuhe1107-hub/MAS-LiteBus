@@ -3,28 +3,61 @@
     "text": {
       "mode": "text",
       "metrics": {
-        "mode": "text",
-        "message_count": 40,
+        "state_bytes": 0,
+        "tasks_completed": 10,
         "text_chars": 51145,
         "protocol_chars": 0,
-        "estimated_tokens": 28414,
-        "state_transfer_count": 0,
-        "state_bytes": 0,
-        "latency_seconds": 0.106888,
-        "memory_search_count": 0,
-        "memory_hit_count": 0,
-        "memory_hit_rate": 0.0,
+        "shm_peak_bytes": 0,
         "retrieval_count": 10,
+        "estimated_tokens": 28414,
+        "memory_hit_count": 0,
         "execution_count": 10,
-        "tasks_completed": 10
+        "memory_search_count": 0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0,
+        "mode": "text",
+        "ipc_bytes_sent": 0,
+        "state_transfer_count": 0,
+        "ipc_send_count": 0,
+        "ipc_recv_count": 0,
+        "ipc_round_trip_us_sum": 0,
+        "latency_seconds": 0.327754,
+        "shm_attach_count": 0,
+        "message_count": 40,
+        "memory_hit_rate": 0.0
       },
+      "metrics_std": {
+        "state_bytes": 0.0,
+        "tasks_completed": 0.0,
+        "text_chars": 0.0,
+        "protocol_chars": 0.0,
+        "shm_peak_bytes": 0.0,
+        "retrieval_count": 0.0,
+        "estimated_tokens": 0.0,
+        "memory_hit_count": 0.0,
+        "execution_count": 0.0,
+        "memory_search_count": 0.0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0.0,
+        "mode": 0,
+        "ipc_bytes_sent": 0.0,
+        "state_transfer_count": 0.0,
+        "ipc_send_count": 0.0,
+        "ipc_recv_count": 0.0,
+        "ipc_round_trip_us_sum": 0.0,
+        "latency_seconds": 0.028014,
+        "shm_attach_count": 0.0,
+        "message_count": 0.0,
+        "memory_hit_rate": 0.0
+      },
+      "runs": 5,
       "tasks": [
         {
           "task_id": "A1",
           "topic": "openEuler 24.03 Python Web 服务部署调研",
           "mode": "text",
           "memory_refs": [],
-          "new_memory_id": "mem-ffd1a01720",
+          "new_memory_id": "mem-da2dfa2a1e",
           "state_refs": [],
           "summary": "openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -34,7 +67,7 @@
           "topic": "生成 Python Web 服务部署脚本",
           "mode": "text",
           "memory_refs": [],
-          "new_memory_id": "mem-33d51307ea",
+          "new_memory_id": "mem-bb9c1ef51e",
           "state_refs": [],
           "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -44,7 +77,7 @@
           "topic": "检查部署依赖和环境问题",
           "mode": "text",
           "memory_refs": [],
-          "new_memory_id": "mem-942db326d9",
+          "new_memory_id": "mem-1abff3693f",
           "state_refs": [],
           "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 Python dependency troubleshooting, openEuler Python service deployment, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -54,7 +87,7 @@
           "topic": "生成 systemd 服务配置",
           "mode": "text",
           "memory_refs": [],
-          "new_memory_id": "mem-7d40ec8fc1",
+          "new_memory_id": "mem-5d2b607e9c",
           "state_refs": [],
           "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 systemd_unit。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -64,7 +97,7 @@
           "topic": "生成完整部署文档",
           "mode": "text",
           "memory_refs": [],
-          "new_memory_id": "mem-acefbe127e",
+          "new_memory_id": "mem-7919f0300c",
           "state_refs": [],
           "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 systemd_unit。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -74,7 +107,7 @@
           "topic": "CSV 数据字段和质量分析",
           "mode": "text",
           "memory_refs": [],
-          "new_memory_id": "mem-462d86c4f5",
+          "new_memory_id": "mem-3938f61ab0",
           "state_refs": [],
           "summary": "CSV 数据字段和质量分析: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -84,7 +117,7 @@
           "topic": "生成 CSV 数据清洗代码",
           "mode": "text",
           "memory_refs": [],
-          "new_memory_id": "mem-a1a2047b7c",
+          "new_memory_id": "mem-fc1de035e1",
           "state_refs": [],
           "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 Data cleaning strategy, CSV quality analysis, openEuler Python service deployment。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -94,7 +127,7 @@
           "topic": "执行统计分析并输出摘要",
           "mode": "text",
           "memory_refs": [],
-          "new_memory_id": "mem-9b6936e30c",
+          "new_memory_id": "mem-5f43fed1a3",
           "state_refs": [],
           "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy, openEuler Python service deployment。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -104,7 +137,7 @@
           "topic": "生成图表和报告结构",
           "mode": "text",
           "memory_refs": [],
-          "new_memory_id": "mem-45e4a127eb",
+          "new_memory_id": "mem-3cd58eba58",
           "state_refs": [],
           "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 Report generation pattern, CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -114,7 +147,7 @@
           "topic": "生成自动化数据分析模板",
           "mode": "text",
           "memory_refs": [],
-          "new_memory_id": "mem-1c30bc7c4e",
+          "new_memory_id": "mem-31b62b810d",
           "state_refs": [],
           "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 Data cleaning strategy, Report generation pattern, openEuler Python service deployment。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -124,166 +157,1017 @@
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-7c8319c030",
+            "msg_id": "txt-c4ca24ead4",
             "from": "planner",
             "to": "retriever",
             "task_id": "A1",
             "content": "任务 A1 的主题是“openEuler 24.03 Python Web 服务部署调研”。我将先理解用户请求：调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。",
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-432c096d1c",
+            "msg_id": "txt-a11388d46f",
             "from": "retriever",
             "to": "executor",
             "task_id": "A1",
             "content": "任务 A1 的主题是“openEuler 24.03 Python Web 服务部署调研”。我将先理解用户请求：调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A1“openEuler 24.03 Python Web 服务部署调研”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。、标签集合 ['openEuler', 'Python', 'deployment', 'venv']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。",
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-8380cc3a00",
+            "msg_id": "txt-648a916258",
             "from": "executor",
             "to": "summarizer",
             "task_id": "A1",
             "content": "任务 A1 的主题是“openEuler 24.03 Python Web 服务部署调研”。我将先理解用户请求：调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A1“openEuler 24.03 Python Web 服务部署调研”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。、标签集合 ['openEuler', 'Python', 'deployment', 'venv']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。\n执行智能体处理任务 A1。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['openEuler Python service deployment', 'Python dependency troubleshooting', 'systemd service checklist']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。",
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-abee7e4315",
+            "msg_id": "txt-ab04670a82",
             "from": "summarizer",
             "to": "runtime",
             "task_id": "A1",
-            "content": "任务 A1 的主题是“openEuler 24.03 Python Web 服务部署调研”。我将先理解用户请求：调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A1“openEuler 24.03 Python Web 服务部署调研”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。、标签集合 ['openEuler', 'Python', 'deployment', 'venv']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。\n执行智能体处理任务 A1。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['openEuler Python service deployment', 'Python dependency troubleshooting', 'systemd service checklist']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。\n总结智能体完成任务 A1 的最终汇总。结论：openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-ffd1a01720。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
-            "timestamp": "2026-05-27T10:20:27"
+            "content": "任务 A1 的主题是“openEuler 24.03 Python Web 服务部署调研”。我将先理解用户请求：调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A1“openEuler 24.03 Python Web 服务部署调研”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。、标签集合 ['openEuler', 'Python', 'deployment', 'venv']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。\n执行智能体处理任务 A1。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['openEuler Python service deployment', 'Python dependency troubleshooting', 'systemd service checklist']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。\n总结智能体完成任务 A1 的最终汇总。结论：openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-da2dfa2a1e。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-c2f21f64da",
+            "msg_id": "txt-5aa3861d34",
             "from": "planner",
             "to": "retriever",
             "task_id": "A2",
             "content": "任务 A2 的主题是“生成 Python Web 服务部署脚本”。我将先理解用户请求：基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。",
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-31a3867d37",
+            "msg_id": "txt-ecf9d213cb",
             "from": "retriever",
             "to": "executor",
             "task_id": "A2",
             "content": "任务 A2 的主题是“生成 Python Web 服务部署脚本”。我将先理解用户请求：基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A2“生成 Python Web 服务部署脚本”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。\n证据 3：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。、标签集合 ['openEuler', 'Python', 'deployment', 'script']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。",
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-39c1aaa4e9",
+            "msg_id": "txt-6b994ccefa",
             "from": "executor",
             "to": "summarizer",
             "task_id": "A2",
             "content": "任务 A2 的主题是“生成 Python Web 服务部署脚本”。我将先理解用户请求：基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A2“生成 Python Web 服务部署脚本”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。\n证据 3：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。、标签集合 ['openEuler', 'Python', 'deployment', 'script']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。\n执行智能体处理任务 A2。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['openEuler Python service deployment', 'systemd service checklist', 'Python dependency troubleshooting']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。",
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-cbc9a3db2b",
+            "msg_id": "txt-c7b380561d",
             "from": "summarizer",
             "to": "runtime",
             "task_id": "A2",
-            "content": "任务 A2 的主题是“生成 Python Web 服务部署脚本”。我将先理解用户请求：基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A2“生成 Python Web 服务部署脚本”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。\n证据 3：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。、标签集合 ['openEuler', 'Python', 'deployment', 'script']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。\n执行智能体处理任务 A2。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['openEuler Python service deployment', 'systemd service checklist', 'Python dependency troubleshooting']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。\n总结智能体完成任务 A2 的最终汇总。结论：生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-33d51307ea。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
-            "timestamp": "2026-05-27T10:20:27"
+            "content": "任务 A2 的主题是“生成 Python Web 服务部署脚本”。我将先理解用户请求：基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A2“生成 Python Web 服务部署脚本”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。\n证据 3：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。、标签集合 ['openEuler', 'Python', 'deployment', 'script']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。\n执行智能体处理任务 A2。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['openEuler Python service deployment', 'systemd service checklist', 'Python dependency troubleshooting']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。\n总结智能体完成任务 A2 的最终汇总。结论：生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-bb9c1ef51e。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-3de4062371",
+            "msg_id": "txt-a581ea7e46",
             "from": "planner",
             "to": "retriever",
             "task_id": "A3",
             "content": "任务 A3 的主题是“检查部署依赖和环境问题”。我将先理解用户请求：检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。",
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-5bbb32b186",
+            "msg_id": "txt-41e8c79507",
             "from": "retriever",
             "to": "executor",
             "task_id": "A3",
             "content": "任务 A3 的主题是“检查部署依赖和环境问题”。我将先理解用户请求：检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A3“检查部署依赖和环境问题”，检索智能体完成了资料检索。证据 1：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 2：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。、标签集合 ['Python', 'dependency', 'venv', 'testing']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。",
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-4673498336",
+            "msg_id": "txt-0aa9c01220",
             "from": "executor",
             "to": "summarizer",
             "task_id": "A3",
             "content": "任务 A3 的主题是“检查部署依赖和环境问题”。我将先理解用户请求：检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A3“检查部署依赖和环境问题”，检索智能体完成了资料检索。证据 1：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 2：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。、标签集合 ['Python', 'dependency', 'venv', 'testing']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。\n执行智能体处理任务 A3。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['Python dependency troubleshooting', 'openEuler Python service deployment', 'systemd service checklist']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。",
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:51"
           }
         },
         {
           "mode": "text",
           "payload": {
-            "msg_id": "txt-76e903ff4b",
+            "msg_id": "txt-ca657e29f3",
             "from": "summarizer",
             "to": "runtime",
             "task_id": "A3",
-            "content": "任务 A3 的主题是“检查部署依赖和环境问题”。我将先理解用户请求：检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A3“检查部署依赖和环境问题”，检索智能体完成了资料检索。证据 1：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 2：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。、标签集合 ['Python', 'dependency', 'venv', 'testing']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。\n执行智能体处理任务 A3。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['Python dependency troubleshooting', 'openEuler Python service deployment', 'systemd service checklist']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。\n总结智能体完成任务 A3 的最终汇总。结论：检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 Python dependency troubleshooting, openEuler Python service deployment, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-942db326d9。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
-            "timestamp": "2026-05-27T10:20:27"
+            "content": "任务 A3 的主题是“检查部署依赖和环境问题”。我将先理解用户请求：检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。\n针对任务 A3“检查部署依赖和环境问题”，检索智能体完成了资料检索。证据 1：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 2：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。、标签集合 ['Python', 'dependency', 'venv', 'testing']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。\n执行智能体处理任务 A3。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['Python dependency troubleshooting', 'openEuler Python service deployment', 'systemd service checklist']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。\n总结智能体完成任务 A3 的最终汇总。结论：检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 Python dependency troubleshooting, openEuler Python service deployment, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-1abff3693f。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
+            "timestamp": "2026-05-27T04:05:51"
           }
         }
       ]
     },
-    "protocol": {
-      "mode": "protocol",
+    "text_v2": {
+      "mode": "text_v2",
       "metrics": {
-        "mode": "protocol",
-        "message_count": 44,
-        "text_chars": 0,
-        "protocol_chars": 16950,
-        "estimated_tokens": 9417,
-        "state_transfer_count": 40,
-        "state_bytes": 25600,
-        "latency_seconds": 0.091604,
-        "memory_search_count": 10,
-        "memory_hit_count": 8,
-        "memory_hit_rate": 0.8,
-        "retrieval_count": 3,
+        "state_bytes": 0,
+        "tasks_completed": 10,
+        "text_chars": 21440,
+        "protocol_chars": 0,
+        "shm_peak_bytes": 0,
+        "retrieval_count": 10,
+        "estimated_tokens": 11911,
+        "memory_hit_count": 0,
         "execution_count": 10,
-        "tasks_completed": 10
+        "memory_search_count": 0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0,
+        "mode": "text_v2",
+        "ipc_bytes_sent": 0,
+        "state_transfer_count": 0,
+        "ipc_send_count": 0,
+        "ipc_recv_count": 0,
+        "ipc_round_trip_us_sum": 0,
+        "latency_seconds": 0.326475,
+        "shm_attach_count": 0,
+        "message_count": 40,
+        "memory_hit_rate": 0.0
       },
+      "metrics_std": {
+        "state_bytes": 0.0,
+        "tasks_completed": 0.0,
+        "text_chars": 0.0,
+        "protocol_chars": 0.0,
+        "shm_peak_bytes": 0.0,
+        "retrieval_count": 0.0,
+        "estimated_tokens": 0.0,
+        "memory_hit_count": 0.0,
+        "execution_count": 0.0,
+        "memory_search_count": 0.0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0.0,
+        "mode": 0,
+        "ipc_bytes_sent": 0.0,
+        "state_transfer_count": 0.0,
+        "ipc_send_count": 0.0,
+        "ipc_recv_count": 0.0,
+        "ipc_round_trip_us_sum": 0.0,
+        "latency_seconds": 0.021575,
+        "shm_attach_count": 0.0,
+        "message_count": 0.0,
+        "memory_hit_rate": 0.0
+      },
+      "runs": 5,
       "tasks": [
         {
           "task_id": "A1",
           "topic": "openEuler 24.03 Python Web 服务部署调研",
-          "mode": "protocol",
+          "mode": "text_v2",
           "memory_refs": [],
-          "new_memory_id": "mem-8f2c58a9d8",
+          "new_memory_id": "mem-6693a3d0e4",
+          "state_refs": [],
+          "summary": "openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A2",
+          "topic": "生成 Python Web 服务部署脚本",
+          "mode": "text_v2",
+          "memory_refs": [],
+          "new_memory_id": "mem-9fd0b67e81",
+          "state_refs": [],
+          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A3",
+          "topic": "检查部署依赖和环境问题",
+          "mode": "text_v2",
+          "memory_refs": [],
+          "new_memory_id": "mem-d7b439446d",
+          "state_refs": [],
+          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 Python dependency troubleshooting, openEuler Python service deployment, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A4",
+          "topic": "生成 systemd 服务配置",
+          "mode": "text_v2",
+          "memory_refs": [],
+          "new_memory_id": "mem-7575133a91",
+          "state_refs": [],
+          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 systemd_unit。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A5",
+          "topic": "生成完整部署文档",
+          "mode": "text_v2",
+          "memory_refs": [],
+          "new_memory_id": "mem-0e4731571f",
+          "state_refs": [],
+          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 systemd_unit。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "B1",
+          "topic": "CSV 数据字段和质量分析",
+          "mode": "text_v2",
+          "memory_refs": [],
+          "new_memory_id": "mem-3d197e2b89",
+          "state_refs": [],
+          "summary": "CSV 数据字段和质量分析: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "B2",
+          "topic": "生成 CSV 数据清洗代码",
+          "mode": "text_v2",
+          "memory_refs": [],
+          "new_memory_id": "mem-bd6ade1ad6",
+          "state_refs": [],
+          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 Data cleaning strategy, CSV quality analysis, openEuler Python service deployment。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "B3",
+          "topic": "执行统计分析并输出摘要",
+          "mode": "text_v2",
+          "memory_refs": [],
+          "new_memory_id": "mem-bc89ec33b9",
+          "state_refs": [],
+          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy, openEuler Python service deployment。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "B4",
+          "topic": "生成图表和报告结构",
+          "mode": "text_v2",
+          "memory_refs": [],
+          "new_memory_id": "mem-68700001b0",
+          "state_refs": [],
+          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 Report generation pattern, CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "B5",
+          "topic": "生成自动化数据分析模板",
+          "mode": "text_v2",
+          "memory_refs": [],
+          "new_memory_id": "mem-6e75a27d76",
+          "state_refs": [],
+          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 Data cleaning strategy, Report generation pattern, openEuler Python service deployment。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        }
+      ],
+      "transcript_sample": [
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-4ee5a2e5ed",
+            "from": "planner",
+            "to": "retriever",
+            "task_id": "A1",
+            "content": "任务 A1 的主题是“openEuler 24.03 Python Web 服务部署调研”。我将先理解用户请求：调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-fa7a5b8c63",
+            "from": "retriever",
+            "to": "executor",
+            "task_id": "A1",
+            "content": "针对任务 A1“openEuler 24.03 Python Web 服务部署调研”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。、标签集合 ['openEuler', 'Python', 'deployment', 'venv']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-739ef86afb",
+            "from": "executor",
+            "to": "summarizer",
+            "task_id": "A1",
+            "content": "执行智能体处理任务 A1。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['openEuler Python service deployment', 'Python dependency troubleshooting', 'systemd service checklist']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-c0ed6c797c",
+            "from": "summarizer",
+            "to": "runtime",
+            "task_id": "A1",
+            "content": "总结智能体完成任务 A1 的最终汇总。结论：openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-6693a3d0e4。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-3d9ea34235",
+            "from": "planner",
+            "to": "retriever",
+            "task_id": "A2",
+            "content": "任务 A2 的主题是“生成 Python Web 服务部署脚本”。我将先理解用户请求：基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-64f26fc2c8",
+            "from": "retriever",
+            "to": "executor",
+            "task_id": "A2",
+            "content": "针对任务 A2“生成 Python Web 服务部署脚本”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。\n证据 3：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。、标签集合 ['openEuler', 'Python', 'deployment', 'script']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-6be3650aef",
+            "from": "executor",
+            "to": "summarizer",
+            "task_id": "A2",
+            "content": "执行智能体处理任务 A2。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['openEuler Python service deployment', 'systemd service checklist', 'Python dependency troubleshooting']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-442c42bb07",
+            "from": "summarizer",
+            "to": "runtime",
+            "task_id": "A2",
+            "content": "总结智能体完成任务 A2 的最终汇总。结论：生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-9fd0b67e81。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-c2974c03be",
+            "from": "planner",
+            "to": "retriever",
+            "task_id": "A3",
+            "content": "任务 A3 的主题是“检查部署依赖和环境问题”。我将先理解用户请求：检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-d377d932c6",
+            "from": "retriever",
+            "to": "executor",
+            "task_id": "A3",
+            "content": "针对任务 A3“检查部署依赖和环境问题”，检索智能体完成了资料检索。证据 1：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 2：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。、标签集合 ['Python', 'dependency', 'venv', 'testing']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-189339791d",
+            "from": "executor",
+            "to": "summarizer",
+            "task_id": "A3",
+            "content": "执行智能体处理任务 A3。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['Python dependency troubleshooting', 'openEuler Python service deployment', 'systemd service checklist']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-ae317482ec",
+            "from": "summarizer",
+            "to": "runtime",
+            "task_id": "A3",
+            "content": "总结智能体完成任务 A3 的最终汇总。结论：检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 Python dependency troubleshooting, openEuler Python service deployment, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-d7b439446d。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
+            "timestamp": "2026-05-27T04:05:53"
+          }
+        }
+      ]
+    },
+    "text_with_memory": {
+      "mode": "text_with_memory",
+      "metrics": {
+        "state_bytes": 0,
+        "tasks_completed": 10,
+        "text_chars": 22320,
+        "protocol_chars": 0,
+        "shm_peak_bytes": 0,
+        "retrieval_count": 3,
+        "estimated_tokens": 12400,
+        "memory_hit_count": 8,
+        "execution_count": 10,
+        "memory_search_count": 10,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0,
+        "mode": "text_with_memory",
+        "ipc_bytes_sent": 0,
+        "state_transfer_count": 0,
+        "ipc_send_count": 0,
+        "ipc_recv_count": 0,
+        "ipc_round_trip_us_sum": 0,
+        "latency_seconds": 0.48656,
+        "shm_attach_count": 0,
+        "message_count": 40,
+        "memory_hit_rate": 0.8
+      },
+      "metrics_std": {
+        "state_bytes": 0.0,
+        "tasks_completed": 0.0,
+        "text_chars": 0.0,
+        "protocol_chars": 0.0,
+        "shm_peak_bytes": 0.0,
+        "retrieval_count": 0.0,
+        "estimated_tokens": 0.0,
+        "memory_hit_count": 0.0,
+        "execution_count": 0.0,
+        "memory_search_count": 0.0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0.0,
+        "mode": 0,
+        "ipc_bytes_sent": 0.0,
+        "state_transfer_count": 0.0,
+        "ipc_send_count": 0.0,
+        "ipc_recv_count": 0.0,
+        "ipc_round_trip_us_sum": 0.0,
+        "latency_seconds": 0.01834,
+        "shm_attach_count": 0.0,
+        "message_count": 0.0,
+        "memory_hit_rate": 0.0
+      },
+      "runs": 5,
+      "tasks": [
+        {
+          "task_id": "A1",
+          "topic": "openEuler 24.03 Python Web 服务部署调研",
+          "mode": "text_with_memory",
+          "memory_refs": [],
+          "new_memory_id": "mem-07e53e80d7",
+          "state_refs": [],
+          "summary": "openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A2",
+          "topic": "生成 Python Web 服务部署脚本",
+          "mode": "text_with_memory",
+          "memory_refs": [
+            "mem-07e53e80d7"
+          ],
+          "new_memory_id": "mem-9f2a94c5fe",
+          "state_refs": [],
+          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-07e53e80d7。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A3",
+          "topic": "检查部署依赖和环境问题",
+          "mode": "text_with_memory",
+          "memory_refs": [
+            "mem-07e53e80d7",
+            "mem-9f2a94c5fe"
+          ],
+          "new_memory_id": "mem-dbd8694d66",
+          "state_refs": [],
+          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-07e53e80d7, mem-9f2a94c5fe。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "A4",
+          "topic": "生成 systemd 服务配置",
+          "mode": "text_with_memory",
+          "memory_refs": [
+            "mem-9f2a94c5fe",
+            "mem-07e53e80d7",
+            "mem-dbd8694d66"
+          ],
+          "new_memory_id": "mem-4962eaec6c",
+          "state_refs": [],
+          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-9f2a94c5fe, mem-07e53e80d7, mem-dbd8694d66。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "A5",
+          "topic": "生成完整部署文档",
+          "mode": "text_with_memory",
+          "memory_refs": [
+            "mem-9f2a94c5fe",
+            "mem-07e53e80d7",
+            "mem-4962eaec6c"
+          ],
+          "new_memory_id": "mem-0afa38dbc9",
+          "state_refs": [],
+          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-9f2a94c5fe, mem-07e53e80d7, mem-4962eaec6c。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B1",
+          "topic": "CSV 数据字段和质量分析",
+          "mode": "text_with_memory",
+          "memory_refs": [],
+          "new_memory_id": "mem-98b08ab892",
+          "state_refs": [],
+          "summary": "CSV 数据字段和质量分析: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "B2",
+          "topic": "生成 CSV 数据清洗代码",
+          "mode": "text_with_memory",
+          "memory_refs": [
+            "mem-98b08ab892",
+            "mem-9f2a94c5fe",
+            "mem-0afa38dbc9"
+          ],
+          "new_memory_id": "mem-cd458ae544",
+          "state_refs": [],
+          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-98b08ab892, mem-9f2a94c5fe, mem-0afa38dbc9。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B3",
+          "topic": "执行统计分析并输出摘要",
+          "mode": "text_with_memory",
+          "memory_refs": [
+            "mem-98b08ab892",
+            "mem-cd458ae544",
+            "mem-07e53e80d7"
+          ],
+          "new_memory_id": "mem-e1baebf378",
+          "state_refs": [],
+          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-98b08ab892, mem-cd458ae544, mem-07e53e80d7。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B4",
+          "topic": "生成图表和报告结构",
+          "mode": "text_with_memory",
+          "memory_refs": [
+            "mem-e1baebf378",
+            "mem-cd458ae544",
+            "mem-98b08ab892"
+          ],
+          "new_memory_id": "mem-9e117b81f2",
+          "state_refs": [],
+          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-e1baebf378, mem-cd458ae544, mem-98b08ab892。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B5",
+          "topic": "生成自动化数据分析模板",
+          "mode": "text_with_memory",
+          "memory_refs": [
+            "mem-9e117b81f2",
+            "mem-cd458ae544",
+            "mem-e1baebf378"
+          ],
+          "new_memory_id": "mem-dd24be40c8",
+          "state_refs": [],
+          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-9e117b81f2, mem-cd458ae544, mem-e1baebf378。",
+          "skipped_local_retrieval": true
+        }
+      ],
+      "transcript_sample": [
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-6e1181d9ca",
+            "from": "planner",
+            "to": "retriever",
+            "task_id": "A1",
+            "content": "任务 A1 的主题是“openEuler 24.03 Python Web 服务部署调研”。我将先理解用户请求：调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-53616477e6",
+            "from": "retriever",
+            "to": "executor",
+            "task_id": "A1",
+            "content": "针对任务 A1“openEuler 24.03 Python Web 服务部署调研”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。\n证据 3：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。本轮没有可复用历史记忆，因此需要完整检索和重新整理证据。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。、标签集合 ['openEuler', 'Python', 'deployment', 'venv']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-518c37113f",
+            "from": "executor",
+            "to": "summarizer",
+            "task_id": "A1",
+            "content": "执行智能体处理任务 A1。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': [], 'evidence_titles': ['openEuler Python service deployment', 'Python dependency troubleshooting', 'systemd service checklist']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-05412d83d8",
+            "from": "summarizer",
+            "to": "runtime",
+            "task_id": "A1",
+            "content": "总结智能体完成任务 A1 的最终汇总。结论：openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-07e53e80d7。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-128272888e",
+            "from": "planner",
+            "to": "retriever",
+            "task_id": "A2",
+            "content": "任务 A2 的主题是“生成 Python Web 服务部署脚本”。我将先理解用户请求：基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-9776950e03",
+            "from": "retriever",
+            "to": "executor",
+            "task_id": "A2",
+            "content": "针对任务 A2“生成 Python Web 服务部署脚本”，检索智能体完成了资料检索。证据 1：openEuler Python service deployment。内容：openEuler 24.03 上部署 Python Web 服务时，推荐使用 dnf 安装 python3、python3-pip 和 sqlite，创建 venv 固定依赖版本，并通过 systemd 管理长期运行服务。。标签：openEuler, Python, deployment, systemd。\n证据 2：systemd service checklist。内容：systemd 单元通常包含 WorkingDirectory、ExecStart、Restart、Environment 和 User 字段，部署后使用 systemctl daemon-reload、enable、start、status 验证。。标签：systemd, deployment, testing。\n证据 3：Python dependency troubleshooting。内容：Python 部署排障应检查解释器版本、虚拟环境路径、pip 源、依赖锁定文件、端口占用和日志输出，优先保证可重复安装。。标签：Python, venv, dependency。历史记忆 1：mem-07e53e80d7，命中原因 keyword，摘要：openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。 可复用策略：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。、标签集合 ['openEuler', 'Python', 'deployment', 'script']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-a1631c8e2e",
+            "from": "executor",
+            "to": "summarizer",
+            "task_id": "A2",
+            "content": "执行智能体处理任务 A2。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': ['mem-07e53e80d7'], 'evidence_titles': ['openEuler Python service deployment', 'systemd service checklist', 'Python dependency troubleshooting']}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-caa2cce35b",
+            "from": "summarizer",
+            "to": "runtime",
+            "task_id": "A2",
+            "content": "总结智能体完成任务 A2 的最终汇总。结论：生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-07e53e80d7。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-9f2a94c5fe。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-b1603e3d43",
+            "from": "planner",
+            "to": "retriever",
+            "task_id": "A3",
+            "content": "任务 A3 的主题是“检查部署依赖和环境问题”。我将先理解用户请求：检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。。接下来我会安排检索智能体收集相关背景资料、历史经验和证据；然后安排执行智能体根据任务类型运行必要的分析或代码；最后安排总结智能体整合检索证据、执行结果、风险提示和可复用经验，形成可交付结果。为了保持上下文完整，我会在文本模式中完整描述这些步骤、输入、预期输出和依赖关系。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-660401165d",
+            "from": "retriever",
+            "to": "executor",
+            "task_id": "A3",
+            "content": "针对任务 A3“检查部署依赖和环境问题”，检索智能体完成了资料检索。历史记忆 1：mem-07e53e80d7，命中原因 keyword，摘要：openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。 可复用策略：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。\n历史记忆 2：mem-9f2a94c5fe，命中原因 keyword，摘要：生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-07e53e80d7。 可复用策略：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。为了确保下游智能体不丢失语义，文本模式还会重复转述任务目标、约束条件、检索关键词 检查 Python 部署脚本中的解释器、pip、虚拟环境、依赖版本和端口占用风险。、标签集合 ['Python', 'dependency', 'venv', 'testing']、证据选择理由、后续执行建议和风险提示。这些自然语言说明在多轮协作中会反复出现，是文本基线通信开销较高的主要来源。这些内容将在文本模式中作为完整上下文传递给执行和总结智能体。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-6fa1c57050",
+            "from": "executor",
+            "to": "summarizer",
+            "task_id": "A3",
+            "content": "执行智能体处理任务 A3。执行状态：ok。执行输出：generated deployment_script with 5 fields。生成的结构化产物为：{'kind': 'deployment_script', 'commands': ['sudo dnf install -y python3 python3-pip sqlite', 'python3 -m venv .venv', 'source .venv/bin/activate', 'pip install -r requirements.txt', 'python app.py'], 'checks': ['python3 --version', 'pip --version', 'ss -lntp'], 'used_memory_refs': ['mem-07e53e80d7', 'mem-9f2a94c5fe'], 'evidence_titles': []}。在文本模式中，这些命令、检查项、执行输出、证据标题和记忆引用都会完整展开，以便下游总结智能体无需读取外部状态即可理解整个执行过程。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        },
+        {
+          "mode": "text",
+          "payload": {
+            "msg_id": "txt-86d9613c11",
+            "from": "summarizer",
+            "to": "runtime",
+            "task_id": "A3",
+            "content": "总结智能体完成任务 A3 的最终汇总。结论：检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-07e53e80d7, mem-9f2a94c5fe。。沉淀的可复用策略是：部署类任务优先固定 Python 环境、依赖安装命令和运行检查项。。新写入的共享记忆编号为 mem-dbd8694d66。这条记忆包含来源智能体、创建时间、任务主题、摘要描述、标签、证据链和向量状态，后续关联任务可通过关键词、标签或语义相似度直接复用。",
+            "timestamp": "2026-05-27T04:05:55"
+          }
+        }
+      ],
+      "memory_accuracy": {
+        "summary": {
+          "scored_tasks": 8,
+          "total_tasks_with_gold": 8,
+          "macro_precision_at_3": 0.875,
+          "macro_recall_at_3": 0.8875,
+          "macro_f1_at_3": 0.8455,
+          "mrr": 1.0
+        },
+        "per_task": [
+          {
+            "task_id": "A1",
+            "gold_prior_task_ids": [],
+            "gold_memory_ids": [],
+            "retrieved": [],
+            "skipped": true,
+            "reason": "cold start (no gold prior)"
+          },
+          {
+            "task_id": "A2",
+            "gold_prior_task_ids": [
+              "A1"
+            ],
+            "gold_memory_ids": [
+              "mem-07e53e80d7"
+            ],
+            "retrieved": [
+              "mem-07e53e80d7"
+            ],
+            "tp": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A3",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2"
+            ],
+            "gold_memory_ids": [
+              "mem-07e53e80d7",
+              "mem-9f2a94c5fe"
+            ],
+            "retrieved": [
+              "mem-07e53e80d7",
+              "mem-9f2a94c5fe"
+            ],
+            "tp": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A4",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2",
+              "A3"
+            ],
+            "gold_memory_ids": [
+              "mem-07e53e80d7",
+              "mem-9f2a94c5fe",
+              "mem-dbd8694d66"
+            ],
+            "retrieved": [
+              "mem-9f2a94c5fe",
+              "mem-07e53e80d7",
+              "mem-dbd8694d66"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A5",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2",
+              "A3",
+              "A4"
+            ],
+            "gold_memory_ids": [
+              "mem-07e53e80d7",
+              "mem-4962eaec6c",
+              "mem-9f2a94c5fe",
+              "mem-dbd8694d66"
+            ],
+            "retrieved": [
+              "mem-9f2a94c5fe",
+              "mem-07e53e80d7",
+              "mem-4962eaec6c"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B1",
+            "gold_prior_task_ids": [],
+            "gold_memory_ids": [],
+            "retrieved": [],
+            "skipped": true,
+            "reason": "cold start (no gold prior)"
+          },
+          {
+            "task_id": "B2",
+            "gold_prior_task_ids": [
+              "B1"
+            ],
+            "gold_memory_ids": [
+              "mem-98b08ab892"
+            ],
+            "retrieved": [
+              "mem-98b08ab892",
+              "mem-9f2a94c5fe",
+              "mem-0afa38dbc9"
+            ],
+            "tp": 1,
+            "precision": 0.3333,
+            "recall": 1.0,
+            "f1": 0.5,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B3",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2"
+            ],
+            "gold_memory_ids": [
+              "mem-98b08ab892",
+              "mem-cd458ae544"
+            ],
+            "retrieved": [
+              "mem-98b08ab892",
+              "mem-cd458ae544",
+              "mem-07e53e80d7"
+            ],
+            "tp": 2,
+            "precision": 0.6667,
+            "recall": 1.0,
+            "f1": 0.8,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B4",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2",
+              "B3",
+              "A5"
+            ],
+            "gold_memory_ids": [
+              "mem-0afa38dbc9",
+              "mem-98b08ab892",
+              "mem-cd458ae544",
+              "mem-e1baebf378"
+            ],
+            "retrieved": [
+              "mem-e1baebf378",
+              "mem-cd458ae544",
+              "mem-98b08ab892"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B5",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2",
+              "B3",
+              "B4",
+              "A5"
+            ],
+            "gold_memory_ids": [
+              "mem-0afa38dbc9",
+              "mem-98b08ab892",
+              "mem-9e117b81f2",
+              "mem-cd458ae544",
+              "mem-e1baebf378"
+            ],
+            "retrieved": [
+              "mem-9e117b81f2",
+              "mem-cd458ae544",
+              "mem-e1baebf378"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.75,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          }
+        ]
+      }
+    },
+    "protocol_no_memory": {
+      "mode": "protocol_no_memory",
+      "metrics": {
+        "state_bytes": 25600,
+        "tasks_completed": 10,
+        "text_chars": 0,
+        "protocol_chars": 15379,
+        "shm_peak_bytes": 0,
+        "retrieval_count": 10,
+        "estimated_tokens": 8544,
+        "memory_hit_count": 0,
+        "execution_count": 10,
+        "memory_search_count": 0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0,
+        "mode": "protocol_no_memory",
+        "ipc_bytes_sent": 0,
+        "state_transfer_count": 40,
+        "ipc_send_count": 0,
+        "ipc_recv_count": 0,
+        "ipc_round_trip_us_sum": 0,
+        "latency_seconds": 0.185834,
+        "shm_attach_count": 0,
+        "message_count": 44,
+        "memory_hit_rate": 0.0
+      },
+      "metrics_std": {
+        "state_bytes": 0.0,
+        "tasks_completed": 0.0,
+        "text_chars": 0.0,
+        "protocol_chars": 0.0,
+        "shm_peak_bytes": 0.0,
+        "retrieval_count": 0.0,
+        "estimated_tokens": 0.0,
+        "memory_hit_count": 0.0,
+        "execution_count": 0.0,
+        "memory_search_count": 0.0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0.0,
+        "mode": 0,
+        "ipc_bytes_sent": 0.0,
+        "state_transfer_count": 0.0,
+        "ipc_send_count": 0.0,
+        "ipc_recv_count": 0.0,
+        "ipc_round_trip_us_sum": 0.0,
+        "latency_seconds": 0.024883,
+        "shm_attach_count": 0.0,
+        "message_count": 0.0,
+        "memory_hit_rate": 0.0
+      },
+      "runs": 5,
+      "tasks": [
+        {
+          "task_id": "A1",
+          "topic": "openEuler 24.03 Python Web 服务部署调研",
+          "mode": "protocol_no_memory",
+          "memory_refs": [],
+          "new_memory_id": "",
           "state_refs": [
-            "state-e3ae9f0152",
-            "state-d354a3f143",
-            "state-d535cd45c2"
+            "state-f9983f1b47",
+            "state-519b3b5c8c",
+            "state-b63c65ff21"
           ],
           "summary": "openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -291,82 +1175,69 @@
         {
           "task_id": "A2",
           "topic": "生成 Python Web 服务部署脚本",
-          "mode": "protocol",
-          "memory_refs": [
-            "mem-8f2c58a9d8"
-          ],
-          "new_memory_id": "mem-63060f8103",
+          "mode": "protocol_no_memory",
+          "memory_refs": [],
+          "new_memory_id": "",
           "state_refs": [
-            "state-c08d08e428",
-            "state-1acf0c59a4",
-            "state-21144d9d05"
+            "state-693286dfbd",
+            "state-896eb3a461",
+            "state-1a330a13b0"
           ],
-          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-8f2c58a9d8。",
+          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
         },
         {
           "task_id": "A3",
           "topic": "检查部署依赖和环境问题",
-          "mode": "protocol",
-          "memory_refs": [
-            "mem-8f2c58a9d8",
-            "mem-63060f8103"
-          ],
-          "new_memory_id": "mem-3b0160fb27",
+          "mode": "protocol_no_memory",
+          "memory_refs": [],
+          "new_memory_id": "",
           "state_refs": [
-            "state-bb9a5293fe",
-            "state-cbdf7bd233",
-            "state-552bdb4976"
+            "state-3800ee3c61",
+            "state-6bdc372fce",
+            "state-b7c44c41d4"
           ],
-          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-8f2c58a9d8, mem-63060f8103。",
-          "skipped_local_retrieval": true
+          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 Python dependency troubleshooting, openEuler Python service deployment, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
         },
         {
           "task_id": "A4",
           "topic": "生成 systemd 服务配置",
-          "mode": "protocol",
-          "memory_refs": [
-            "mem-63060f8103",
-            "mem-8f2c58a9d8",
-            "mem-3b0160fb27"
-          ],
-          "new_memory_id": "mem-89d8afb9be",
+          "mode": "protocol_no_memory",
+          "memory_refs": [],
+          "new_memory_id": "",
           "state_refs": [
-            "state-516c5b1258",
-            "state-e1fca42441",
-            "state-ba2d102ff4"
+            "state-79cf096a3b",
+            "state-33780616b8",
+            "state-c8f234035a"
           ],
-          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-63060f8103, mem-8f2c58a9d8, mem-3b0160fb27。",
-          "skipped_local_retrieval": true
+          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 systemd_unit。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
         },
         {
           "task_id": "A5",
           "topic": "生成完整部署文档",
-          "mode": "protocol",
-          "memory_refs": [
-            "mem-63060f8103",
-            "mem-8f2c58a9d8",
-            "mem-89d8afb9be"
-          ],
-          "new_memory_id": "mem-5f8e5873f0",
+          "mode": "protocol_no_memory",
+          "memory_refs": [],
+          "new_memory_id": "",
           "state_refs": [
-            "state-10e6d07fdd",
-            "state-4b55384590",
-            "state-5a014585ea"
+            "state-6ce7fd665a",
+            "state-4e21709071",
+            "state-d469107903"
           ],
-          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-63060f8103, mem-8f2c58a9d8, mem-89d8afb9be。",
-          "skipped_local_retrieval": true
+          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 systemd_unit。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
         },
         {
           "task_id": "B1",
           "topic": "CSV 数据字段和质量分析",
-          "mode": "protocol",
+          "mode": "protocol_no_memory",
           "memory_refs": [],
-          "new_memory_id": "mem-6279b0ae8c",
+          "new_memory_id": "",
           "state_refs": [
-            "state-56e521887d",
-            "state-4ef4cd5e7d",
-            "state-742acc86ad"
+            "state-37e8bb3e96",
+            "state-5964838725",
+            "state-1d625c1e42"
           ],
           "summary": "CSV 数据字段和质量分析: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
           "skipped_local_retrieval": false
@@ -374,81 +1245,65 @@
         {
           "task_id": "B2",
           "topic": "生成 CSV 数据清洗代码",
-          "mode": "protocol",
-          "memory_refs": [
-            "mem-6279b0ae8c",
-            "mem-63060f8103",
-            "mem-5f8e5873f0"
-          ],
-          "new_memory_id": "mem-f88bcbc300",
+          "mode": "protocol_no_memory",
+          "memory_refs": [],
+          "new_memory_id": "",
           "state_refs": [
-            "state-cdc9382654",
-            "state-f6adebae2a",
-            "state-1d61ad1a1c"
+            "state-ac4be30bbd",
+            "state-c4c0972af5",
+            "state-7b6e4f5cfc"
           ],
-          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-6279b0ae8c, mem-63060f8103, mem-5f8e5873f0。",
-          "skipped_local_retrieval": true
+          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 Data cleaning strategy, CSV quality analysis, openEuler Python service deployment。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
         },
         {
           "task_id": "B3",
           "topic": "执行统计分析并输出摘要",
-          "mode": "protocol",
-          "memory_refs": [
-            "mem-6279b0ae8c",
-            "mem-f88bcbc300",
-            "mem-8f2c58a9d8"
-          ],
-          "new_memory_id": "mem-ebbd74e5fd",
+          "mode": "protocol_no_memory",
+          "memory_refs": [],
+          "new_memory_id": "",
           "state_refs": [
-            "state-6ab72a4d63",
-            "state-669ad76840",
-            "state-813378fade"
+            "state-44afb29678",
+            "state-2add3179d9",
+            "state-76ddc757ef"
           ],
-          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-6279b0ae8c, mem-f88bcbc300, mem-8f2c58a9d8。",
-          "skipped_local_retrieval": true
+          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy, openEuler Python service deployment。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
         },
         {
           "task_id": "B4",
           "topic": "生成图表和报告结构",
-          "mode": "protocol",
-          "memory_refs": [
-            "mem-ebbd74e5fd",
-            "mem-f88bcbc300",
-            "mem-6279b0ae8c"
-          ],
-          "new_memory_id": "mem-3cc03718e6",
+          "mode": "protocol_no_memory",
+          "memory_refs": [],
+          "new_memory_id": "",
           "state_refs": [
-            "state-d89c496eb6",
-            "state-12130232eb",
-            "state-b72fb05100"
+            "state-ca46c4c6bf",
+            "state-d68232745b",
+            "state-66fa83f8ff"
           ],
-          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-ebbd74e5fd, mem-f88bcbc300, mem-6279b0ae8c。",
-          "skipped_local_retrieval": true
+          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 Report generation pattern, CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
         },
         {
           "task_id": "B5",
           "topic": "生成自动化数据分析模板",
-          "mode": "protocol",
-          "memory_refs": [
-            "mem-3cc03718e6",
-            "mem-f88bcbc300",
-            "mem-ebbd74e5fd"
-          ],
-          "new_memory_id": "mem-918e7717bd",
+          "mode": "protocol_no_memory",
+          "memory_refs": [],
+          "new_memory_id": "",
           "state_refs": [
-            "state-efa069b203",
-            "state-0cb6b5fd63",
-            "state-aa4b5cd8ec"
+            "state-a9b9f79df6",
+            "state-d259cde312",
+            "state-1201a1a066"
           ],
-          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-3cc03718e6, mem-f88bcbc300, mem-ebbd74e5fd。",
-          "skipped_local_retrieval": true
+          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 Data cleaning strategy, Report generation pattern, openEuler Python service deployment。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
         }
       ],
       "transcript_sample": [
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-92b6f018a1",
+            "msg_id": "msg-b85e0809ce",
             "task_id": "runtime",
             "from": "planner",
             "to": "runtime",
@@ -464,13 +1319,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:56"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-b95860e0c2",
+            "msg_id": "msg-abaf60e688",
             "task_id": "runtime",
             "from": "retriever",
             "to": "runtime",
@@ -486,13 +1341,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:56"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-5b0c976548",
+            "msg_id": "msg-d16bbc9087",
             "task_id": "runtime",
             "from": "executor",
             "to": "runtime",
@@ -508,13 +1363,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:56"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-8849fc1982",
+            "msg_id": "msg-c167c7e708",
             "task_id": "runtime",
             "from": "summarizer",
             "to": "runtime",
@@ -530,13 +1385,13 @@
             "capability_required": [],
             "state_refs": [],
             "memory_refs": [],
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:56"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-31f0594737",
+            "msg_id": "msg-c07882435f",
             "task_id": "A1",
             "from": "planner",
             "to": "runtime",
@@ -553,16 +1408,541 @@
               "task_decomposition"
             ],
             "state_refs": [
-              "state-e3ae9f0152"
+              "state-f9983f1b47"
             ],
             "memory_refs": [],
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:56"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-b2bd2abb04",
+            "msg_id": "msg-787dcae47d",
+            "task_id": "A1",
+            "from": "retriever",
+            "to": "executor",
+            "action": "retrieve.result",
+            "params": {
+              "query": "调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。",
+              "top_k": 3,
+              "skip_local": false
+            },
+            "capability_required": [
+              "keyword_search"
+            ],
+            "state_refs": [
+              "state-519b3b5c8c"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:56",
+            "result": {
+              "items": [
+                "openEuler Python service deployment",
+                "Python dependency troubleshooting",
+                "systemd service checklist"
+              ],
+              "memory_hits": []
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-70ee14fef3",
+            "task_id": "A1",
+            "from": "executor",
+            "to": "summarizer",
+            "action": "execute.result",
+            "params": {},
+            "capability_required": [
+              "python_exec",
+              "template_render"
+            ],
+            "state_refs": [
+              "state-519b3b5c8c"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:56",
+            "result": {
+              "status": "ok",
+              "artifact_kind": "deployment_script",
+              "stdout_chars": 41
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-0281a80941",
+            "task_id": "A1",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "summarize.result",
+            "params": {},
+            "capability_required": [
+              "summary_generation"
+            ],
+            "state_refs": [
+              "state-b63c65ff21"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:56",
+            "result": {
+              "memory_id": "",
+              "summary_chars": 205,
+              "strategy_code": "deployment_script"
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-2ed1ba5753",
+            "task_id": "A2",
+            "from": "planner",
+            "to": "runtime",
+            "action": "task.plan",
+            "params": {
+              "topic": "生成 Python Web 服务部署脚本",
+              "steps": [
+                "retrieve",
+                "execute",
+                "summarize"
+              ]
+            },
+            "capability_required": [
+              "task_decomposition"
+            ],
+            "state_refs": [
+              "state-693286dfbd"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:56"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-3c07c9fc67",
+            "task_id": "A2",
+            "from": "retriever",
+            "to": "executor",
+            "action": "retrieve.result",
+            "params": {
+              "query": "基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。",
+              "top_k": 3,
+              "skip_local": false
+            },
+            "capability_required": [
+              "keyword_search"
+            ],
+            "state_refs": [
+              "state-896eb3a461"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:56",
+            "result": {
+              "items": [
+                "openEuler Python service deployment",
+                "systemd service checklist",
+                "Python dependency troubleshooting"
+              ],
+              "memory_hits": []
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-7a8174380c",
+            "task_id": "A2",
+            "from": "executor",
+            "to": "summarizer",
+            "action": "execute.result",
+            "params": {},
+            "capability_required": [
+              "python_exec",
+              "template_render"
+            ],
+            "state_refs": [
+              "state-896eb3a461"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:56",
+            "result": {
+              "status": "ok",
+              "artifact_kind": "deployment_script",
+              "stdout_chars": 41
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-f8935cf940",
+            "task_id": "A2",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "summarize.result",
+            "params": {},
+            "capability_required": [
+              "summary_generation"
+            ],
+            "state_refs": [
+              "state-1a330a13b0"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:56",
+            "result": {
+              "memory_id": "",
+              "summary_chars": 192,
+              "strategy_code": "deployment_script"
+            }
+          }
+        }
+      ]
+    },
+    "protocol": {
+      "mode": "protocol",
+      "metrics": {
+        "state_bytes": 25600,
+        "tasks_completed": 10,
+        "text_chars": 0,
+        "protocol_chars": 16950,
+        "shm_peak_bytes": 0,
+        "retrieval_count": 3,
+        "estimated_tokens": 9417,
+        "memory_hit_count": 8,
+        "execution_count": 10,
+        "memory_search_count": 10,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0,
+        "mode": "protocol",
+        "ipc_bytes_sent": 0,
+        "state_transfer_count": 40,
+        "ipc_send_count": 0,
+        "ipc_recv_count": 0,
+        "ipc_round_trip_us_sum": 0,
+        "latency_seconds": 0.465191,
+        "shm_attach_count": 0,
+        "message_count": 44,
+        "memory_hit_rate": 0.8
+      },
+      "metrics_std": {
+        "state_bytes": 0.0,
+        "tasks_completed": 0.0,
+        "text_chars": 0.0,
+        "protocol_chars": 0.0,
+        "shm_peak_bytes": 0.0,
+        "retrieval_count": 0.0,
+        "estimated_tokens": 0.0,
+        "memory_hit_count": 0.0,
+        "execution_count": 0.0,
+        "memory_search_count": 0.0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0.0,
+        "mode": 0,
+        "ipc_bytes_sent": 0.0,
+        "state_transfer_count": 0.0,
+        "ipc_send_count": 0.0,
+        "ipc_recv_count": 0.0,
+        "ipc_round_trip_us_sum": 0.0,
+        "latency_seconds": 0.010793,
+        "shm_attach_count": 0.0,
+        "message_count": 0.0,
+        "memory_hit_rate": 0.0
+      },
+      "runs": 5,
+      "tasks": [
+        {
+          "task_id": "A1",
+          "topic": "openEuler 24.03 Python Web 服务部署调研",
+          "mode": "protocol",
+          "memory_refs": [],
+          "new_memory_id": "mem-dec5e0d082",
+          "state_refs": [
+            "state-20b85d5a00",
+            "state-902a089243",
+            "state-1eede5f014"
+          ],
+          "summary": "openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A2",
+          "topic": "生成 Python Web 服务部署脚本",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-dec5e0d082"
+          ],
+          "new_memory_id": "mem-ed5347a5f7",
+          "state_refs": [
+            "state-d667ac0cc6",
+            "state-62912bdc3c",
+            "state-e1fb1f7b0d"
+          ],
+          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-dec5e0d082。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A3",
+          "topic": "检查部署依赖和环境问题",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-dec5e0d082",
+            "mem-ed5347a5f7"
+          ],
+          "new_memory_id": "mem-b433291338",
+          "state_refs": [
+            "state-8ffb0aec1a",
+            "state-b1a01d5264",
+            "state-cc60432e09"
+          ],
+          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-dec5e0d082, mem-ed5347a5f7。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "A4",
+          "topic": "生成 systemd 服务配置",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-ed5347a5f7",
+            "mem-dec5e0d082",
+            "mem-b433291338"
+          ],
+          "new_memory_id": "mem-02bab5b347",
+          "state_refs": [
+            "state-76003b19a7",
+            "state-cef4db944d",
+            "state-c2162c8db3"
+          ],
+          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-ed5347a5f7, mem-dec5e0d082, mem-b433291338。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "A5",
+          "topic": "生成完整部署文档",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-ed5347a5f7",
+            "mem-dec5e0d082",
+            "mem-02bab5b347"
+          ],
+          "new_memory_id": "mem-682ed4087e",
+          "state_refs": [
+            "state-089a6758ab",
+            "state-d112cce1c3",
+            "state-caf32cc04b"
+          ],
+          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-ed5347a5f7, mem-dec5e0d082, mem-02bab5b347。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B1",
+          "topic": "CSV 数据字段和质量分析",
+          "mode": "protocol",
+          "memory_refs": [],
+          "new_memory_id": "mem-4b8a6a5e72",
+          "state_refs": [
+            "state-4956f2df98",
+            "state-39f2ccbb15",
+            "state-b221e7f65c"
+          ],
+          "summary": "CSV 数据字段和质量分析: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "B2",
+          "topic": "生成 CSV 数据清洗代码",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-4b8a6a5e72",
+            "mem-ed5347a5f7",
+            "mem-682ed4087e"
+          ],
+          "new_memory_id": "mem-eef3670c6e",
+          "state_refs": [
+            "state-2aa56e5aa8",
+            "state-c5c3716d47",
+            "state-a4a04687bf"
+          ],
+          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-4b8a6a5e72, mem-ed5347a5f7, mem-682ed4087e。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B3",
+          "topic": "执行统计分析并输出摘要",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-4b8a6a5e72",
+            "mem-eef3670c6e",
+            "mem-dec5e0d082"
+          ],
+          "new_memory_id": "mem-bc069cecab",
+          "state_refs": [
+            "state-cd7aadc711",
+            "state-19a9fd27bd",
+            "state-e18ef54e6d"
+          ],
+          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-4b8a6a5e72, mem-eef3670c6e, mem-dec5e0d082。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B4",
+          "topic": "生成图表和报告结构",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-bc069cecab",
+            "mem-eef3670c6e",
+            "mem-4b8a6a5e72"
+          ],
+          "new_memory_id": "mem-6c819695ef",
+          "state_refs": [
+            "state-f0217646bf",
+            "state-b73d3ee48d",
+            "state-1c8158def9"
+          ],
+          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-bc069cecab, mem-eef3670c6e, mem-4b8a6a5e72。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B5",
+          "topic": "生成自动化数据分析模板",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-6c819695ef",
+            "mem-eef3670c6e",
+            "mem-bc069cecab"
+          ],
+          "new_memory_id": "mem-8c799064fd",
+          "state_refs": [
+            "state-0eb89fc53e",
+            "state-7339b38464",
+            "state-8f71c37e34"
+          ],
+          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-6c819695ef, mem-eef3670c6e, mem-bc069cecab。",
+          "skipped_local_retrieval": true
+        }
+      ],
+      "transcript_sample": [
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-fd53feac21",
+            "task_id": "runtime",
+            "from": "planner",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "planner",
+              "capabilities": [
+                "task_decomposition",
+                "memory_reuse_decision"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:59"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-4cdf0a2f4c",
+            "task_id": "runtime",
+            "from": "retriever",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "retriever",
+              "capabilities": [
+                "keyword_search",
+                "semantic_memory_search"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:59"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-8fab842ce9",
+            "task_id": "runtime",
+            "from": "executor",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "executor",
+              "capabilities": [
+                "python_exec",
+                "template_render"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:59"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-b7afb2e9be",
+            "task_id": "runtime",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "summarizer",
+              "capabilities": [
+                "summary_generation",
+                "memory_write"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:59"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-d6f4b86420",
+            "task_id": "A1",
+            "from": "planner",
+            "to": "runtime",
+            "action": "task.plan",
+            "params": {
+              "topic": "openEuler 24.03 Python Web 服务部署调研",
+              "steps": [
+                "retrieve",
+                "execute",
+                "summarize"
+              ]
+            },
+            "capability_required": [
+              "task_decomposition"
+            ],
+            "state_refs": [
+              "state-20b85d5a00"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:05:59"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-2292f353a8",
             "task_id": "A1",
             "from": "retriever",
             "to": "executor",
@@ -577,10 +1957,10 @@
               "semantic_memory_search"
             ],
             "state_refs": [
-              "state-d354a3f143"
+              "state-902a089243"
             ],
             "memory_refs": [],
-            "timestamp": "2026-05-27T10:20:27",
+            "timestamp": "2026-05-27T04:05:59",
             "result": {
               "items": [
                 "openEuler Python service deployment",
@@ -594,7 +1974,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-5d3e95d3c1",
+            "msg_id": "msg-ab6f6cd7ee",
             "task_id": "A1",
             "from": "executor",
             "to": "summarizer",
@@ -605,10 +1985,10 @@
               "template_render"
             ],
             "state_refs": [
-              "state-d354a3f143"
+              "state-902a089243"
             ],
             "memory_refs": [],
-            "timestamp": "2026-05-27T10:20:27",
+            "timestamp": "2026-05-27T04:05:59",
             "result": {
               "status": "ok",
               "artifact_kind": "deployment_script",
@@ -619,7 +1999,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-fbd8d26674",
+            "msg_id": "msg-946a3c8429",
             "task_id": "A1",
             "from": "summarizer",
             "to": "runtime",
@@ -630,14 +2010,14 @@
               "memory_write"
             ],
             "state_refs": [
-              "state-d535cd45c2"
+              "state-1eede5f014"
             ],
             "memory_refs": [
-              "mem-8f2c58a9d8"
+              "mem-dec5e0d082"
             ],
-            "timestamp": "2026-05-27T10:20:27",
+            "timestamp": "2026-05-27T04:05:59",
             "result": {
-              "memory_id": "mem-8f2c58a9d8",
+              "memory_id": "mem-dec5e0d082",
               "summary_chars": 205,
               "strategy_code": "deployment_script"
             }
@@ -646,7 +2026,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-86622da1e0",
+            "msg_id": "msg-2a76b3a7e5",
             "task_id": "A2",
             "from": "planner",
             "to": "runtime",
@@ -664,18 +2044,18 @@
               "task_decomposition"
             ],
             "state_refs": [
-              "state-c08d08e428"
+              "state-d667ac0cc6"
             ],
             "memory_refs": [
-              "mem-8f2c58a9d8"
+              "mem-dec5e0d082"
             ],
-            "timestamp": "2026-05-27T10:20:27"
+            "timestamp": "2026-05-27T04:05:59"
           }
         },
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-4ea21a5996",
+            "msg_id": "msg-697dbe68a1",
             "task_id": "A2",
             "from": "retriever",
             "to": "executor",
@@ -690,12 +2070,12 @@
               "semantic_memory_search"
             ],
             "state_refs": [
-              "state-1acf0c59a4"
+              "state-62912bdc3c"
             ],
             "memory_refs": [
-              "mem-8f2c58a9d8"
+              "mem-dec5e0d082"
             ],
-            "timestamp": "2026-05-27T10:20:27",
+            "timestamp": "2026-05-27T04:05:59",
             "result": {
               "items": [
                 "openEuler Python service deployment",
@@ -703,7 +2083,7 @@
                 "Python dependency troubleshooting"
               ],
               "memory_hits": [
-                "mem-8f2c58a9d8"
+                "mem-dec5e0d082"
               ]
             }
           }
@@ -711,7 +2091,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-50ac2cf903",
+            "msg_id": "msg-cbb097d829",
             "task_id": "A2",
             "from": "executor",
             "to": "summarizer",
@@ -722,12 +2102,12 @@
               "template_render"
             ],
             "state_refs": [
-              "state-1acf0c59a4"
+              "state-62912bdc3c"
             ],
             "memory_refs": [
-              "mem-8f2c58a9d8"
+              "mem-dec5e0d082"
             ],
-            "timestamp": "2026-05-27T10:20:27",
+            "timestamp": "2026-05-27T04:05:59",
             "result": {
               "status": "ok",
               "artifact_kind": "deployment_script",
@@ -738,7 +2118,7 @@
         {
           "mode": "protocol",
           "payload": {
-            "msg_id": "msg-3afe7c697e",
+            "msg_id": "msg-ede9649057",
             "task_id": "A2",
             "from": "summarizer",
             "to": "runtime",
@@ -749,61 +2129,1238 @@
               "memory_write"
             ],
             "state_refs": [
-              "state-21144d9d05"
+              "state-e1fb1f7b0d"
             ],
             "memory_refs": [
-              "mem-63060f8103"
+              "mem-ed5347a5f7"
             ],
-            "timestamp": "2026-05-27T10:20:27",
+            "timestamp": "2026-05-27T04:05:59",
             "result": {
-              "memory_id": "mem-63060f8103",
+              "memory_id": "mem-ed5347a5f7",
               "summary_chars": 194,
               "strategy_code": "deployment_script"
             }
           }
         }
-      ]
+      ],
+      "memory_accuracy": {
+        "summary": {
+          "scored_tasks": 8,
+          "total_tasks_with_gold": 8,
+          "macro_precision_at_3": 0.875,
+          "macro_recall_at_3": 0.8875,
+          "macro_f1_at_3": 0.8455,
+          "mrr": 1.0
+        },
+        "per_task": [
+          {
+            "task_id": "A1",
+            "gold_prior_task_ids": [],
+            "gold_memory_ids": [],
+            "retrieved": [],
+            "skipped": true,
+            "reason": "cold start (no gold prior)"
+          },
+          {
+            "task_id": "A2",
+            "gold_prior_task_ids": [
+              "A1"
+            ],
+            "gold_memory_ids": [
+              "mem-dec5e0d082"
+            ],
+            "retrieved": [
+              "mem-dec5e0d082"
+            ],
+            "tp": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A3",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2"
+            ],
+            "gold_memory_ids": [
+              "mem-dec5e0d082",
+              "mem-ed5347a5f7"
+            ],
+            "retrieved": [
+              "mem-dec5e0d082",
+              "mem-ed5347a5f7"
+            ],
+            "tp": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A4",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2",
+              "A3"
+            ],
+            "gold_memory_ids": [
+              "mem-b433291338",
+              "mem-dec5e0d082",
+              "mem-ed5347a5f7"
+            ],
+            "retrieved": [
+              "mem-ed5347a5f7",
+              "mem-dec5e0d082",
+              "mem-b433291338"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A5",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2",
+              "A3",
+              "A4"
+            ],
+            "gold_memory_ids": [
+              "mem-02bab5b347",
+              "mem-b433291338",
+              "mem-dec5e0d082",
+              "mem-ed5347a5f7"
+            ],
+            "retrieved": [
+              "mem-ed5347a5f7",
+              "mem-dec5e0d082",
+              "mem-02bab5b347"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B1",
+            "gold_prior_task_ids": [],
+            "gold_memory_ids": [],
+            "retrieved": [],
+            "skipped": true,
+            "reason": "cold start (no gold prior)"
+          },
+          {
+            "task_id": "B2",
+            "gold_prior_task_ids": [
+              "B1"
+            ],
+            "gold_memory_ids": [
+              "mem-4b8a6a5e72"
+            ],
+            "retrieved": [
+              "mem-4b8a6a5e72",
+              "mem-ed5347a5f7",
+              "mem-682ed4087e"
+            ],
+            "tp": 1,
+            "precision": 0.3333,
+            "recall": 1.0,
+            "f1": 0.5,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B3",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2"
+            ],
+            "gold_memory_ids": [
+              "mem-4b8a6a5e72",
+              "mem-eef3670c6e"
+            ],
+            "retrieved": [
+              "mem-4b8a6a5e72",
+              "mem-eef3670c6e",
+              "mem-dec5e0d082"
+            ],
+            "tp": 2,
+            "precision": 0.6667,
+            "recall": 1.0,
+            "f1": 0.8,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B4",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2",
+              "B3",
+              "A5"
+            ],
+            "gold_memory_ids": [
+              "mem-4b8a6a5e72",
+              "mem-682ed4087e",
+              "mem-bc069cecab",
+              "mem-eef3670c6e"
+            ],
+            "retrieved": [
+              "mem-bc069cecab",
+              "mem-eef3670c6e",
+              "mem-4b8a6a5e72"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B5",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2",
+              "B3",
+              "B4",
+              "A5"
+            ],
+            "gold_memory_ids": [
+              "mem-4b8a6a5e72",
+              "mem-682ed4087e",
+              "mem-6c819695ef",
+              "mem-bc069cecab",
+              "mem-eef3670c6e"
+            ],
+            "retrieved": [
+              "mem-6c819695ef",
+              "mem-eef3670c6e",
+              "mem-bc069cecab"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.75,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          }
+        ]
+      }
+    },
+    "protocol_ipc": {
+      "mode": "protocol_ipc",
+      "metrics": {
+        "state_bytes": 25600,
+        "tasks_completed": 10,
+        "text_chars": 0,
+        "protocol_chars": 17034,
+        "shm_peak_bytes": 1536,
+        "retrieval_count": 3,
+        "estimated_tokens": 9463,
+        "memory_hit_count": 8,
+        "execution_count": 10,
+        "memory_search_count": 10,
+        "ipc_round_trip_avg_us": 7131.496,
+        "shm_alloc_count": 30,
+        "mode": "protocol_ipc",
+        "ipc_bytes_sent": 25154.8,
+        "state_transfer_count": 40,
+        "ipc_send_count": 44,
+        "ipc_recv_count": 44,
+        "ipc_round_trip_us_sum": 313785.8,
+        "latency_seconds": 0.532493,
+        "shm_attach_count": 0,
+        "message_count": 44,
+        "memory_hit_rate": 0.8
+      },
+      "metrics_std": {
+        "state_bytes": 0.0,
+        "tasks_completed": 0.0,
+        "text_chars": 0.0,
+        "protocol_chars": 0.0,
+        "shm_peak_bytes": 0.0,
+        "retrieval_count": 0.0,
+        "estimated_tokens": 0.0,
+        "memory_hit_count": 0.0,
+        "execution_count": 0.0,
+        "memory_search_count": 0.0,
+        "ipc_round_trip_avg_us": 532.294818,
+        "shm_alloc_count": 0.0,
+        "mode": 0,
+        "ipc_bytes_sent": 39.906892,
+        "state_transfer_count": 0.0,
+        "ipc_send_count": 0.0,
+        "ipc_recv_count": 0.0,
+        "ipc_round_trip_us_sum": 23420.844164,
+        "latency_seconds": 0.034644,
+        "shm_attach_count": 0.0,
+        "message_count": 0.0,
+        "memory_hit_rate": 0.0
+      },
+      "runs": 5,
+      "tasks": [
+        {
+          "task_id": "A1",
+          "topic": "openEuler 24.03 Python Web 服务部署调研",
+          "mode": "protocol_ipc",
+          "memory_refs": [],
+          "new_memory_id": "mem-ab8933a9ae",
+          "state_refs": [
+            "state-7fb1e1156a",
+            "state-15edf28363",
+            "state-9fa5106423"
+          ],
+          "shm_names": [
+            "mas_state_e08299159a784dc4",
+            "mas_state_c586fcdc16124def",
+            "mas_state_f50b3cd7fa584ea4"
+          ],
+          "summary": "openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A2",
+          "topic": "生成 Python Web 服务部署脚本",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-ab8933a9ae"
+          ],
+          "new_memory_id": "mem-12ad60df5b",
+          "state_refs": [
+            "state-58b9b3245a",
+            "state-55983a1411",
+            "state-ac0fafc0c9"
+          ],
+          "shm_names": [
+            "mas_state_f740f38fc9f248ac",
+            "mas_state_06ecaeffcc364d3a",
+            "mas_state_e644917c24824d7c"
+          ],
+          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-ab8933a9ae。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A3",
+          "topic": "检查部署依赖和环境问题",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-ab8933a9ae",
+            "mem-12ad60df5b"
+          ],
+          "new_memory_id": "mem-6c8791c863",
+          "state_refs": [
+            "state-8cef9d8ec9",
+            "state-abbe735a90",
+            "state-06f2017eb1"
+          ],
+          "shm_names": [
+            "mas_state_7ad9dd1c87b24f8e",
+            "mas_state_d24d12b57e034627",
+            "mas_state_fbea787aedfa48be"
+          ],
+          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-ab8933a9ae, mem-12ad60df5b。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "A4",
+          "topic": "生成 systemd 服务配置",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-12ad60df5b",
+            "mem-ab8933a9ae",
+            "mem-6c8791c863"
+          ],
+          "new_memory_id": "mem-05fe88a758",
+          "state_refs": [
+            "state-c3c945d85e",
+            "state-c7ee0cb031",
+            "state-465c566092"
+          ],
+          "shm_names": [
+            "mas_state_29a5f0ac4d2c43df",
+            "mas_state_5472af9c48c4445d",
+            "mas_state_2ea7086d0beb4fcb"
+          ],
+          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-12ad60df5b, mem-ab8933a9ae, mem-6c8791c863。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "A5",
+          "topic": "生成完整部署文档",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-12ad60df5b",
+            "mem-ab8933a9ae",
+            "mem-05fe88a758"
+          ],
+          "new_memory_id": "mem-77d53759b7",
+          "state_refs": [
+            "state-a02fe852a1",
+            "state-176d3415e6",
+            "state-1e59133e41"
+          ],
+          "shm_names": [
+            "mas_state_75bab89d4a694a1d",
+            "mas_state_2c8d020d99e54a1a",
+            "mas_state_c897f760262b4827"
+          ],
+          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-12ad60df5b, mem-ab8933a9ae, mem-05fe88a758。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B1",
+          "topic": "CSV 数据字段和质量分析",
+          "mode": "protocol_ipc",
+          "memory_refs": [],
+          "new_memory_id": "mem-ec9ac1417d",
+          "state_refs": [
+            "state-0daa5bb684",
+            "state-9b5b023e56",
+            "state-75510fba5a"
+          ],
+          "shm_names": [
+            "mas_state_7b935608dd5a4bb9",
+            "mas_state_ceb7c5690f9d43be",
+            "mas_state_7f841f30c69e405b"
+          ],
+          "summary": "CSV 数据字段和质量分析: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "B2",
+          "topic": "生成 CSV 数据清洗代码",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-ec9ac1417d",
+            "mem-12ad60df5b",
+            "mem-77d53759b7"
+          ],
+          "new_memory_id": "mem-8efc7ac960",
+          "state_refs": [
+            "state-124697999b",
+            "state-b30ee31fbf",
+            "state-b687655bea"
+          ],
+          "shm_names": [
+            "mas_state_4c0183d38ed240f3",
+            "mas_state_e34751ae21eb4425",
+            "mas_state_91ef0f3041cb492a"
+          ],
+          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-ec9ac1417d, mem-12ad60df5b, mem-77d53759b7。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B3",
+          "topic": "执行统计分析并输出摘要",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-ec9ac1417d",
+            "mem-8efc7ac960",
+            "mem-77d53759b7"
+          ],
+          "new_memory_id": "mem-1e93258ba1",
+          "state_refs": [
+            "state-b7c5e39372",
+            "state-e7becf623f",
+            "state-9bb746b070"
+          ],
+          "shm_names": [
+            "mas_state_29ca4571cd1c4397",
+            "mas_state_73e5a489defc4525",
+            "mas_state_bc6c5e930b604f24"
+          ],
+          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-ec9ac1417d, mem-8efc7ac960, mem-77d53759b7。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B4",
+          "topic": "生成图表和报告结构",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-1e93258ba1",
+            "mem-8efc7ac960",
+            "mem-ec9ac1417d"
+          ],
+          "new_memory_id": "mem-005d8ace0a",
+          "state_refs": [
+            "state-51af05c817",
+            "state-53360de6e5",
+            "state-082acced06"
+          ],
+          "shm_names": [
+            "mas_state_b2ee4e32f3dd4d71",
+            "mas_state_2e2e95044a06493f",
+            "mas_state_6cc5576d1323487f"
+          ],
+          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-1e93258ba1, mem-8efc7ac960, mem-ec9ac1417d。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B5",
+          "topic": "生成自动化数据分析模板",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-005d8ace0a",
+            "mem-8efc7ac960",
+            "mem-1e93258ba1"
+          ],
+          "new_memory_id": "mem-24c2a254aa",
+          "state_refs": [
+            "state-39bd4d2d63",
+            "state-ab5334ae59",
+            "state-9d558e011f"
+          ],
+          "shm_names": [
+            "mas_state_9c6079b5999949cf",
+            "mas_state_37b015503ab541b7",
+            "mas_state_8777faeeb7c447f6"
+          ],
+          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-005d8ace0a, mem-8efc7ac960, mem-1e93258ba1。",
+          "skipped_local_retrieval": true
+        }
+      ],
+      "transcript_sample": [
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-8156ef591b",
+            "task_id": "handshake",
+            "from": "planner",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "planner",
+              "worker_pid": 16240,
+              "capabilities": [
+                "task_decomposition",
+                "memory_reuse_decision"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:06:01"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-dbfa6393ae",
+            "task_id": "handshake",
+            "from": "retriever",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "retriever",
+              "worker_pid": 16241,
+              "capabilities": [
+                "keyword_search",
+                "semantic_memory_search"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:06:01"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-7834997a1e",
+            "task_id": "handshake",
+            "from": "executor",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "executor",
+              "worker_pid": 16242,
+              "capabilities": [
+                "python_exec",
+                "template_render"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:06:01"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-b8723a2e82",
+            "task_id": "handshake",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "summarizer",
+              "worker_pid": 16243,
+              "capabilities": [
+                "summary_generation",
+                "memory_write"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:06:01"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-f7725aec89",
+            "task_id": "A1",
+            "from": "planner",
+            "to": "runtime",
+            "action": "task.plan",
+            "params": {
+              "topic": "openEuler 24.03 Python Web 服务部署调研",
+              "steps": [
+                "retrieve",
+                "execute",
+                "summarize"
+              ]
+            },
+            "capability_required": [
+              "task_decomposition"
+            ],
+            "state_refs": [
+              "state-7fb1e1156a"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:06:01"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-a1f41f7fc5",
+            "task_id": "A1",
+            "from": "retriever",
+            "to": "executor",
+            "action": "retrieve.result",
+            "params": {
+              "query": "调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。",
+              "top_k": 3,
+              "skip_local": false
+            },
+            "capability_required": [
+              "keyword_search",
+              "semantic_memory_search"
+            ],
+            "state_refs": [
+              "state-15edf28363"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:06:01",
+            "result": {
+              "items": [
+                "openEuler Python service deployment",
+                "Python dependency troubleshooting",
+                "systemd service checklist"
+              ],
+              "memory_hits": []
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-4056137743",
+            "task_id": "A1",
+            "from": "executor",
+            "to": "summarizer",
+            "action": "execute.result",
+            "params": {},
+            "capability_required": [
+              "python_exec",
+              "template_render"
+            ],
+            "state_refs": [
+              "state-15edf28363"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T04:06:01",
+            "result": {
+              "status": "ok",
+              "artifact_kind": "deployment_script",
+              "stdout_chars": 41
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-0cd1bd4ce9",
+            "task_id": "A1",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "summarize.result",
+            "params": {},
+            "capability_required": [
+              "summary_generation",
+              "memory_write"
+            ],
+            "state_refs": [
+              "state-9fa5106423"
+            ],
+            "memory_refs": [
+              "mem-ab8933a9ae"
+            ],
+            "timestamp": "2026-05-27T04:06:01",
+            "result": {
+              "memory_id": "mem-ab8933a9ae",
+              "summary_chars": 205,
+              "strategy_code": "deployment_script"
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-8d5cadfde4",
+            "task_id": "A2",
+            "from": "planner",
+            "to": "runtime",
+            "action": "task.plan",
+            "params": {
+              "topic": "生成 Python Web 服务部署脚本",
+              "steps": [
+                "retrieve",
+                "reuse_memory",
+                "execute",
+                "summarize"
+              ]
+            },
+            "capability_required": [
+              "task_decomposition"
+            ],
+            "state_refs": [
+              "state-58b9b3245a"
+            ],
+            "memory_refs": [
+              "mem-ab8933a9ae"
+            ],
+            "timestamp": "2026-05-27T04:06:01"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-b78d140a79",
+            "task_id": "A2",
+            "from": "retriever",
+            "to": "executor",
+            "action": "retrieve.result",
+            "params": {
+              "query": "基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。",
+              "top_k": 3,
+              "skip_local": false
+            },
+            "capability_required": [
+              "keyword_search",
+              "semantic_memory_search"
+            ],
+            "state_refs": [
+              "state-55983a1411"
+            ],
+            "memory_refs": [
+              "mem-ab8933a9ae"
+            ],
+            "timestamp": "2026-05-27T04:06:01",
+            "result": {
+              "items": [
+                "openEuler Python service deployment",
+                "systemd service checklist",
+                "Python dependency troubleshooting"
+              ],
+              "memory_hits": [
+                "mem-ab8933a9ae"
+              ]
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-3eb935b4a6",
+            "task_id": "A2",
+            "from": "executor",
+            "to": "summarizer",
+            "action": "execute.result",
+            "params": {},
+            "capability_required": [
+              "python_exec",
+              "template_render"
+            ],
+            "state_refs": [
+              "state-55983a1411"
+            ],
+            "memory_refs": [
+              "mem-ab8933a9ae"
+            ],
+            "timestamp": "2026-05-27T04:06:01",
+            "result": {
+              "status": "ok",
+              "artifact_kind": "deployment_script",
+              "stdout_chars": 41
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-715c363838",
+            "task_id": "A2",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "summarize.result",
+            "params": {},
+            "capability_required": [
+              "summary_generation",
+              "memory_write"
+            ],
+            "state_refs": [
+              "state-ac0fafc0c9"
+            ],
+            "memory_refs": [
+              "mem-12ad60df5b"
+            ],
+            "timestamp": "2026-05-27T04:06:01",
+            "result": {
+              "memory_id": "mem-12ad60df5b",
+              "summary_chars": 194,
+              "strategy_code": "deployment_script"
+            }
+          }
+        }
+      ],
+      "memory_accuracy": {
+        "summary": {
+          "scored_tasks": 8,
+          "total_tasks_with_gold": 8,
+          "macro_precision_at_3": 0.875,
+          "macro_recall_at_3": 0.8875,
+          "macro_f1_at_3": 0.8455,
+          "mrr": 1.0
+        },
+        "per_task": [
+          {
+            "task_id": "A1",
+            "gold_prior_task_ids": [],
+            "gold_memory_ids": [],
+            "retrieved": [],
+            "skipped": true,
+            "reason": "cold start (no gold prior)"
+          },
+          {
+            "task_id": "A2",
+            "gold_prior_task_ids": [
+              "A1"
+            ],
+            "gold_memory_ids": [
+              "mem-ab8933a9ae"
+            ],
+            "retrieved": [
+              "mem-ab8933a9ae"
+            ],
+            "tp": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A3",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2"
+            ],
+            "gold_memory_ids": [
+              "mem-12ad60df5b",
+              "mem-ab8933a9ae"
+            ],
+            "retrieved": [
+              "mem-ab8933a9ae",
+              "mem-12ad60df5b"
+            ],
+            "tp": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A4",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2",
+              "A3"
+            ],
+            "gold_memory_ids": [
+              "mem-12ad60df5b",
+              "mem-6c8791c863",
+              "mem-ab8933a9ae"
+            ],
+            "retrieved": [
+              "mem-12ad60df5b",
+              "mem-ab8933a9ae",
+              "mem-6c8791c863"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A5",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2",
+              "A3",
+              "A4"
+            ],
+            "gold_memory_ids": [
+              "mem-05fe88a758",
+              "mem-12ad60df5b",
+              "mem-6c8791c863",
+              "mem-ab8933a9ae"
+            ],
+            "retrieved": [
+              "mem-12ad60df5b",
+              "mem-ab8933a9ae",
+              "mem-05fe88a758"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B1",
+            "gold_prior_task_ids": [],
+            "gold_memory_ids": [],
+            "retrieved": [],
+            "skipped": true,
+            "reason": "cold start (no gold prior)"
+          },
+          {
+            "task_id": "B2",
+            "gold_prior_task_ids": [
+              "B1"
+            ],
+            "gold_memory_ids": [
+              "mem-ec9ac1417d"
+            ],
+            "retrieved": [
+              "mem-ec9ac1417d",
+              "mem-12ad60df5b",
+              "mem-77d53759b7"
+            ],
+            "tp": 1,
+            "precision": 0.3333,
+            "recall": 1.0,
+            "f1": 0.5,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B3",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2"
+            ],
+            "gold_memory_ids": [
+              "mem-8efc7ac960",
+              "mem-ec9ac1417d"
+            ],
+            "retrieved": [
+              "mem-ec9ac1417d",
+              "mem-8efc7ac960",
+              "mem-77d53759b7"
+            ],
+            "tp": 2,
+            "precision": 0.6667,
+            "recall": 1.0,
+            "f1": 0.8,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B4",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2",
+              "B3",
+              "A5"
+            ],
+            "gold_memory_ids": [
+              "mem-1e93258ba1",
+              "mem-77d53759b7",
+              "mem-8efc7ac960",
+              "mem-ec9ac1417d"
+            ],
+            "retrieved": [
+              "mem-1e93258ba1",
+              "mem-8efc7ac960",
+              "mem-ec9ac1417d"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B5",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2",
+              "B3",
+              "B4",
+              "A5"
+            ],
+            "gold_memory_ids": [
+              "mem-005d8ace0a",
+              "mem-1e93258ba1",
+              "mem-77d53759b7",
+              "mem-8efc7ac960",
+              "mem-ec9ac1417d"
+            ],
+            "retrieved": [
+              "mem-005d8ace0a",
+              "mem-8efc7ac960",
+              "mem-1e93258ba1"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.75,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          }
+        ]
+      }
     }
   },
   "summary": {
-    "text": {
-      "mode": "text",
-      "message_count": 40,
-      "text_chars": 51145,
-      "protocol_chars": 0,
-      "estimated_tokens": 28414,
-      "state_transfer_count": 0,
-      "state_bytes": 0,
-      "latency_seconds": 0.106888,
-      "memory_search_count": 0,
-      "memory_hit_count": 0,
-      "memory_hit_rate": 0.0,
-      "retrieval_count": 10,
-      "execution_count": 10,
-      "tasks_completed": 10
-    },
-    "protocol": {
-      "mode": "protocol",
-      "message_count": 44,
-      "text_chars": 0,
-      "protocol_chars": 16950,
-      "estimated_tokens": 9417,
-      "state_transfer_count": 40,
-      "state_bytes": 25600,
-      "latency_seconds": 0.091604,
-      "memory_search_count": 10,
-      "memory_hit_count": 8,
-      "memory_hit_rate": 0.8,
-      "retrieval_count": 3,
-      "execution_count": 10,
-      "tasks_completed": 10
+    "metrics": {
+      "text": {
+        "state_bytes": 0,
+        "tasks_completed": 10,
+        "text_chars": 51145,
+        "protocol_chars": 0,
+        "shm_peak_bytes": 0,
+        "retrieval_count": 10,
+        "estimated_tokens": 28414,
+        "memory_hit_count": 0,
+        "execution_count": 10,
+        "memory_search_count": 0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0,
+        "mode": "text",
+        "ipc_bytes_sent": 0,
+        "state_transfer_count": 0,
+        "ipc_send_count": 0,
+        "ipc_recv_count": 0,
+        "ipc_round_trip_us_sum": 0,
+        "latency_seconds": 0.327754,
+        "shm_attach_count": 0,
+        "message_count": 40,
+        "memory_hit_rate": 0.0
+      },
+      "text_v2": {
+        "state_bytes": 0,
+        "tasks_completed": 10,
+        "text_chars": 21440,
+        "protocol_chars": 0,
+        "shm_peak_bytes": 0,
+        "retrieval_count": 10,
+        "estimated_tokens": 11911,
+        "memory_hit_count": 0,
+        "execution_count": 10,
+        "memory_search_count": 0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0,
+        "mode": "text_v2",
+        "ipc_bytes_sent": 0,
+        "state_transfer_count": 0,
+        "ipc_send_count": 0,
+        "ipc_recv_count": 0,
+        "ipc_round_trip_us_sum": 0,
+        "latency_seconds": 0.326475,
+        "shm_attach_count": 0,
+        "message_count": 40,
+        "memory_hit_rate": 0.0
+      },
+      "text_with_memory": {
+        "state_bytes": 0,
+        "tasks_completed": 10,
+        "text_chars": 22320,
+        "protocol_chars": 0,
+        "shm_peak_bytes": 0,
+        "retrieval_count": 3,
+        "estimated_tokens": 12400,
+        "memory_hit_count": 8,
+        "execution_count": 10,
+        "memory_search_count": 10,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0,
+        "mode": "text_with_memory",
+        "ipc_bytes_sent": 0,
+        "state_transfer_count": 0,
+        "ipc_send_count": 0,
+        "ipc_recv_count": 0,
+        "ipc_round_trip_us_sum": 0,
+        "latency_seconds": 0.48656,
+        "shm_attach_count": 0,
+        "message_count": 40,
+        "memory_hit_rate": 0.8
+      },
+      "protocol_no_memory": {
+        "state_bytes": 25600,
+        "tasks_completed": 10,
+        "text_chars": 0,
+        "protocol_chars": 15379,
+        "shm_peak_bytes": 0,
+        "retrieval_count": 10,
+        "estimated_tokens": 8544,
+        "memory_hit_count": 0,
+        "execution_count": 10,
+        "memory_search_count": 0,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0,
+        "mode": "protocol_no_memory",
+        "ipc_bytes_sent": 0,
+        "state_transfer_count": 40,
+        "ipc_send_count": 0,
+        "ipc_recv_count": 0,
+        "ipc_round_trip_us_sum": 0,
+        "latency_seconds": 0.185834,
+        "shm_attach_count": 0,
+        "message_count": 44,
+        "memory_hit_rate": 0.0
+      },
+      "protocol": {
+        "state_bytes": 25600,
+        "tasks_completed": 10,
+        "text_chars": 0,
+        "protocol_chars": 16950,
+        "shm_peak_bytes": 0,
+        "retrieval_count": 3,
+        "estimated_tokens": 9417,
+        "memory_hit_count": 8,
+        "execution_count": 10,
+        "memory_search_count": 10,
+        "ipc_round_trip_avg_us": 0.0,
+        "shm_alloc_count": 0,
+        "mode": "protocol",
+        "ipc_bytes_sent": 0,
+        "state_transfer_count": 40,
+        "ipc_send_count": 0,
+        "ipc_recv_count": 0,
+        "ipc_round_trip_us_sum": 0,
+        "latency_seconds": 0.465191,
+        "shm_attach_count": 0,
+        "message_count": 44,
+        "memory_hit_rate": 0.8
+      },
+      "protocol_ipc": {
+        "state_bytes": 25600,
+        "tasks_completed": 10,
+        "text_chars": 0,
+        "protocol_chars": 17034,
+        "shm_peak_bytes": 1536,
+        "retrieval_count": 3,
+        "estimated_tokens": 9463,
+        "memory_hit_count": 8,
+        "execution_count": 10,
+        "memory_search_count": 10,
+        "ipc_round_trip_avg_us": 7131.496,
+        "shm_alloc_count": 30,
+        "mode": "protocol_ipc",
+        "ipc_bytes_sent": 25154.8,
+        "state_transfer_count": 40,
+        "ipc_send_count": 44,
+        "ipc_recv_count": 44,
+        "ipc_round_trip_us_sum": 313785.8,
+        "latency_seconds": 0.532493,
+        "shm_attach_count": 0,
+        "message_count": 44,
+        "memory_hit_rate": 0.8
+      }
     },
     "improvements": {
-      "token_saving": 0.668578869571338,
-      "text_char_saving": 0.6685893049173917,
-      "latency_improvement": 0.1429907941022378,
-      "retrieval_reduction": 0.7,
-      "message_reduction": 0.0
-    }
+      "text": {
+        "vs_baseline": "text_v2",
+        "token_saving": -1.3855259843841825,
+        "char_saving": -1.3854944029850746,
+        "latency_improvement": -0.003917604717053269,
+        "retrieval_reduction": 0.0,
+        "message_reduction": 0.0,
+        "memory_hit_rate_delta": 0.0
+      },
+      "text_with_memory": {
+        "vs_baseline": "text_v2",
+        "token_saving": -0.04105448744857698,
+        "char_saving": -0.04104477611940305,
+        "latency_improvement": -0.49034382418255595,
+        "retrieval_reduction": 0.7,
+        "message_reduction": 0.0,
+        "memory_hit_rate_delta": 0.8
+      },
+      "protocol_no_memory": {
+        "vs_baseline": "text_v2",
+        "token_saving": 0.28267987574510955,
+        "char_saving": 0.28269589552238805,
+        "latency_improvement": 0.43078643081399803,
+        "retrieval_reduction": 0.0,
+        "message_reduction": -0.10000000000000009,
+        "memory_hit_rate_delta": 0.0
+      },
+      "protocol": {
+        "vs_baseline": "text_v2",
+        "token_saving": 0.20938628158844763,
+        "char_saving": 0.20942164179104472,
+        "latency_improvement": -0.42489011409755717,
+        "retrieval_reduction": 0.7,
+        "message_reduction": -0.10000000000000009,
+        "memory_hit_rate_delta": 0.8
+      },
+      "protocol_ipc": {
+        "vs_baseline": "text_v2",
+        "token_saving": 0.20552430526404164,
+        "char_saving": 0.2055037313432836,
+        "latency_improvement": -0.6310375985910099,
+        "retrieval_reduction": 0.7,
+        "message_reduction": -0.10000000000000009,
+        "memory_hit_rate_delta": 0.8
+      }
+    },
+    "baseline": "text_v2"
   }
 }

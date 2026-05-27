@@ -45,6 +45,14 @@ class SharedMemoryStore:
         self._init_schema()
 
     def _init_schema(self) -> None:
+        # WAL allows the coordinator process and any worker subprocesses to read
+        # concurrently while the summarizer worker writes (single-writer per
+        # SQLite WAL semantics). The pragma is persisted on the file, so it
+        # only needs to succeed once across the lifetime of the database.
+        try:
+            self.conn.execute("PRAGMA journal_mode=WAL").fetchall()
+        except sqlite3.DatabaseError:
+            pass
         self.conn.execute(
             """
             CREATE TABLE IF NOT EXISTS memories (
