@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import multiprocessing as mp
 import os
+import platform
 import shutil
 import tempfile
 import time
@@ -36,6 +37,15 @@ class IPCMultiAgentRuntime:
     mode = "protocol_ipc"
 
     def __init__(self, memory_path: str | Path, ctx_method: str = "fork") -> None:
+        # protocol_ipc relies on AF_UNIX, fork(), and POSIX shared memory via
+        # /dev/shm — all Linux/macOS-only. On Windows the runtime would fail
+        # later with cryptic errors when `socket.AF_UNIX` is missing or the
+        # forked workers cannot reuse parent state, so we fail fast here.
+        if platform.system() not in {"Linux", "Darwin"}:
+            raise RuntimeError(
+                f"protocol_ipc mode requires Linux or macOS (got {platform.system()!r}); "
+                "use --mode protocol or one of the text-family modes on this platform."
+            )
         self.metrics = Metrics(mode=self.mode)
         self.bus = ProtocolBus(self.metrics)
         self.embedder = HashEmbedding()

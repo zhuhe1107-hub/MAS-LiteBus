@@ -1,0 +1,40 @@
+# MAS-LiteBus on openEuler 24.03-LTS-SP3
+#
+# Build:   docker build -f Dockerfile.openeuler -t mas-litebus:openeuler .
+# Run:     docker run --rm -it mas-litebus:openeuler                          # interactive
+#          docker run --rm mas-litebus:openeuler python -m unittest discover -s tests
+#          docker run --rm mas-litebus:openeuler python scripts/run_benchmark.py --mode all
+#
+# This image is provided so reviewers can verify the code runs on the target
+# openEuler release without provisioning a VM. All runtime mechanics
+# (AF_UNIX sockets, fork(), /dev/shm, sqlite3 WAL) are POSIX-standard and
+# behave identically on Ubuntu and openEuler.
+
+FROM openeuler/openeuler:24.03
+
+# stdlib-only project; we still pull python3 from dnf and verify SQLite.
+RUN dnf install -y --setopt=install_weak_deps=False \
+        python3 \
+        python3-pip \
+        sqlite \
+        which \
+        procps-ng \
+        iproute \
+    && dnf clean all
+
+WORKDIR /opt/mas-litebus
+COPY . /opt/mas-litebus
+
+# Sanity: the requirements.txt is intentionally empty (stdlib-only); pip
+# install is a no-op but proves the file is present and parseable.
+RUN python3 -V && \
+    python3 -c "import sqlite3, socket, multiprocessing.shared_memory, struct, array; print('POSIX deps OK')" && \
+    python3 -m unittest discover -s tests -v && \
+    python3 scripts/run_benchmark.py --mode all --rounds 3 --output-dir /tmp/build-check && \
+    test -s /tmp/build-check/benchmark_offline.md && \
+    test -s /tmp/build-check/benchmark_ipc.md && \
+    rm -rf /tmp/build-check && \
+    echo "openEuler smoke check passed"
+
+ENTRYPOINT ["python3"]
+CMD ["scripts/run_benchmark.py", "--mode", "all", "--rounds", "10"]

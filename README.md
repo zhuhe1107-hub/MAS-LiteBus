@@ -45,11 +45,16 @@ python scripts/run_benchmark.py --mode all --rounds 10 --llm ollama --llm-model 
 python scripts/run_benchmark.py --mode protocol_ipc --rounds 10
 ```
 
-运行后会在 `outputs/` 下生成：
+运行后会在 `outputs/` 下生成**三份独立报告** (按口径拆分, 避免不公平对比):
 
-- `benchmark_summary.json` — 含 metrics / metrics_std / 记忆准确性 / 消融对比
-- `benchmark_report.md` — 自动渲染的 Markdown 对比报告
+- `benchmark_offline.md` — 5 个非 IPC 模式, 确定性模板 Agent, 评审离线可复测
+- `benchmark_llm.md` — 5 个 LLM 模式 (通过 Ollama llama3:8b), 真实 BPE token 计数
+- `benchmark_ipc.md` — `protocol` vs `protocol_ipc` 专项, 看跨进程 IPC 的真实开销
+- 同步的 `benchmark_summary_{offline,llm,ipc}.json` 包含原始 metrics
+- `benchmark_report.md` + `benchmark_summary.json` 是兼容旧版的合并视图
 - `memory_<mode>.sqlite3` — 每种模式一份独立记忆库, 跨任务复用
+
+报告拆分是为了回应一个常见的质疑: 把走 LLM 调用的模式 (耗时秒级) 与不走 LLM 的 `protocol_ipc` (耗时毫秒级) 放在同一张表上比 latency 是不公平的, 拆开后每张表内的列都使用相同的执行路径.
 
 ## 测试
 
@@ -75,7 +80,26 @@ docs/          设计文档、部署文档、实验报告、演示脚本
 tests/         单元测试 (核心 + IPC)
 ```
 
+## 平台要求
+
+| 模式 | Linux (openEuler / Ubuntu) | macOS | Windows |
+|---|:---:|:---:|:---:|
+| `text` / `text_v2` / `text_with_memory` | ✓ | ✓ | ✓ |
+| `protocol_no_memory` / `protocol` | ✓ | ✓ | ✓ |
+| `protocol_ipc` (Unix domain socket + POSIX shm) | ✓ | △ 部分 | ✗ |
+| `--llm ollama` (本地 Ollama HTTP) | ✓ | ✓ | ✓ |
+| `tests/test_ipc.py` | ✓ | △ | ✗ |
+| `--mode all` / `--mode ablation` (含 protocol_ipc) | ✓ | △ | ✗ |
+
+`protocol_ipc` 模式依赖三项 Linux/POSIX 特性, 在 Windows 上不可用:
+
+- `socket.AF_UNIX` — Unix domain socket (Windows 10+ 理论支持但 Python `multiprocessing` worker 路径不完整)
+- `multiprocessing.get_context("fork")` — fork 启动方式 Windows 没有
+- `multiprocessing.shared_memory` + `/dev/shm` — POSIX 命名共享内存
+
+代码在非 Linux/macOS 平台**会在 `IPCMultiAgentRuntime.__init__` 直接抛 RuntimeError**, 不会到运行时才崩. 项目最终交付目标是 **openEuler 24.03-LTS-SP3**, 评审环境就是 Linux, 不存在 Windows 兼容性需求.
+
 ## openEuler 适配
 
-项目核心仅依赖 Python 标准库。评审环境只需安装 Python 3.9+ 即可运行，推荐 Python 3.11。
+项目核心仅依赖 Python 标准库。评审环境只需安装 Python 3.9+ 即可运行，推荐 Python 3.11。`docs/openeuler_verification.md` 给出在 openEuler 24.03 上完整的部署 + 运行 checklist, 仓库根还提供 `Dockerfile.openeuler` 让评审在任意 Linux 上 `docker run` 复现.
 

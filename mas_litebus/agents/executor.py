@@ -8,7 +8,7 @@ from statistics import mean
 from mas_litebus.agents.base import AgentContext, BaseAgent
 from mas_litebus.eval.metrics import Metrics
 from mas_litebus.llm.base import LLMBackend
-from mas_litebus.llm.parse import extract_json
+from mas_litebus.llm.parse import extract_json_then_code
 from mas_litebus.llm.prompts import EXECUTOR_SYSTEM, executor_user_prompt
 from mas_litebus.runtime.protocol import Capability
 from mas_litebus.sandbox import run_python
@@ -108,9 +108,9 @@ class ExecutorAgent(BaseAgent):
         resp = self.llm.chat(EXECUTOR_SYSTEM, user, temperature=0.0, max_tokens=900)
         if metrics is not None:
             metrics.record_llm(resp)
-        data = extract_json(resp.text)
-        code = str(data.get("code", "")).strip()
-        artifact_kind = str(data.get("artifact_kind", "generic_checklist"))
+        header, code = extract_json_then_code(resp.text)
+        code = code.strip()
+        artifact_kind = str(header.get("artifact_kind", "generic_checklist"))
         sandbox_stdout = ""
         sandbox_ok = False
         if code:
@@ -126,7 +126,7 @@ class ExecutorAgent(BaseAgent):
             "stdout": sandbox_stdout,
             "used_memory_refs": memory_refs,
             "evidence_titles": evidence_titles,
-            "reasoning": str(data.get("reasoning", "")),
+            "reasoning": str(header.get("reasoning", "")),
         }
         return {
             "status": "ok" if sandbox_ok else "sandbox_failed",

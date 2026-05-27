@@ -201,29 +201,35 @@ ROWS: list[tuple[str, str, tuple[str, ...] | None]] = [
 ]
 
 
-def render_markdown(results: dict[str, Any]) -> str:
+def render_markdown(results: dict[str, Any], title: str | None = None, preamble: str | None = None) -> str:
     summary = build_summary(results)
     modes_present = [m for m in MODE_DISPLAY_ORDER if _has(results, m)]
     if not modes_present:
-        return "# MAS-LiteBus Benchmark Report\n\n(no results)\n"
+        return f"# {title or 'MAS-LiteBus Benchmark Report'}\n\n(no results)\n"
+
+    has_llm_anywhere = any(
+        int(results[m].get("metrics", {}).get("llm_call_count", 0) or 0) > 0
+        for m in modes_present
+    )
+    has_ipc = "protocol_ipc" in modes_present
 
     header = "| 指标 | " + " | ".join(MODE_LABELS[m] for m in modes_present) + " |"
     sep = "|---|" + "|".join(["---:"] * len(modes_present)) + "|"
     body_lines: list[str] = []
     for label, key, only_modes in ROWS:
         if key == "_section":
-            # Section separator: only render if any restricted-mode row will follow.
-            if "protocol_ipc" in modes_present:
+            if has_ipc:
                 body_lines.append("| **" + label + "** | " + " | ".join(["—"] * len(modes_present)) + " |")
             continue
         if key == "_llm_section":
-            # Only render when at least one mode actually called an LLM.
-            any_llm = any(
-                int(results[m].get("metrics", {}).get("llm_call_count", 0) or 0) > 0
-                for m in modes_present
-            )
-            if any_llm:
+            if has_llm_anywhere:
                 body_lines.append("| **" + label + "** | " + " | ".join(["—"] * len(modes_present)) + " |")
+            continue
+        # Skip IPC-only rows entirely when no IPC mode is in the table.
+        if only_modes == ("protocol_ipc",) and not has_ipc:
+            continue
+        # Skip LLM rows entirely when no mode in this report touched an LLM.
+        if key.startswith("llm_") and not has_llm_anywhere:
             continue
         cells = []
         for mode in modes_present:
@@ -280,8 +286,10 @@ def render_markdown(results: dict[str, Any]) -> str:
     if sample is not None and int(sample.get("runs", 1) or 1) > 1:
         runs_note = f"\n_(每模式重复运行 {sample['runs']} 次, 易抖动指标显示 mean ± std)_\n"
 
-    return f"""# MAS-LiteBus Benchmark Report
-{runs_note}
+    heading = title or "MAS-LiteBus Benchmark Report"
+    intro = f"\n{preamble}\n" if preamble else ""
+    return f"""# {heading}
+{intro}{runs_note}
 ## 多模式对比
 
 {table}
@@ -385,7 +393,69 @@ def _render_ablation_section(results: dict[str, Any], modes_present: list[str]) 
     )
 
 
+def _has_llm(bundle: dict[str, Any]) -> bool:
+    return int(bundle.get("metrics", {}).get("llm_call_count", 0) or 0) > 0
+
+
+def _partition_results(results: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    """Split a benchmark result set into offline / llm / ipc partitions.
+
+    Reviewer feedback: mixing LLM-mode and template-mode rows in one table
+    produces unfair latency comparisons (e.g. protocol_ipc shows up as
+    99% faster than text_v2 simply because it skipped the LLM call). We
+    split here so each report only shows directly comparable rows.
+    """
+    out: dict[str, dict[str, Any]] = {}
+    offline = {m: r for m, r in results.items() if not _has_llm(r) and m != "protocol_ipc"}
+    if offline:
+        out["offline"] = offline
+    llm = {m: r for m, r in results.items() if _has_llm(r)}
+    if llm:
+        out["llm"] = llm
+    if "protocol_ipc" in results:
+        ipc_pair: dict[str, Any] = {"protocol_ipc": results["protocol_ipc"]}
+        # Pair with the matching deterministic protocol mode (LLM-free) so the
+        # IPC overhead is measured against an apples-to-apples baseline.
+        if "protocol" in results and not _has_llm(results["protocol"]):
+            ipc_pair["protocol"] = results["protocol"]
+        out["ipc"] = ipc_pair
+    return out
+
+
+REPORT_TITLES = {
+    "offline": "MAS-LiteBus Benchmark — Offline (Deterministic Agents)",
+    "llm": "MAS-LiteBus Benchmark — LLM (Ollama llama3:8b)",
+    "ipc": "MAS-LiteBus Benchmark — IPC Focus (protocol vs protocol_ipc)",
+}
+
+
+REPORT_PREAMBLES = {
+    "offline": (
+        "本报告仅包含**确定性模板 Agent** 在同进程下跑出的对比, 不含 LLM 调用. "
+        "适合在评审无网环境下复测, 数据完全可复现 (固定哈希 embedding + 模板逻辑). "
+        "LLM 数据见 `benchmark_llm.md`, 跨进程 IPC 专项见 `benchmark_ipc.md`."
+    ),
+    "llm": (
+        "本报告所有模式都接入 **Ollama llama3:8b**, token 计数为 Ollama "
+        "`/api/chat` 报回的真实 BPE 数 (`prompt_eval_count` / `eval_count`), 不是 chars/1.8 估算. "
+        "**不包含 `protocol_ipc` 模式** — IPC worker 子进程暂未集成 LLM 后端 (httpx client 在 fork 后状态冲突), "
+        "因此把它放在 `benchmark_ipc.md` 里跟模板 protocol 对比, 避免不公平 latency 比较."
+    ),
+    "ipc": (
+        "本报告专门对比 **in-process protocol** 和 **multi-process protocol_ipc** 两种模式 "
+        "(均使用确定性模板 Agent, 排除 LLM 噪声). 看点: protocol_ipc 多付出的 latency 完全是"
+        "Unix socket + fork + POSIX shm 系统调用开销, 而 `state_transfer_count` / `state_bytes` / "
+        "`protocol_chars` 与 in-proc 完全对齐, 协议层结构性收益不受 IPC 影响."
+    ),
+}
+
+
 def write_report(results: dict[str, Any], output_dir: str | Path) -> dict[str, Any]:
+    """Write the unified report (compat) and per-context split reports.
+
+    The unified `benchmark_report.md` stays around for legacy tooling, but
+    the reviewer-facing artefacts are the three split files.
+    """
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
     summary = build_summary(results)
@@ -394,4 +464,14 @@ def write_report(results: dict[str, Any], output_dir: str | Path) -> dict[str, A
         encoding="utf-8",
     )
     (out / "benchmark_report.md").write_text(render_markdown(results), encoding="utf-8")
+
+    splits = _partition_results(results)
+    for label, subset in splits.items():
+        sub_summary = build_summary(subset)
+        (out / f"benchmark_summary_{label}.json").write_text(
+            json.dumps({"results": subset, "summary": sub_summary}, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        md = render_markdown(subset, title=REPORT_TITLES.get(label), preamble=REPORT_PREAMBLES.get(label))
+        (out / f"benchmark_{label}.md").write_text(md, encoding="utf-8")
     return summary

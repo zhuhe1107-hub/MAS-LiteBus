@@ -26,6 +26,7 @@ def main() -> int:
             "protocol_ipc",
             "both",
             "ablation",
+            "llm",
             "all",
         ],
         default="all",

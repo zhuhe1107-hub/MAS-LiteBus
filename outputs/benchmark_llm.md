@@ -1,4 +1,6 @@
-# MAS-LiteBus Benchmark Report
+# MAS-LiteBus Benchmark — LLM (Ollama llama3:8b)
+
+本报告所有模式都接入 **Ollama llama3:8b**, token 计数为 Ollama `/api/chat` 报回的真实 BPE 数 (`prompt_eval_count` / `eval_count`), 不是 chars/1.8 估算. **不包含 `protocol_ipc` 模式** — IPC worker 子进程暂未集成 LLM 后端 (httpx client 在 fork 后状态冲突), 因此把它放在 `benchmark_ipc.md` 里跟模板 protocol 对比, 避免不公平 latency 比较.
 
 ## 多模式对比
 

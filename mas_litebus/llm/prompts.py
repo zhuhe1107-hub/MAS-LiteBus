@@ -105,8 +105,13 @@ def retriever_user_prompt(
 EXECUTOR_SYSTEM = (
     "你是多智能体系统中的 Executor. 你需要根据任务和检索证据写一小段 Python 代码, "
     "代码只能用 Python 标准库 (不要 pandas/numpy/requests). 代码末尾必须 print 一个 JSON 字典作为最终产物. "
-    "产物字典里 kind 字段必须从这五个选一个: deployment_script / systemd_unit / csv_analysis / report_template / generic_checklist. "
-    "**只输出 JSON 对象**, 字段为 {\"code\": str, \"artifact_kind\": str, \"reasoning\": str}, 不要 markdown 代码块标记 (即不要 ```python)."
+    "产物字典里 kind 字段必须从这五个选一个: deployment_script / systemd_unit / csv_analysis / report_template / generic_checklist.\n\n"
+    "**严格按以下格式输出, 不要任何额外文字, 不要 markdown 代码块标记**:\n\n"
+    "{\"artifact_kind\": \"<five_choices_above>\", \"reasoning\": \"<short reasoning>\"}\n"
+    "---CODE---\n"
+    "<your raw Python source code, no fences, no escaping>\n\n"
+    "JSON 头部只包含 artifact_kind 和 reasoning 两个字段; 真正的 Python 代码写在 ---CODE--- 之后, "
+    "不需要塞进 JSON 字符串里, 也不需要转义引号."
 )
 
 

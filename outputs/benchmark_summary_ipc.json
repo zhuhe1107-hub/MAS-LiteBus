@@ -1,0 +1,1683 @@
+{
+  "results": {
+    "protocol_ipc": {
+      "mode": "protocol_ipc",
+      "metrics": {
+        "ipc_send_count": 44,
+        "ipc_bytes_sent": 25141.333333,
+        "shm_alloc_count": 30,
+        "latency_seconds": 0.613135,
+        "shm_peak_bytes": 1536,
+        "llm_call_count": 0,
+        "retrieval_count": 3,
+        "message_count": 44,
+        "ipc_round_trip_avg_us": 8152.686667,
+        "memory_hit_rate": 0.8,
+        "llm_cached_tokens": 0,
+        "llm_total_tokens": 0,
+        "memory_hit_count": 8,
+        "memory_search_count": 10,
+        "tasks_completed": 10,
+        "llm_prompt_tokens": 0,
+        "execution_count": 10,
+        "state_bytes": 25600,
+        "state_transfer_count": 40,
+        "text_chars": 0,
+        "mode": "protocol_ipc",
+        "shm_attach_count": 0,
+        "llm_avg_latency_ms": 0.0,
+        "llm_parse_failures": 0,
+        "protocol_chars": 17034,
+        "ipc_round_trip_us_sum": 358718.333333,
+        "estimated_tokens": 9463,
+        "llm_completion_tokens": 0,
+        "ipc_recv_count": 44
+      },
+      "metrics_std": {
+        "ipc_send_count": 0.0,
+        "ipc_bytes_sent": 45.492368,
+        "shm_alloc_count": 0.0,
+        "latency_seconds": 0.024946,
+        "shm_peak_bytes": 0.0,
+        "llm_call_count": 0.0,
+        "retrieval_count": 0.0,
+        "message_count": 0.0,
+        "ipc_round_trip_avg_us": 472.464912,
+        "memory_hit_rate": 0.0,
+        "llm_cached_tokens": 0.0,
+        "llm_total_tokens": 0.0,
+        "memory_hit_count": 0.0,
+        "memory_search_count": 0.0,
+        "tasks_completed": 0.0,
+        "llm_prompt_tokens": 0.0,
+        "execution_count": 0.0,
+        "state_bytes": 0.0,
+        "state_transfer_count": 0.0,
+        "text_chars": 0.0,
+        "mode": 0,
+        "shm_attach_count": 0.0,
+        "llm_avg_latency_ms": 0.0,
+        "llm_parse_failures": 0.0,
+        "protocol_chars": 0.0,
+        "ipc_round_trip_us_sum": 20788.445995,
+        "estimated_tokens": 0.0,
+        "llm_completion_tokens": 0.0,
+        "ipc_recv_count": 0.0
+      },
+      "runs": 3,
+      "tasks": [
+        {
+          "task_id": "A1",
+          "topic": "openEuler 24.03 Python Web 服务部署调研",
+          "mode": "protocol_ipc",
+          "memory_refs": [],
+          "new_memory_id": "mem-32fe0e1f51",
+          "state_refs": [
+            "state-9396583c93",
+            "state-a1d878024a",
+            "state-c0f900bfb9"
+          ],
+          "shm_names": [
+            "mas_state_132bd986a6754f95",
+            "mas_state_a8d2a6e44c7c40be",
+            "mas_state_c55a44055eb342a5"
+          ],
+          "summary": "openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A2",
+          "topic": "生成 Python Web 服务部署脚本",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-32fe0e1f51"
+          ],
+          "new_memory_id": "mem-bae6dff4ab",
+          "state_refs": [
+            "state-0513d19895",
+            "state-dffc6ffb4d",
+            "state-0e32c0195c"
+          ],
+          "shm_names": [
+            "mas_state_faa645aa37054731",
+            "mas_state_da481fc2f058445a",
+            "mas_state_9f4d2c251b2c4866"
+          ],
+          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-32fe0e1f51。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A3",
+          "topic": "检查部署依赖和环境问题",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-32fe0e1f51",
+            "mem-bae6dff4ab"
+          ],
+          "new_memory_id": "mem-05a377d393",
+          "state_refs": [
+            "state-e13d69202c",
+            "state-5fe2f70cf2",
+            "state-c170f37cd8"
+          ],
+          "shm_names": [
+            "mas_state_177d65ec399d4847",
+            "mas_state_cc45df9235e94e7e",
+            "mas_state_17e68b85e52b45de"
+          ],
+          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-32fe0e1f51, mem-bae6dff4ab。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "A4",
+          "topic": "生成 systemd 服务配置",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-bae6dff4ab",
+            "mem-32fe0e1f51",
+            "mem-05a377d393"
+          ],
+          "new_memory_id": "mem-aa3901b4ab",
+          "state_refs": [
+            "state-494bec55bc",
+            "state-cc7bafdf17",
+            "state-0df0b8ff22"
+          ],
+          "shm_names": [
+            "mas_state_9fa6ca98129a4838",
+            "mas_state_207bc93928be4c2a",
+            "mas_state_b4577125341b449d"
+          ],
+          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-bae6dff4ab, mem-32fe0e1f51, mem-05a377d393。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "A5",
+          "topic": "生成完整部署文档",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-bae6dff4ab",
+            "mem-32fe0e1f51",
+            "mem-aa3901b4ab"
+          ],
+          "new_memory_id": "mem-04b889bed1",
+          "state_refs": [
+            "state-e6552ae445",
+            "state-b39fea382b",
+            "state-f2b713d283"
+          ],
+          "shm_names": [
+            "mas_state_a21ec7855f4f4734",
+            "mas_state_9bbe932e5da74cef",
+            "mas_state_6abf9ceaba76434b"
+          ],
+          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-bae6dff4ab, mem-32fe0e1f51, mem-aa3901b4ab。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B1",
+          "topic": "CSV 数据字段和质量分析",
+          "mode": "protocol_ipc",
+          "memory_refs": [],
+          "new_memory_id": "mem-8db9575894",
+          "state_refs": [
+            "state-ab620fb6ff",
+            "state-02e84b4901",
+            "state-5747a4d880"
+          ],
+          "shm_names": [
+            "mas_state_bf9e506cf1224f44",
+            "mas_state_ac865dee038a480f",
+            "mas_state_606036e179424c32"
+          ],
+          "summary": "CSV 数据字段和质量分析: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "B2",
+          "topic": "生成 CSV 数据清洗代码",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-8db9575894",
+            "mem-bae6dff4ab",
+            "mem-04b889bed1"
+          ],
+          "new_memory_id": "mem-0e74e3cc8e",
+          "state_refs": [
+            "state-65a019975e",
+            "state-dccef24f87",
+            "state-023c328028"
+          ],
+          "shm_names": [
+            "mas_state_951f0f574b32432d",
+            "mas_state_0d2cef93f9de4aa3",
+            "mas_state_5f7bc1245e1547af"
+          ],
+          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-8db9575894, mem-bae6dff4ab, mem-04b889bed1。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B3",
+          "topic": "执行统计分析并输出摘要",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-8db9575894",
+            "mem-0e74e3cc8e",
+            "mem-32fe0e1f51"
+          ],
+          "new_memory_id": "mem-09e0d13444",
+          "state_refs": [
+            "state-fcb160303e",
+            "state-fa07df9977",
+            "state-27173a189d"
+          ],
+          "shm_names": [
+            "mas_state_c511653b5f644729",
+            "mas_state_516fb2ed7c9b414d",
+            "mas_state_55d4836fd1234bd4"
+          ],
+          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-8db9575894, mem-0e74e3cc8e, mem-32fe0e1f51。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B4",
+          "topic": "生成图表和报告结构",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-09e0d13444",
+            "mem-0e74e3cc8e",
+            "mem-8db9575894"
+          ],
+          "new_memory_id": "mem-ef82344e9d",
+          "state_refs": [
+            "state-0ae4017893",
+            "state-0862bd050b",
+            "state-ffae13b105"
+          ],
+          "shm_names": [
+            "mas_state_4173270d0859481e",
+            "mas_state_db84836e5be446b5",
+            "mas_state_6a41169012c448cf"
+          ],
+          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-09e0d13444, mem-0e74e3cc8e, mem-8db9575894。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B5",
+          "topic": "生成自动化数据分析模板",
+          "mode": "protocol_ipc",
+          "memory_refs": [
+            "mem-ef82344e9d",
+            "mem-0e74e3cc8e",
+            "mem-09e0d13444"
+          ],
+          "new_memory_id": "mem-3cbf29a009",
+          "state_refs": [
+            "state-9a662e43d6",
+            "state-00ed214e1f",
+            "state-e28e5fae0b"
+          ],
+          "shm_names": [
+            "mas_state_24a5ade795264920",
+            "mas_state_38c787aab1db4c0c",
+            "mas_state_ebb5273a1b4742d9"
+          ],
+          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-ef82344e9d, mem-0e74e3cc8e, mem-09e0d13444。",
+          "skipped_local_retrieval": true
+        }
+      ],
+      "transcript_sample": [
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-0c2f36513e",
+            "task_id": "handshake",
+            "from": "planner",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "planner",
+              "worker_pid": 27276,
+              "capabilities": [
+                "task_decomposition",
+                "memory_reuse_decision"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:27"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-e873569124",
+            "task_id": "handshake",
+            "from": "retriever",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "retriever",
+              "worker_pid": 27277,
+              "capabilities": [
+                "keyword_search",
+                "semantic_memory_search"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:27"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-383696bd22",
+            "task_id": "handshake",
+            "from": "executor",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "executor",
+              "worker_pid": 27281,
+              "capabilities": [
+                "python_exec",
+                "template_render"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:27"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-1ec99688f2",
+            "task_id": "handshake",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "summarizer",
+              "worker_pid": 27285,
+              "capabilities": [
+                "summary_generation",
+                "memory_write"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:27"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-950abf7d5d",
+            "task_id": "A1",
+            "from": "planner",
+            "to": "runtime",
+            "action": "task.plan",
+            "params": {
+              "topic": "openEuler 24.03 Python Web 服务部署调研",
+              "steps": [
+                "retrieve",
+                "execute",
+                "summarize"
+              ]
+            },
+            "capability_required": [
+              "task_decomposition"
+            ],
+            "state_refs": [
+              "state-9396583c93"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:27"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-c6edf99bb4",
+            "task_id": "A1",
+            "from": "retriever",
+            "to": "executor",
+            "action": "retrieve.result",
+            "params": {
+              "query": "调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。",
+              "top_k": 3,
+              "skip_local": false
+            },
+            "capability_required": [
+              "keyword_search",
+              "semantic_memory_search"
+            ],
+            "state_refs": [
+              "state-a1d878024a"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:27",
+            "result": {
+              "items": [
+                "openEuler Python service deployment",
+                "Python dependency troubleshooting",
+                "systemd service checklist"
+              ],
+              "memory_hits": []
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-c99b6a04e0",
+            "task_id": "A1",
+            "from": "executor",
+            "to": "summarizer",
+            "action": "execute.result",
+            "params": {},
+            "capability_required": [
+              "python_exec",
+              "template_render"
+            ],
+            "state_refs": [
+              "state-a1d878024a"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:27",
+            "result": {
+              "status": "ok",
+              "artifact_kind": "deployment_script",
+              "stdout_chars": 41
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-93dd9a8ac4",
+            "task_id": "A1",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "summarize.result",
+            "params": {},
+            "capability_required": [
+              "summary_generation",
+              "memory_write"
+            ],
+            "state_refs": [
+              "state-c0f900bfb9"
+            ],
+            "memory_refs": [
+              "mem-32fe0e1f51"
+            ],
+            "timestamp": "2026-05-27T07:44:27",
+            "result": {
+              "memory_id": "mem-32fe0e1f51",
+              "summary_chars": 205,
+              "strategy_code": "deployment_script"
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-a0a00ad13d",
+            "task_id": "A2",
+            "from": "planner",
+            "to": "runtime",
+            "action": "task.plan",
+            "params": {
+              "topic": "生成 Python Web 服务部署脚本",
+              "steps": [
+                "retrieve",
+                "reuse_memory",
+                "execute",
+                "summarize"
+              ]
+            },
+            "capability_required": [
+              "task_decomposition"
+            ],
+            "state_refs": [
+              "state-0513d19895"
+            ],
+            "memory_refs": [
+              "mem-32fe0e1f51"
+            ],
+            "timestamp": "2026-05-27T07:44:27"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-83b8f56544",
+            "task_id": "A2",
+            "from": "retriever",
+            "to": "executor",
+            "action": "retrieve.result",
+            "params": {
+              "query": "基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。",
+              "top_k": 3,
+              "skip_local": false
+            },
+            "capability_required": [
+              "keyword_search",
+              "semantic_memory_search"
+            ],
+            "state_refs": [
+              "state-dffc6ffb4d"
+            ],
+            "memory_refs": [
+              "mem-32fe0e1f51"
+            ],
+            "timestamp": "2026-05-27T07:44:27",
+            "result": {
+              "items": [
+                "openEuler Python service deployment",
+                "systemd service checklist",
+                "Python dependency troubleshooting"
+              ],
+              "memory_hits": [
+                "mem-32fe0e1f51"
+              ]
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-f2b0e2fe54",
+            "task_id": "A2",
+            "from": "executor",
+            "to": "summarizer",
+            "action": "execute.result",
+            "params": {},
+            "capability_required": [
+              "python_exec",
+              "template_render"
+            ],
+            "state_refs": [
+              "state-dffc6ffb4d"
+            ],
+            "memory_refs": [
+              "mem-32fe0e1f51"
+            ],
+            "timestamp": "2026-05-27T07:44:27",
+            "result": {
+              "status": "ok",
+              "artifact_kind": "deployment_script",
+              "stdout_chars": 41
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-3fb316b6da",
+            "task_id": "A2",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "summarize.result",
+            "params": {},
+            "capability_required": [
+              "summary_generation",
+              "memory_write"
+            ],
+            "state_refs": [
+              "state-0e32c0195c"
+            ],
+            "memory_refs": [
+              "mem-bae6dff4ab"
+            ],
+            "timestamp": "2026-05-27T07:44:27",
+            "result": {
+              "memory_id": "mem-bae6dff4ab",
+              "summary_chars": 194,
+              "strategy_code": "deployment_script"
+            }
+          }
+        }
+      ],
+      "memory_accuracy": {
+        "summary": {
+          "scored_tasks": 8,
+          "total_tasks_with_gold": 8,
+          "macro_precision_at_3": 0.875,
+          "macro_recall_at_3": 0.8875,
+          "macro_f1_at_3": 0.8455,
+          "mrr": 1.0
+        },
+        "per_task": [
+          {
+            "task_id": "A1",
+            "gold_prior_task_ids": [],
+            "gold_memory_ids": [],
+            "retrieved": [],
+            "skipped": true,
+            "reason": "cold start (no gold prior)"
+          },
+          {
+            "task_id": "A2",
+            "gold_prior_task_ids": [
+              "A1"
+            ],
+            "gold_memory_ids": [
+              "mem-32fe0e1f51"
+            ],
+            "retrieved": [
+              "mem-32fe0e1f51"
+            ],
+            "tp": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A3",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2"
+            ],
+            "gold_memory_ids": [
+              "mem-32fe0e1f51",
+              "mem-bae6dff4ab"
+            ],
+            "retrieved": [
+              "mem-32fe0e1f51",
+              "mem-bae6dff4ab"
+            ],
+            "tp": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A4",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2",
+              "A3"
+            ],
+            "gold_memory_ids": [
+              "mem-05a377d393",
+              "mem-32fe0e1f51",
+              "mem-bae6dff4ab"
+            ],
+            "retrieved": [
+              "mem-bae6dff4ab",
+              "mem-32fe0e1f51",
+              "mem-05a377d393"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A5",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2",
+              "A3",
+              "A4"
+            ],
+            "gold_memory_ids": [
+              "mem-05a377d393",
+              "mem-32fe0e1f51",
+              "mem-aa3901b4ab",
+              "mem-bae6dff4ab"
+            ],
+            "retrieved": [
+              "mem-bae6dff4ab",
+              "mem-32fe0e1f51",
+              "mem-aa3901b4ab"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B1",
+            "gold_prior_task_ids": [],
+            "gold_memory_ids": [],
+            "retrieved": [],
+            "skipped": true,
+            "reason": "cold start (no gold prior)"
+          },
+          {
+            "task_id": "B2",
+            "gold_prior_task_ids": [
+              "B1"
+            ],
+            "gold_memory_ids": [
+              "mem-8db9575894"
+            ],
+            "retrieved": [
+              "mem-8db9575894",
+              "mem-bae6dff4ab",
+              "mem-04b889bed1"
+            ],
+            "tp": 1,
+            "precision": 0.3333,
+            "recall": 1.0,
+            "f1": 0.5,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B3",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2"
+            ],
+            "gold_memory_ids": [
+              "mem-0e74e3cc8e",
+              "mem-8db9575894"
+            ],
+            "retrieved": [
+              "mem-8db9575894",
+              "mem-0e74e3cc8e",
+              "mem-32fe0e1f51"
+            ],
+            "tp": 2,
+            "precision": 0.6667,
+            "recall": 1.0,
+            "f1": 0.8,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B4",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2",
+              "B3",
+              "A5"
+            ],
+            "gold_memory_ids": [
+              "mem-04b889bed1",
+              "mem-09e0d13444",
+              "mem-0e74e3cc8e",
+              "mem-8db9575894"
+            ],
+            "retrieved": [
+              "mem-09e0d13444",
+              "mem-0e74e3cc8e",
+              "mem-8db9575894"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B5",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2",
+              "B3",
+              "B4",
+              "A5"
+            ],
+            "gold_memory_ids": [
+              "mem-04b889bed1",
+              "mem-09e0d13444",
+              "mem-0e74e3cc8e",
+              "mem-8db9575894",
+              "mem-ef82344e9d"
+            ],
+            "retrieved": [
+              "mem-ef82344e9d",
+              "mem-0e74e3cc8e",
+              "mem-09e0d13444"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.75,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          }
+        ]
+      }
+    },
+    "protocol": {
+      "mode": "protocol",
+      "metrics": {
+        "ipc_send_count": 0,
+        "ipc_bytes_sent": 0,
+        "shm_alloc_count": 0,
+        "latency_seconds": 0.513414,
+        "shm_peak_bytes": 0,
+        "llm_call_count": 0,
+        "retrieval_count": 3,
+        "message_count": 44,
+        "ipc_round_trip_avg_us": 0.0,
+        "memory_hit_rate": 0.8,
+        "llm_cached_tokens": 0,
+        "llm_total_tokens": 0,
+        "memory_hit_count": 8,
+        "memory_search_count": 10,
+        "tasks_completed": 10,
+        "llm_prompt_tokens": 0,
+        "execution_count": 10,
+        "state_bytes": 25600,
+        "state_transfer_count": 40,
+        "text_chars": 0,
+        "mode": "protocol",
+        "shm_attach_count": 0,
+        "llm_avg_latency_ms": 0.0,
+        "llm_parse_failures": 0,
+        "protocol_chars": 16950,
+        "ipc_round_trip_us_sum": 0,
+        "estimated_tokens": 9417,
+        "llm_completion_tokens": 0,
+        "ipc_recv_count": 0
+      },
+      "metrics_std": {
+        "ipc_send_count": 0.0,
+        "ipc_bytes_sent": 0.0,
+        "shm_alloc_count": 0.0,
+        "latency_seconds": 0.010346,
+        "shm_peak_bytes": 0.0,
+        "llm_call_count": 0.0,
+        "retrieval_count": 0.0,
+        "message_count": 0.0,
+        "ipc_round_trip_avg_us": 0.0,
+        "memory_hit_rate": 0.0,
+        "llm_cached_tokens": 0.0,
+        "llm_total_tokens": 0.0,
+        "memory_hit_count": 0.0,
+        "memory_search_count": 0.0,
+        "tasks_completed": 0.0,
+        "llm_prompt_tokens": 0.0,
+        "execution_count": 0.0,
+        "state_bytes": 0.0,
+        "state_transfer_count": 0.0,
+        "text_chars": 0.0,
+        "mode": 0,
+        "shm_attach_count": 0.0,
+        "llm_avg_latency_ms": 0.0,
+        "llm_parse_failures": 0.0,
+        "protocol_chars": 0.0,
+        "ipc_round_trip_us_sum": 0.0,
+        "estimated_tokens": 0.0,
+        "llm_completion_tokens": 0.0,
+        "ipc_recv_count": 0.0
+      },
+      "runs": 3,
+      "tasks": [
+        {
+          "task_id": "A1",
+          "topic": "openEuler 24.03 Python Web 服务部署调研",
+          "mode": "protocol",
+          "memory_refs": [],
+          "new_memory_id": "mem-34a26a918e",
+          "state_refs": [
+            "state-472c97c3ce",
+            "state-ebe196c7c7",
+            "state-f63b0c8067"
+          ],
+          "summary": "openEuler 24.03 Python Web 服务部署调研: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, Python dependency troubleshooting, systemd service checklist。执行产物类型为 deployment_script。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A2",
+          "topic": "生成 Python Web 服务部署脚本",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-34a26a918e"
+          ],
+          "new_memory_id": "mem-c3690ead9d",
+          "state_refs": [
+            "state-39cfe6c558",
+            "state-0289b5b07c",
+            "state-41e683f8b4"
+          ],
+          "summary": "生成 Python Web 服务部署脚本: 完成任务拆解、证据检索和执行验证。关键证据包括 openEuler Python service deployment, systemd service checklist, Python dependency troubleshooting。执行产物类型为 deployment_script。 复用了历史记忆 mem-34a26a918e。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "A3",
+          "topic": "检查部署依赖和环境问题",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-34a26a918e",
+            "mem-c3690ead9d"
+          ],
+          "new_memory_id": "mem-d87ea7043d",
+          "state_refs": [
+            "state-825f0bf116",
+            "state-1d2a5f3342",
+            "state-85128bdf28"
+          ],
+          "summary": "检查部署依赖和环境问题: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 deployment_script。 复用了历史记忆 mem-34a26a918e, mem-c3690ead9d。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "A4",
+          "topic": "生成 systemd 服务配置",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-c3690ead9d",
+            "mem-34a26a918e",
+            "mem-d87ea7043d"
+          ],
+          "new_memory_id": "mem-3aea7d22c4",
+          "state_refs": [
+            "state-02d536b13d",
+            "state-a976139862",
+            "state-78617cd371"
+          ],
+          "summary": "生成 systemd 服务配置: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-c3690ead9d, mem-34a26a918e, mem-d87ea7043d。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "A5",
+          "topic": "生成完整部署文档",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-c3690ead9d",
+            "mem-34a26a918e",
+            "mem-3aea7d22c4"
+          ],
+          "new_memory_id": "mem-c6d9f3f646",
+          "state_refs": [
+            "state-7965f26e48",
+            "state-e8867ae7f7",
+            "state-0164bd6724"
+          ],
+          "summary": "生成完整部署文档: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 systemd_unit。 复用了历史记忆 mem-c3690ead9d, mem-34a26a918e, mem-3aea7d22c4。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B1",
+          "topic": "CSV 数据字段和质量分析",
+          "mode": "protocol",
+          "memory_refs": [],
+          "new_memory_id": "mem-99d4358f9d",
+          "state_refs": [
+            "state-8829d38351",
+            "state-080e35f456",
+            "state-b48d3edaf1"
+          ],
+          "summary": "CSV 数据字段和质量分析: 完成任务拆解、证据检索和执行验证。关键证据包括 CSV quality analysis, Data cleaning strategy。执行产物类型为 csv_analysis。 未命中可复用记忆，本轮产出将沉淀为新经验。",
+          "skipped_local_retrieval": false
+        },
+        {
+          "task_id": "B2",
+          "topic": "生成 CSV 数据清洗代码",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-99d4358f9d",
+            "mem-c3690ead9d",
+            "mem-c6d9f3f646"
+          ],
+          "new_memory_id": "mem-268107e5b6",
+          "state_refs": [
+            "state-3655a10fe2",
+            "state-c560e41860",
+            "state-6a4cd47425"
+          ],
+          "summary": "生成 CSV 数据清洗代码: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-99d4358f9d, mem-c3690ead9d, mem-c6d9f3f646。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B3",
+          "topic": "执行统计分析并输出摘要",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-99d4358f9d",
+            "mem-268107e5b6",
+            "mem-34a26a918e"
+          ],
+          "new_memory_id": "mem-234c92ae73",
+          "state_refs": [
+            "state-ffaf968ed1",
+            "state-1086d246b7",
+            "state-c42aa61fd9"
+          ],
+          "summary": "执行统计分析并输出摘要: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-99d4358f9d, mem-268107e5b6, mem-34a26a918e。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B4",
+          "topic": "生成图表和报告结构",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-234c92ae73",
+            "mem-268107e5b6",
+            "mem-99d4358f9d"
+          ],
+          "new_memory_id": "mem-5d6e9222d0",
+          "state_refs": [
+            "state-de319064e0",
+            "state-40dbc4a968",
+            "state-83f459eb46"
+          ],
+          "summary": "生成图表和报告结构: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-234c92ae73, mem-268107e5b6, mem-99d4358f9d。",
+          "skipped_local_retrieval": true
+        },
+        {
+          "task_id": "B5",
+          "topic": "生成自动化数据分析模板",
+          "mode": "protocol",
+          "memory_refs": [
+            "mem-5d6e9222d0",
+            "mem-268107e5b6",
+            "mem-234c92ae73"
+          ],
+          "new_memory_id": "mem-78f4eee813",
+          "state_refs": [
+            "state-92246742b6",
+            "state-65d50ce8dd",
+            "state-57705afc06"
+          ],
+          "summary": "生成自动化数据分析模板: 完成任务拆解、证据检索和执行验证。关键证据包括 无。执行产物类型为 csv_analysis。 复用了历史记忆 mem-5d6e9222d0, mem-268107e5b6, mem-234c92ae73。",
+          "skipped_local_retrieval": true
+        }
+      ],
+      "transcript_sample": [
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-2e0a2bd94f",
+            "task_id": "runtime",
+            "from": "planner",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "planner",
+              "capabilities": [
+                "task_decomposition",
+                "memory_reuse_decision"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:25"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-d82edf4630",
+            "task_id": "runtime",
+            "from": "retriever",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "retriever",
+              "capabilities": [
+                "keyword_search",
+                "semantic_memory_search"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:25"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-1ae91dd71a",
+            "task_id": "runtime",
+            "from": "executor",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "executor",
+              "capabilities": [
+                "python_exec",
+                "template_render"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:25"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-ec3c9fb0fb",
+            "task_id": "runtime",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "handshake",
+            "params": {
+              "protocol_version": "1.0",
+              "agent_type": "summarizer",
+              "capabilities": [
+                "summary_generation",
+                "memory_write"
+              ]
+            },
+            "capability_required": [],
+            "state_refs": [],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:25"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-7fb4aaf194",
+            "task_id": "A1",
+            "from": "planner",
+            "to": "runtime",
+            "action": "task.plan",
+            "params": {
+              "topic": "openEuler 24.03 Python Web 服务部署调研",
+              "steps": [
+                "retrieve",
+                "execute",
+                "summarize"
+              ]
+            },
+            "capability_required": [
+              "task_decomposition"
+            ],
+            "state_refs": [
+              "state-472c97c3ce"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:25"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-858ef63f44",
+            "task_id": "A1",
+            "from": "retriever",
+            "to": "executor",
+            "action": "retrieve.result",
+            "params": {
+              "query": "调研 openEuler 24.03 LTS SP3 上部署 Python Web 服务的基础流程、依赖和验证步骤。",
+              "top_k": 3,
+              "skip_local": false
+            },
+            "capability_required": [
+              "keyword_search",
+              "semantic_memory_search"
+            ],
+            "state_refs": [
+              "state-ebe196c7c7"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:25",
+            "result": {
+              "items": [
+                "openEuler Python service deployment",
+                "Python dependency troubleshooting",
+                "systemd service checklist"
+              ],
+              "memory_hits": []
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-11bae1119b",
+            "task_id": "A1",
+            "from": "executor",
+            "to": "summarizer",
+            "action": "execute.result",
+            "params": {},
+            "capability_required": [
+              "python_exec",
+              "template_render"
+            ],
+            "state_refs": [
+              "state-ebe196c7c7"
+            ],
+            "memory_refs": [],
+            "timestamp": "2026-05-27T07:44:25",
+            "result": {
+              "status": "ok",
+              "artifact_kind": "deployment_script",
+              "stdout_chars": 41
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-fd303d7831",
+            "task_id": "A1",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "summarize.result",
+            "params": {},
+            "capability_required": [
+              "summary_generation",
+              "memory_write"
+            ],
+            "state_refs": [
+              "state-f63b0c8067"
+            ],
+            "memory_refs": [
+              "mem-34a26a918e"
+            ],
+            "timestamp": "2026-05-27T07:44:25",
+            "result": {
+              "memory_id": "mem-34a26a918e",
+              "summary_chars": 205,
+              "strategy_code": "deployment_script"
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-99be143704",
+            "task_id": "A2",
+            "from": "planner",
+            "to": "runtime",
+            "action": "task.plan",
+            "params": {
+              "topic": "生成 Python Web 服务部署脚本",
+              "steps": [
+                "retrieve",
+                "reuse_memory",
+                "execute",
+                "summarize"
+              ]
+            },
+            "capability_required": [
+              "task_decomposition"
+            ],
+            "state_refs": [
+              "state-39cfe6c558"
+            ],
+            "memory_refs": [
+              "mem-34a26a918e"
+            ],
+            "timestamp": "2026-05-27T07:44:25"
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-067acd7a44",
+            "task_id": "A2",
+            "from": "retriever",
+            "to": "executor",
+            "action": "retrieve.result",
+            "params": {
+              "query": "基于上一轮部署调研，生成可复用的 Python Web 服务部署脚本和检查命令。",
+              "top_k": 3,
+              "skip_local": false
+            },
+            "capability_required": [
+              "keyword_search",
+              "semantic_memory_search"
+            ],
+            "state_refs": [
+              "state-0289b5b07c"
+            ],
+            "memory_refs": [
+              "mem-34a26a918e"
+            ],
+            "timestamp": "2026-05-27T07:44:25",
+            "result": {
+              "items": [
+                "openEuler Python service deployment",
+                "systemd service checklist",
+                "Python dependency troubleshooting"
+              ],
+              "memory_hits": [
+                "mem-34a26a918e"
+              ]
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-2166db8e64",
+            "task_id": "A2",
+            "from": "executor",
+            "to": "summarizer",
+            "action": "execute.result",
+            "params": {},
+            "capability_required": [
+              "python_exec",
+              "template_render"
+            ],
+            "state_refs": [
+              "state-0289b5b07c"
+            ],
+            "memory_refs": [
+              "mem-34a26a918e"
+            ],
+            "timestamp": "2026-05-27T07:44:25",
+            "result": {
+              "status": "ok",
+              "artifact_kind": "deployment_script",
+              "stdout_chars": 41
+            }
+          }
+        },
+        {
+          "mode": "protocol",
+          "payload": {
+            "msg_id": "msg-7c9ce3dedb",
+            "task_id": "A2",
+            "from": "summarizer",
+            "to": "runtime",
+            "action": "summarize.result",
+            "params": {},
+            "capability_required": [
+              "summary_generation",
+              "memory_write"
+            ],
+            "state_refs": [
+              "state-41e683f8b4"
+            ],
+            "memory_refs": [
+              "mem-c3690ead9d"
+            ],
+            "timestamp": "2026-05-27T07:44:25",
+            "result": {
+              "memory_id": "mem-c3690ead9d",
+              "summary_chars": 194,
+              "strategy_code": "deployment_script"
+            }
+          }
+        }
+      ],
+      "memory_accuracy": {
+        "summary": {
+          "scored_tasks": 8,
+          "total_tasks_with_gold": 8,
+          "macro_precision_at_3": 0.875,
+          "macro_recall_at_3": 0.8875,
+          "macro_f1_at_3": 0.8455,
+          "mrr": 1.0
+        },
+        "per_task": [
+          {
+            "task_id": "A1",
+            "gold_prior_task_ids": [],
+            "gold_memory_ids": [],
+            "retrieved": [],
+            "skipped": true,
+            "reason": "cold start (no gold prior)"
+          },
+          {
+            "task_id": "A2",
+            "gold_prior_task_ids": [
+              "A1"
+            ],
+            "gold_memory_ids": [
+              "mem-34a26a918e"
+            ],
+            "retrieved": [
+              "mem-34a26a918e"
+            ],
+            "tp": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A3",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2"
+            ],
+            "gold_memory_ids": [
+              "mem-34a26a918e",
+              "mem-c3690ead9d"
+            ],
+            "retrieved": [
+              "mem-34a26a918e",
+              "mem-c3690ead9d"
+            ],
+            "tp": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A4",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2",
+              "A3"
+            ],
+            "gold_memory_ids": [
+              "mem-34a26a918e",
+              "mem-c3690ead9d",
+              "mem-d87ea7043d"
+            ],
+            "retrieved": [
+              "mem-c3690ead9d",
+              "mem-34a26a918e",
+              "mem-d87ea7043d"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "A5",
+            "gold_prior_task_ids": [
+              "A1",
+              "A2",
+              "A3",
+              "A4"
+            ],
+            "gold_memory_ids": [
+              "mem-34a26a918e",
+              "mem-3aea7d22c4",
+              "mem-c3690ead9d",
+              "mem-d87ea7043d"
+            ],
+            "retrieved": [
+              "mem-c3690ead9d",
+              "mem-34a26a918e",
+              "mem-3aea7d22c4"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B1",
+            "gold_prior_task_ids": [],
+            "gold_memory_ids": [],
+            "retrieved": [],
+            "skipped": true,
+            "reason": "cold start (no gold prior)"
+          },
+          {
+            "task_id": "B2",
+            "gold_prior_task_ids": [
+              "B1"
+            ],
+            "gold_memory_ids": [
+              "mem-99d4358f9d"
+            ],
+            "retrieved": [
+              "mem-99d4358f9d",
+              "mem-c3690ead9d",
+              "mem-c6d9f3f646"
+            ],
+            "tp": 1,
+            "precision": 0.3333,
+            "recall": 1.0,
+            "f1": 0.5,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B3",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2"
+            ],
+            "gold_memory_ids": [
+              "mem-268107e5b6",
+              "mem-99d4358f9d"
+            ],
+            "retrieved": [
+              "mem-99d4358f9d",
+              "mem-268107e5b6",
+              "mem-34a26a918e"
+            ],
+            "tp": 2,
+            "precision": 0.6667,
+            "recall": 1.0,
+            "f1": 0.8,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B4",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2",
+              "B3",
+              "A5"
+            ],
+            "gold_memory_ids": [
+              "mem-234c92ae73",
+              "mem-268107e5b6",
+              "mem-99d4358f9d",
+              "mem-c6d9f3f646"
+            ],
+            "retrieved": [
+              "mem-234c92ae73",
+              "mem-268107e5b6",
+              "mem-99d4358f9d"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          },
+          {
+            "task_id": "B5",
+            "gold_prior_task_ids": [
+              "B1",
+              "B2",
+              "B3",
+              "B4",
+              "A5"
+            ],
+            "gold_memory_ids": [
+              "mem-234c92ae73",
+              "mem-268107e5b6",
+              "mem-5d6e9222d0",
+              "mem-99d4358f9d",
+              "mem-c6d9f3f646"
+            ],
+            "retrieved": [
+              "mem-5d6e9222d0",
+              "mem-268107e5b6",
+              "mem-234c92ae73"
+            ],
+            "tp": 3,
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1": 0.75,
+            "reciprocal_rank": 1.0,
+            "skipped": false
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "metrics": {
+      "protocol": {
+        "ipc_send_count": 0,
+        "ipc_bytes_sent": 0,
+        "shm_alloc_count": 0,
+        "latency_seconds": 0.513414,
+        "shm_peak_bytes": 0,
+        "llm_call_count": 0,
+        "retrieval_count": 3,
+        "message_count": 44,
+        "ipc_round_trip_avg_us": 0.0,
+        "memory_hit_rate": 0.8,
+        "llm_cached_tokens": 0,
+        "llm_total_tokens": 0,
+        "memory_hit_count": 8,
+        "memory_search_count": 10,
+        "tasks_completed": 10,
+        "llm_prompt_tokens": 0,
+        "execution_count": 10,
+        "state_bytes": 25600,
+        "state_transfer_count": 40,
+        "text_chars": 0,
+        "mode": "protocol",
+        "shm_attach_count": 0,
+        "llm_avg_latency_ms": 0.0,
+        "llm_parse_failures": 0,
+        "protocol_chars": 16950,
+        "ipc_round_trip_us_sum": 0,
+        "estimated_tokens": 9417,
+        "llm_completion_tokens": 0,
+        "ipc_recv_count": 0
+      },
+      "protocol_ipc": {
+        "ipc_send_count": 44,
+        "ipc_bytes_sent": 25141.333333,
+        "shm_alloc_count": 30,
+        "latency_seconds": 0.613135,
+        "shm_peak_bytes": 1536,
+        "llm_call_count": 0,
+        "retrieval_count": 3,
+        "message_count": 44,
+        "ipc_round_trip_avg_us": 8152.686667,
+        "memory_hit_rate": 0.8,
+        "llm_cached_tokens": 0,
+        "llm_total_tokens": 0,
+        "memory_hit_count": 8,
+        "memory_search_count": 10,
+        "tasks_completed": 10,
+        "llm_prompt_tokens": 0,
+        "execution_count": 10,
+        "state_bytes": 25600,
+        "state_transfer_count": 40,
+        "text_chars": 0,
+        "mode": "protocol_ipc",
+        "shm_attach_count": 0,
+        "llm_avg_latency_ms": 0.0,
+        "llm_parse_failures": 0,
+        "protocol_chars": 17034,
+        "ipc_round_trip_us_sum": 358718.333333,
+        "estimated_tokens": 9463,
+        "llm_completion_tokens": 0,
+        "ipc_recv_count": 44
+      }
+    },
+    "improvements": {
+      "protocol": {
+        "vs_baseline": "text",
+        "token_saving": 0.0,
+        "char_saving": 0.0,
+        "latency_improvement": 0.0,
+        "retrieval_reduction": 0.0,
+        "message_reduction": 0.0,
+        "memory_hit_rate_delta": 0.8
+      },
+      "protocol_ipc": {
+        "vs_baseline": "text",
+        "token_saving": 0.0,
+        "char_saving": 0.0,
+        "latency_improvement": 0.0,
+        "retrieval_reduction": 0.0,
+        "message_reduction": 0.0,
+        "memory_hit_rate_delta": 0.8
+      }
+    },
+    "baseline": "text"
+  }
+}

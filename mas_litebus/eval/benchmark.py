@@ -23,10 +23,14 @@ def _resolve_modes(mode: str) -> list[str]:
     if mode == "ablation":
         # Six modes that together support causation analysis (text<->memory<->protocol<->ipc).
         return list(SUPPORTED_MODES)
+    if mode == "llm":
+        # All modes that can use an LLM backend (everything except protocol_ipc,
+        # which keeps deterministic Agents — see ipc_engine.py for the rationale).
+        return [m for m in SUPPORTED_MODES if m != "protocol_ipc"]
     if mode in SUPPORTED_MODES:
         return [mode]
     raise ValueError(
-        f"unknown mode {mode!r}; expected one of: {', '.join(SUPPORTED_MODES)}, both, ablation, all"
+        f"unknown mode {mode!r}; expected one of: {', '.join(SUPPORTED_MODES)}, both, ablation, llm, all"
     )
 
 

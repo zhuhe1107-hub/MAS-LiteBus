@@ -58,6 +58,20 @@ python scripts/run_benchmark.py --mode protocol_ipc --rounds 10
 - 共享内存名前缀 `mas_state_`. 如果上次异常退出残留, 可执行 `rm -f /dev/shm/mas_state_*` 清理 (正常退出会自动 unlink, 不会残留).
 - Python 3.9+ 的 `multiprocessing.shared_memory` (3.8+ 已具备). 在 openEuler 默认 Python 上无额外依赖.
 
+### 4.1.1 平台限制 (硬性)
+
+`protocol_ipc` 和 `tests/test_ipc.py` **仅在 Linux 上运行** (macOS 部分支持). Windows 不支持:
+
+- Windows 没有 fork (`multiprocessing.get_context("fork")` 在 Windows 上会报错)
+- Windows 没有 `/dev/shm` (POSIX 命名共享内存)
+- 即使 Windows 10+ 支持 `AF_UNIX`, Python multiprocessing 的 worker 启动路径也不完整
+
+代码在非 Linux/macOS 平台会在 `IPCMultiAgentRuntime.__init__` 立即 `RuntimeError`. 不会跑到一半再崩.
+
+`--mode all` 和 `--mode ablation` 因为包含 `protocol_ipc`, 同样仅 Linux 可用. 其他模式 (`text` / `text_v2` / `text_with_memory` / `protocol_no_memory` / `protocol` / LLM 集成) 都是跨平台的.
+
+赛题交付目标就是 openEuler 24.03-LTS-SP3 (Linux), 所以这个限制不影响评审.
+
 ## 5. 运行测试
 
 ```bash
