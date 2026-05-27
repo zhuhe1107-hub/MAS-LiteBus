@@ -101,6 +101,54 @@ outputs/benchmark_summary.json
 ### 6.4 答辩可被质疑的点 (主动声明)
 
 - 文本基线 (`text` 模式) 用累积上下文拼接, 通信开销被刻意放大. 真实多 Agent 系统通常会做某种程度的上下文收敛, 因此应主要参考 `text_v2` 与 `protocol` 的对比.
-- token 估算用 `chars / 1.8` 粗估, 与真实 BPE tokenizer 在中文密集场景下可能有 ±20% 偏差. 接入真 tokenizer 是后续工作.
-- 记忆命中是否"准确"未做 ground truth 评估; 当前 `memory_hit_rate` 只衡量"是否找到至少一条相似度 ≥ 阈值的历史记忆", 不衡量复用是否提升下游产出质量. 这是后续可扩展的评测方向.
+- 记忆命中是否"准确"未做 ground truth 评估; 当前 `memory_hit_rate` 只衡量"是否找到至少一条相似度 ≥ 阈值的历史记忆". `mas_litebus/eval/accuracy.py` 配合 `tasks/continuous_tasks.json` 里的 `gold_prior_task_ids` 计算 P/R/F1/MRR 作为额外信号.
+
+## 7. LLM 接入 (真实 token 计数)
+
+为了避免"系统层数据全是模板自圆其说"的质疑, 项目内置 LLM 接入开关:
+
+```bash
+python scripts/run_benchmark.py --mode all --llm ollama --llm-model llama3:8b --rounds 10
+```
+
+实现位于 `mas_litebus/llm/`:
+
+- `base.py`: `LLMBackend` ABC + `LLMResponse` (含 `prompt_tokens` / `completion_tokens` / `latency_ms`)
+- `ollama.py`: 调本地 Ollama HTTP `/api/chat`, 解析 `prompt_eval_count` / `eval_count` 作为真实 BPE token 数
+- `prompts.py`: 每个 Agent 两套 prompt — `mode="text"` 嵌入累积 NL, `mode="protocol"` 嵌入紧凑 JSON
+- `parse.py`: 容忍 markdown 围栏 / 尾逗号的 JSON 抽取, 失败时回退到模板
+
+每个 Agent 构造时可选 `llm: LLMBackend | None`:
+
+- `llm=None` (默认): 走原确定性模板, 兼容现有 11 个单元测试和无网评审环境.
+- `llm=OllamaBackend(...)`: 每轮任务每个 Agent 发起一次 LLM 调用, 把真 BPE token 累加进 `Metrics.llm_prompt_tokens` / `llm_completion_tokens`.
+
+### 7.1 真实 token 数据 (llama3:8b, 1 次 10 轮任务)
+
+| 模式 | LLM prompt tokens (真 BPE) | LLM completion tokens | 单次平均延迟 ms | 总耗时 s |
+|---|---:|---:|---:|---:|
+| text (累积) | 15513 | 7343 | 3661 | 146.9 |
+| text_v2 (合理基线) | 14096 | 7271 | 3624 | 145.3 |
+| text + memory | 15474 | 6078 | 3719 | 123.3 |
+| protocol (no memory) | 7711 | 4376 | 2218 | 88.9 |
+| **protocol (full)** | **6376** | **3811** | **2300** | **76.5** |
+
+**protocol 相对 text_v2 的真实 prompt token 节省: 14096 → 6376 = 54.8%**.
+
+这是赛题 "通信效率: 相比纯文本协作的 **token 节省效果**" 的字面回答 — 用 Ollama 报回的真 tokenizer 计数, 不是 `chars/1.8` 估算.
+
+### 7.2 Executor 沙箱
+
+LLM 模式下 Executor 走 CodeAct: 让 LLM 生成 Python 片段, 投到 `mas_litebus/sandbox/runner.py` 实现的 subprocess 沙箱执行:
+
+- 独立 Python 子进程, 工作目录在临时 tmpdir
+- `resource.setrlimit` 限 CPU 秒 (4s) + 地址空间 (256 MB) + 文件描述符 (32)
+- 父进程加 `subprocess.timeout=5s` 兜底
+- 环境变量裁剪 (去掉 HTTP_PROXY), 防止生成代码出网
+
+沙箱失败时 (语法错误 / 超时 / OOM) 自动回退到 `_template_execute`, 累加 `metrics.llm_parse_failures` 但不让流水线崩.
+
+### 7.3 IPC + LLM 暂未整合
+
+`protocol_ipc` 模式目前不接 LLM (报告里 LLM 行显示 "-"). 原因: worker 子进程通过 `fork()` 启动, 当时父进程的 `httpx.Client` 状态会被复制, 多 worker 同时往 Ollama 发请求容易触发连接池竞争. 让 worker 各自起新 client 是直接做法, 但需重写 worker 启动流程. 这是后续工作; 当前 IPC 模式跑确定性 Agent, 用来证明跨进程协议机制本身能跑.
 

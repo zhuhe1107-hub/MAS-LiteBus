@@ -41,11 +41,24 @@ def main() -> int:
         default=1,
         help="repeat each mode N times and aggregate mean / std (useful for latency variance)",
     )
+    parser.add_argument(
+        "--llm",
+        choices=["off", "ollama"],
+        default="off",
+        help="use real LLM Agents (Ollama running on localhost). 'off' = deterministic templates.",
+    )
+    parser.add_argument("--llm-model", default="qwen2:7b", help="Ollama model tag (only with --llm ollama)")
+    parser.add_argument("--llm-host", default="http://127.0.0.1:11434")
     parser.add_argument("--tasks", default=str(ROOT / "tasks" / "continuous_tasks.json"))
     parser.add_argument("--output-dir", default=str(ROOT / "outputs"))
     args = parser.parse_args()
 
-    results = run_benchmark(args.mode, args.tasks, args.output_dir, args.rounds, repeat=args.repeat)
+    llm_backend = None
+    if args.llm == "ollama":
+        from mas_litebus.llm.ollama import OllamaBackend
+        llm_backend = OllamaBackend(model=args.llm_model, host=args.llm_host)
+
+    results = run_benchmark(args.mode, args.tasks, args.output_dir, args.rounds, repeat=args.repeat, llm=llm_backend)
     output = Path(args.output_dir)
     output.mkdir(parents=True, exist_ok=True)
 

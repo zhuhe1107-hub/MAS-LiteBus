@@ -5,6 +5,7 @@ from typing import Any
 
 from mas_litebus.eval.accuracy import compute_accuracy
 from mas_litebus.eval.report import write_report
+from mas_litebus.llm.base import LLMBackend
 from mas_litebus.runtime.engine import MultiAgentRuntime
 from mas_litebus.runtime.ipc_engine import IPCMultiAgentRuntime
 from mas_litebus.runtime.task import load_tasks
@@ -41,11 +42,18 @@ def _wipe_sqlite_files(output: Path, name: str) -> None:
                 pass
 
 
-def _run_one(mode: str, memory_path: Path, tasks: list[Any]) -> dict[str, Any]:
+def _run_one(
+    mode: str,
+    memory_path: Path,
+    tasks: list[Any],
+    llm: LLMBackend | None = None,
+) -> dict[str, Any]:
     if mode == "protocol_ipc":
+        # Workers in IPC mode cannot share an in-process LLM client across fork,
+        # so the IPC runtime keeps its deterministic Agent implementations.
         runtime: Any = IPCMultiAgentRuntime(memory_path=memory_path)
     else:
-        runtime = MultiAgentRuntime(mode=mode, memory_path=memory_path)
+        runtime = MultiAgentRuntime(mode=mode, memory_path=memory_path, llm=llm)
     try:
         return runtime.run_tasks(tasks)
     finally:
@@ -90,6 +98,7 @@ def run_benchmark(
     output_dir: str | Path,
     rounds: int | None = None,
     repeat: int = 1,
+    llm: LLMBackend | None = None,
 ) -> dict[str, Any]:
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
@@ -102,7 +111,7 @@ def run_benchmark(
         last_full: dict[str, Any] | None = None
         for _ in range(max(1, repeat)):
             _wipe_sqlite_files(output, item)
-            last_full = _run_one(item, memory_path, tasks)
+            last_full = _run_one(item, memory_path, tasks, llm=llm)
             runs.append(last_full["metrics"])
         means, stds = _aggregate_metrics(runs)
         results[item] = {

@@ -121,6 +121,12 @@ COUNT_KEYS = {
     "shm_alloc_count",
     "shm_attach_count",
     "shm_peak_bytes",
+    "llm_call_count",
+    "llm_prompt_tokens",
+    "llm_completion_tokens",
+    "llm_total_tokens",
+    "llm_cached_tokens",
+    "llm_parse_failures",
 }
 
 
@@ -152,8 +158,14 @@ def _column_value(mode: str, key: str, results: dict[str, Any]) -> str:
         if runs > 1 and stds.get(key, 0):
             formatted += f" ± {float(stds[key]):.1f}"
         return formatted
+    if key == "llm_avg_latency_ms":
+        if value == 0:
+            return "-"
+        return f"{float(value):.1f}"
     if key in COUNT_KEYS:
         rounded = int(round(float(value)))
+        if value == 0 and key.startswith("llm_"):
+            return "-"
         if runs > 1 and stds.get(key, 0):
             return f"{rounded} ± {float(stds[key]):.1f}"
         return str(rounded)
@@ -179,6 +191,13 @@ ROWS: list[tuple[str, str, tuple[str, ...] | None]] = [
     ("IPC 单次往返平均 (μs)", "ipc_round_trip_avg_us", ("protocol_ipc",)),
     ("shm 分配次数 (POSIX)", "shm_alloc_count", ("protocol_ipc",)),
     ("shm 峰值字节", "shm_peak_bytes", ("protocol_ipc",)),
+    ("--- LLM 真实 token (Ollama 报回) ---", "_llm_section", None),
+    ("LLM 调用次数", "llm_call_count", None),
+    ("LLM prompt tokens (真 BPE)", "llm_prompt_tokens", None),
+    ("LLM completion tokens", "llm_completion_tokens", None),
+    ("LLM 总 token", "llm_total_tokens", None),
+    ("LLM 平均单次延迟 (ms)", "llm_avg_latency_ms", None),
+    ("LLM 解析失败 (回退到模板)", "llm_parse_failures", None),
 ]
 
 
@@ -195,6 +214,15 @@ def render_markdown(results: dict[str, Any]) -> str:
         if key == "_section":
             # Section separator: only render if any restricted-mode row will follow.
             if "protocol_ipc" in modes_present:
+                body_lines.append("| **" + label + "** | " + " | ".join(["—"] * len(modes_present)) + " |")
+            continue
+        if key == "_llm_section":
+            # Only render when at least one mode actually called an LLM.
+            any_llm = any(
+                int(results[m].get("metrics", {}).get("llm_call_count", 0) or 0) > 0
+                for m in modes_present
+            )
+            if any_llm:
                 body_lines.append("| **" + label + "** | " + " | ".join(["—"] * len(modes_present)) + " |")
             continue
         cells = []

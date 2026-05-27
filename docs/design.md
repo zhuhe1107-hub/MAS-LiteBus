@@ -209,3 +209,49 @@ embedding 向量 (128 维 float32, 512 字节) 不经过 socket, 而是:
 - `ipc_round_trip_us_sum`, `ipc_round_trip_avg_us` — coordinator 视角的请求-响应往返延迟.
 - `shm_alloc_count`, `shm_peak_bytes` — POSIX 共享内存的分配次数和峰值占用.
 
+## 9. LLM 接入 (CodeAct + 真 BPE token 计数)
+
+为了让"通信效率"从字符估算变成 LLM 真实 token 数, 项目内置可选 LLM 后端:
+
+### 9.1 模块结构
+
+```text
+mas_litebus/llm/
+  base.py        LLMBackend ABC + LLMResponse (prompt_tokens / completion_tokens / latency_ms)
+  ollama.py      Ollama HTTP /api/chat 实现, 解析 prompt_eval_count + eval_count 为真 BPE 数
+  prompts.py     每个 Agent 两套 prompt: text 模式嵌入 NL, protocol 模式嵌入紧凑 JSON
+  parse.py       容忍 markdown 围栏 / 尾逗号的 JSON 抽取, 失败回退到模板
+mas_litebus/sandbox/
+  runner.py      subprocess + resource.setrlimit + wall-clock timeout, Executor CodeAct 用
+```
+
+### 9.2 双形态 Agent
+
+每个 Agent 构造时接收可选 `llm: LLMBackend | None`:
+
+- `llm=None` (默认): 走原确定性模板, 兼容 11 个单元测试与无网评审环境.
+- `llm=OllamaBackend(...)`: 每轮任务每个 Agent 一次 LLM 调用, 真 BPE token 累加进 `Metrics.llm_prompt_tokens / llm_completion_tokens`.
+
+LLM 解析失败时自动回退到模板, 累加 `metrics.llm_parse_failures`, 流水线不中断.
+
+### 9.3 文本 vs 协议在 LLM 视角下的差异
+
+赛题最核心命题"协议比 NL 更省 token"在这一层被字面验证:
+
+- text 模式: Agent N 的 LLM prompt 嵌入**累积 NL 上下文** (planner_text + retriever_text + executor_text + ...).
+- protocol 模式: Agent N 的 LLM prompt 只嵌入**紧凑 JSON 结构** (前一步 result + state_refs + memory_refs).
+
+两种模式下 LLM 输出 schema 相同 (统一 JSON), 差异完全来自输入端. 实测 llama3:8b 10 轮: `protocol (full)` 相对 `text_v2` prompt token 14096 → 6376 = **54.8% 节省**.
+
+### 9.4 CodeAct 沙箱
+
+LLM 模式的 Executor 走 CodeAct: LLM 输出 Python 代码, 投到 `sandbox/runner.py`:
+
+- 独立 `python3` 子进程, 工作目录临时 tmpdir
+- `RLIMIT_CPU=4s` + `RLIMIT_AS=256MB` + `RLIMIT_NOFILE=32`
+- 父进程 `subprocess.timeout=5s` 二次兜底
+- 环境变量裁剪 (移除 `HTTP_PROXY`), 防止生成代码出网或泄露凭据
+- 子进程崩溃 / 超时不影响 coordinator
+
+回应赛题"鼓励"列表的 "**CodeAct 模式 + 轻量沙箱**" 项.
+

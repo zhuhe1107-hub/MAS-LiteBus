@@ -2,10 +2,16 @@ from __future__ import annotations
 
 import contextlib
 import io
+import json
 from statistics import mean
 
 from mas_litebus.agents.base import AgentContext, BaseAgent
+from mas_litebus.eval.metrics import Metrics
+from mas_litebus.llm.base import LLMBackend
+from mas_litebus.llm.parse import extract_json
+from mas_litebus.llm.prompts import EXECUTOR_SYSTEM, executor_user_prompt
 from mas_litebus.runtime.protocol import Capability
+from mas_litebus.sandbox import run_python
 
 
 SAMPLE_ROWS = [
@@ -18,6 +24,9 @@ SAMPLE_ROWS = [
 
 class ExecutorAgent(BaseAgent):
     name = "executor"
+
+    def __init__(self, llm: LLMBackend | None = None) -> None:
+        self.llm = llm
 
     def capabilities(self) -> list[Capability]:
         return [
@@ -35,7 +44,32 @@ class ExecutorAgent(BaseAgent):
             ),
         ]
 
-    def execute(self, ctx: AgentContext, evidence: list[dict[str, object]], memory_refs: list[str]) -> dict[str, object]:
+    def execute(
+        self,
+        ctx: AgentContext,
+        evidence: list[dict[str, object]],
+        memory_refs: list[str],
+        *,
+        llm_mode: str | None = None,
+        retr_payload: object = None,
+        metrics: Metrics | None = None,
+    ) -> dict[str, object]:
+        evidence_titles = [str(item["title"]) for item in evidence]
+        if self.llm is not None and llm_mode in {"text", "protocol"}:
+            try:
+                return self._llm_execute(ctx, evidence_titles, retr_payload, memory_refs, llm_mode, metrics)
+            except Exception:
+                if metrics is not None:
+                    metrics.llm_parse_failures += 1
+                # fall through to template
+        return self._template_execute(ctx, evidence, memory_refs)
+
+    def _template_execute(
+        self,
+        ctx: AgentContext,
+        evidence: list[dict[str, object]],
+        memory_refs: list[str],
+    ) -> dict[str, object]:
         text = " ".join([ctx.topic, ctx.request, " ".join(ctx.tags)]).lower()
         if "csv" in text or "数据" in text or "分析" in text:
             artifact = self._run_csv_analysis()
@@ -58,6 +92,46 @@ class ExecutorAgent(BaseAgent):
             "status": "ok",
             "artifact": artifact,
             "stdout": self._stdout_for_artifact(artifact),
+        }
+
+    def _llm_execute(
+        self,
+        ctx: AgentContext,
+        evidence_titles: list[str],
+        retr_payload: object,
+        memory_refs: list[str],
+        llm_mode: str,
+        metrics: Metrics | None,
+    ) -> dict[str, object]:
+        assert self.llm is not None
+        user = executor_user_prompt(ctx, evidence_titles, retr_payload, llm_mode)
+        resp = self.llm.chat(EXECUTOR_SYSTEM, user, temperature=0.0, max_tokens=900)
+        if metrics is not None:
+            metrics.record_llm(resp)
+        data = extract_json(resp.text)
+        code = str(data.get("code", "")).strip()
+        artifact_kind = str(data.get("artifact_kind", "generic_checklist"))
+        sandbox_stdout = ""
+        sandbox_ok = False
+        if code:
+            result = run_python(code, timeout_sec=5.0, cpu_seconds=4, memory_mb=256)
+            sandbox_stdout = (result.stdout or "").strip()
+            sandbox_ok = result.ok
+            if not result.ok and metrics is not None:
+                metrics.llm_parse_failures += 1
+        artifact = {
+            "kind": artifact_kind,
+            "code": code,
+            "sandbox_ok": sandbox_ok,
+            "stdout": sandbox_stdout,
+            "used_memory_refs": memory_refs,
+            "evidence_titles": evidence_titles,
+            "reasoning": str(data.get("reasoning", "")),
+        }
+        return {
+            "status": "ok" if sandbox_ok else "sandbox_failed",
+            "artifact": artifact,
+            "stdout": sandbox_stdout or f"llm produced {artifact_kind} (no stdout)",
         }
 
     def _deployment_script(self) -> dict[str, object]:

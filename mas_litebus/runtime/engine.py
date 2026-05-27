@@ -9,6 +9,7 @@ from mas_litebus.agents.planner import PlannerAgent
 from mas_litebus.agents.retriever import RetrieverAgent
 from mas_litebus.agents.summarizer import SummarizerAgent
 from mas_litebus.eval.metrics import Metrics
+from mas_litebus.llm.base import LLMBackend
 from mas_litebus.memory.store import SharedMemoryStore
 from mas_litebus.runtime.bus import ProtocolBus
 from mas_litebus.runtime.protocol import ProtocolMessage, TextMessage
@@ -17,23 +18,38 @@ from mas_litebus.state.embedding import StateStore
 
 
 class MultiAgentRuntime:
-    def __init__(self, mode: str, memory_path: str | Path) -> None:
+    def __init__(
+        self,
+        mode: str,
+        memory_path: str | Path,
+        llm: LLMBackend | None = None,
+    ) -> None:
         if mode not in {"text", "text_v2", "text_with_memory", "protocol_no_memory", "protocol"}:
             raise ValueError(
                 "mode must be one of text / text_v2 / text_with_memory / protocol_no_memory / protocol"
             )
         self.mode = mode
+        self.llm = llm
         self.metrics = Metrics(mode=mode)
         self.bus = ProtocolBus(self.metrics)
         self.states = StateStore()
         self.memory = SharedMemoryStore(memory_path, self.states.embedder)
-        self.planner = PlannerAgent()
-        self.retriever = RetrieverAgent(self.memory, self.states)
-        self.executor = ExecutorAgent()
-        self.summarizer = SummarizerAgent(self.memory, self.states)
+        self.planner = PlannerAgent(llm=llm)
+        self.retriever = RetrieverAgent(self.memory, self.states, llm=llm)
+        self.executor = ExecutorAgent(llm=llm)
+        self.summarizer = SummarizerAgent(self.memory, self.states, llm=llm)
         self.agents = [self.planner, self.retriever, self.executor, self.summarizer]
         self.task_results: list[dict[str, Any]] = []
         self._handshake_done = False
+
+    @property
+    def _llm_mode(self) -> str | None:
+        """Map runtime mode to wire-style prompt template ('text' / 'protocol')."""
+        if self.llm is None:
+            return None
+        if self.mode in {"protocol", "protocol_no_memory"}:
+            return "protocol"
+        return "text"
 
     def close(self) -> None:
         self.memory.close()
@@ -80,8 +96,14 @@ class MultiAgentRuntime:
         if memory_hits:
             self.metrics.memory_hit_count += 1
         memory_refs = [unit.memory_id for unit, _, _ in memory_hits]
+        memory_summaries = [unit.summary for unit, _, _ in memory_hits]
 
-        plan = self.planner.plan(ctx, memory_refs)
+        plan = self.planner.plan(
+            ctx, memory_refs,
+            llm_mode=self._llm_mode,
+            memory_summaries=memory_summaries,
+            metrics=self.metrics,
+        )
         self.bus.send_protocol(
             ProtocolMessage(
                 action="task.plan",
@@ -98,7 +120,12 @@ class MultiAgentRuntime:
 
         # Reuse two or more memories as a signal to skip local corpus search.
         skip_local = len(memory_refs) >= 2
-        retrieval = self.retriever.retrieve(ctx, use_memory=True, skip_local=skip_local)
+        retrieval = self.retriever.retrieve(
+            ctx, use_memory=True, skip_local=skip_local,
+            llm_mode=self._llm_mode,
+            plan_payload={"steps": [step["action"] for step in plan["steps"]], "topic": ctx.topic},
+            metrics=self.metrics,
+        )
         if not skip_local:
             self.metrics.retrieval_count += 1
         retr_state = retrieval["state"]
@@ -120,7 +147,12 @@ class MultiAgentRuntime:
         )
         self.bus.record_state_bytes(retr_state.size_bytes)
 
-        execution = self.executor.execute(ctx, retrieval["items"], memory_refs)
+        execution = self.executor.execute(
+            ctx, retrieval["items"], memory_refs,
+            llm_mode=self._llm_mode,
+            retr_payload={"items": [str(it["title"]) for it in retrieval["items"]], "state_id": retr_state.state_id},
+            metrics=self.metrics,
+        )
         self.metrics.execution_count += 1
         self.bus.send_protocol(
             ProtocolMessage(
@@ -145,6 +177,8 @@ class MultiAgentRuntime:
             retrieval["items"],
             execution,
             retrieval["memory_hits"],
+            llm_mode=self._llm_mode,
+            metrics=self.metrics,
         )
         sum_state = summary["state"]
         self.bus.send_protocol(
@@ -197,22 +231,43 @@ class MultiAgentRuntime:
         self._handshake_done = True
 
     def _run_text_task(self, ctx: AgentContext) -> dict[str, Any]:
+        # In LLM mode, exercise the planner LLM first so its tokens are
+        # counted; verbose_plan_text still drives the bus payload.
+        plan = (
+            self.planner.plan(ctx, [], llm_mode=self._llm_mode, metrics=self.metrics)
+            if self.llm is not None
+            else None
+        )
         plan_text = self.planner.verbose_plan_text(ctx)
         self.bus.send_text(TextMessage("planner", "retriever", ctx.task_id, plan_text))
 
-        retrieval = self.retriever.retrieve(ctx, use_memory=False, skip_local=False)
+        retrieval = self.retriever.retrieve(
+            ctx, use_memory=False, skip_local=False,
+            llm_mode=self._llm_mode,
+            plan_payload=plan,
+            metrics=self.metrics,
+        )
         self.metrics.retrieval_count += 1
         retrieval_text = self.retriever.verbose_retrieval_text(ctx, retrieval)
         retrieval_context = "\n".join([plan_text, retrieval_text])
         self.bus.send_text(TextMessage("retriever", "executor", ctx.task_id, retrieval_context))
 
-        execution = self.executor.execute(ctx, retrieval["items"], memory_refs=[])
+        execution = self.executor.execute(
+            ctx, retrieval["items"], memory_refs=[],
+            llm_mode=self._llm_mode,
+            retr_payload=retrieval_context if self._llm_mode == "text" else {"items": [it["title"] for it in retrieval["items"]]},
+            metrics=self.metrics,
+        )
         self.metrics.execution_count += 1
         execution_text = self.executor.verbose_execution_text(ctx, execution)
         execution_context = "\n".join([plan_text, retrieval_text, execution_text])
         self.bus.send_text(TextMessage("executor", "summarizer", ctx.task_id, execution_context))
 
-        summary = self.summarizer.summarize(ctx, retrieval["items"], execution, memory_hits=[])
+        summary = self.summarizer.summarize(
+            ctx, retrieval["items"], execution, memory_hits=[],
+            llm_mode=self._llm_mode,
+            metrics=self.metrics,
+        )
         summary_text = self.summarizer.verbose_summary_text(ctx, summary)
         summary_context = "\n".join([plan_text, retrieval_text, execution_text, summary_text])
         self.bus.send_text(TextMessage("summarizer", "runtime", ctx.task_id, summary_context))
@@ -233,20 +288,36 @@ class MultiAgentRuntime:
         # common multi-agent systems that pass per-step natural-language briefs
         # instead of full conversation logs. Memory is still disabled here so
         # the comparison to protocol mode isolates structured-vs-NL format.
+        plan = (
+            self.planner.plan(ctx, [], llm_mode=self._llm_mode, metrics=self.metrics)
+            if self.llm is not None
+            else None
+        )
         plan_text = self.planner.verbose_plan_text(ctx)
         self.bus.send_text(TextMessage("planner", "retriever", ctx.task_id, plan_text))
 
-        retrieval = self.retriever.retrieve(ctx, use_memory=False, skip_local=False)
+        retrieval = self.retriever.retrieve(
+            ctx, use_memory=False, skip_local=False,
+            llm_mode=self._llm_mode, plan_payload=plan, metrics=self.metrics,
+        )
         self.metrics.retrieval_count += 1
         retrieval_text = self.retriever.verbose_retrieval_text(ctx, retrieval)
         self.bus.send_text(TextMessage("retriever", "executor", ctx.task_id, retrieval_text))
 
-        execution = self.executor.execute(ctx, retrieval["items"], memory_refs=[])
+        execution = self.executor.execute(
+            ctx, retrieval["items"], memory_refs=[],
+            llm_mode=self._llm_mode,
+            retr_payload=retrieval_text if self._llm_mode == "text" else {"items": [it["title"] for it in retrieval["items"]]},
+            metrics=self.metrics,
+        )
         self.metrics.execution_count += 1
         execution_text = self.executor.verbose_execution_text(ctx, execution)
         self.bus.send_text(TextMessage("executor", "summarizer", ctx.task_id, execution_text))
 
-        summary = self.summarizer.summarize(ctx, retrieval["items"], execution, memory_hits=[])
+        summary = self.summarizer.summarize(
+            ctx, retrieval["items"], execution, memory_hits=[],
+            llm_mode=self._llm_mode, metrics=self.metrics,
+        )
         summary_text = self.summarizer.verbose_summary_text(ctx, summary)
         self.bus.send_text(TextMessage("summarizer", "runtime", ctx.task_id, summary_text))
         return {
@@ -270,23 +341,43 @@ class MultiAgentRuntime:
         if memory_hits:
             self.metrics.memory_hit_count += 1
         memory_refs = [unit.memory_id for unit, _, _ in memory_hits]
+        memory_summaries = [unit.summary for unit, _, _ in memory_hits]
         skip_local = len(memory_refs) >= 2
 
+        plan = (
+            self.planner.plan(
+                ctx, memory_refs,
+                llm_mode=self._llm_mode, memory_summaries=memory_summaries, metrics=self.metrics,
+            )
+            if self.llm is not None
+            else None
+        )
         plan_text = self.planner.verbose_plan_text(ctx)
         self.bus.send_text(TextMessage("planner", "retriever", ctx.task_id, plan_text))
 
-        retrieval = self.retriever.retrieve(ctx, use_memory=True, skip_local=skip_local)
+        retrieval = self.retriever.retrieve(
+            ctx, use_memory=True, skip_local=skip_local,
+            llm_mode=self._llm_mode, plan_payload=plan, metrics=self.metrics,
+        )
         if not skip_local:
             self.metrics.retrieval_count += 1
         retrieval_text = self.retriever.verbose_retrieval_text(ctx, retrieval)
         self.bus.send_text(TextMessage("retriever", "executor", ctx.task_id, retrieval_text))
 
-        execution = self.executor.execute(ctx, retrieval["items"], memory_refs=memory_refs)
+        execution = self.executor.execute(
+            ctx, retrieval["items"], memory_refs=memory_refs,
+            llm_mode=self._llm_mode,
+            retr_payload=retrieval_text if self._llm_mode == "text" else {"items": [it["title"] for it in retrieval["items"]]},
+            metrics=self.metrics,
+        )
         self.metrics.execution_count += 1
         execution_text = self.executor.verbose_execution_text(ctx, execution)
         self.bus.send_text(TextMessage("executor", "summarizer", ctx.task_id, execution_text))
 
-        summary = self.summarizer.summarize(ctx, retrieval["items"], execution, retrieval["memory_hits"])
+        summary = self.summarizer.summarize(
+            ctx, retrieval["items"], execution, retrieval["memory_hits"],
+            llm_mode=self._llm_mode, metrics=self.metrics,
+        )
         summary_text = self.summarizer.verbose_summary_text(ctx, summary)
         self.bus.send_text(TextMessage("summarizer", "runtime", ctx.task_id, summary_text))
         return {
@@ -312,7 +403,10 @@ class MultiAgentRuntime:
         )
         self.bus.record_state_bytes(query_state.size_bytes)
 
-        plan = self.planner.plan(ctx, memory_refs=[])
+        plan = self.planner.plan(
+            ctx, memory_refs=[],
+            llm_mode=self._llm_mode, metrics=self.metrics,
+        )
         self.bus.send_protocol(
             ProtocolMessage(
                 action="task.plan",
@@ -327,7 +421,12 @@ class MultiAgentRuntime:
         )
         self.bus.record_state_bytes(query_state.size_bytes)
 
-        retrieval = self.retriever.retrieve(ctx, use_memory=False, skip_local=False)
+        retrieval = self.retriever.retrieve(
+            ctx, use_memory=False, skip_local=False,
+            llm_mode=self._llm_mode,
+            plan_payload={"steps": [step["action"] for step in plan["steps"]]},
+            metrics=self.metrics,
+        )
         self.metrics.retrieval_count += 1
         retr_state = retrieval["state"]
         self.bus.send_protocol(
@@ -348,7 +447,12 @@ class MultiAgentRuntime:
         )
         self.bus.record_state_bytes(retr_state.size_bytes)
 
-        execution = self.executor.execute(ctx, retrieval["items"], memory_refs=[])
+        execution = self.executor.execute(
+            ctx, retrieval["items"], memory_refs=[],
+            llm_mode=self._llm_mode,
+            retr_payload={"items": [str(it["title"]) for it in retrieval["items"]], "state_id": retr_state.state_id},
+            metrics=self.metrics,
+        )
         self.metrics.execution_count += 1
         self.bus.send_protocol(
             ProtocolMessage(
@@ -369,7 +473,8 @@ class MultiAgentRuntime:
         self.bus.record_state_bytes(retr_state.size_bytes)
 
         summary = self.summarizer.summarize(
-            ctx, retrieval["items"], execution, memory_hits=[], write_memory=False
+            ctx, retrieval["items"], execution, memory_hits=[], write_memory=False,
+            llm_mode=self._llm_mode, metrics=self.metrics,
         )
         sum_state = summary["state"]
         self.bus.send_protocol(

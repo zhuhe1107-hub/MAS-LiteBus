@@ -18,10 +18,25 @@
 
 ## 快速运行
 
+### 默认模式 (模板 Agent, 纯标准库, 离线评审)
+
 跑全部六种模式, 每个重复 5 次取均值与标准差, 生成 6 列对比 + 消融归因 + 记忆准确性报告:
 
 ```bash
 python scripts/run_benchmark.py --mode all --rounds 10 --repeat 5
+```
+
+### LLM 模式 (真 BPE token 计数)
+
+把每个 Agent 都接到本地 Ollama (推荐 `llama3:8b`), 用真 LLM tokenizer 报回的 `prompt_tokens` / `completion_tokens` 作为通信效率证据:
+
+```bash
+# 一次性: 装 Ollama 并 pull 模型
+~/.local/bin/ollama serve &       # 后台跑 Ollama, 监听 127.0.0.1:11434
+~/.local/bin/ollama pull llama3:8b
+
+# 跑 LLM 基准
+python scripts/run_benchmark.py --mode all --rounds 10 --llm ollama --llm-model llama3:8b
 ```
 
 只跑一种模式 (排障或单独基线):
@@ -49,6 +64,8 @@ mas_litebus/
   agents/      Agent 实现 (Planner / Retriever / Executor / Summarizer)
   runtime/     in-proc 协议运行时 (engine.py) 与跨进程 IPC 运行时 (ipc_engine.py)
   ipc/         AF_UNIX socket bus + multiprocessing.shared_memory 状态池
+  llm/         LLMBackend (Ollama) + prompt 模板 + 容错 JSON 解析
+  sandbox/     CodeAct Executor 沙箱 (subprocess + setrlimit + timeout)
   state/       哈希语义向量 + 状态对象
   memory/      SQLite (WAL) 共享记忆存储与检索
   eval/        指标 / 评测 / 6 列对比报告 / 记忆准确性 (P@3, R@3, F1, MRR)

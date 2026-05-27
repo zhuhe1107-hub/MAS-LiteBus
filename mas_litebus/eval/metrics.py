@@ -27,6 +27,13 @@ class Metrics:
     shm_alloc_count: int = 0
     shm_attach_count: int = 0
     shm_peak_bytes: int = 0
+    # LLM-mode specifics (only populated when an LLMBackend is in use)
+    llm_call_count: int = 0
+    llm_prompt_tokens: int = 0
+    llm_completion_tokens: int = 0
+    llm_cached_tokens: int = 0
+    llm_latency_ms_sum: float = 0.0
+    llm_parse_failures: int = 0
 
     def finish(self) -> None:
         self.ended_at = time.perf_counter()
@@ -52,6 +59,27 @@ class Metrics:
             return 0.0
         return round(self.ipc_round_trip_us_sum / self.ipc_recv_count, 2)
 
+    @property
+    def llm_total_tokens(self) -> int:
+        return self.llm_prompt_tokens + self.llm_completion_tokens
+
+    @property
+    def llm_avg_latency_ms(self) -> float:
+        if self.llm_call_count == 0:
+            return 0.0
+        return round(self.llm_latency_ms_sum / self.llm_call_count, 2)
+
+    def record_llm(self, response) -> None:
+        """Accumulate a backend response. Accepts LLMResponse or duck-typed dict."""
+        if response is None:
+            return
+        if hasattr(response, "prompt_tokens"):
+            self.llm_call_count += 1
+            self.llm_prompt_tokens += int(response.prompt_tokens)
+            self.llm_completion_tokens += int(response.completion_tokens)
+            self.llm_cached_tokens += int(getattr(response, "cached_tokens", 0) or 0)
+            self.llm_latency_ms_sum += float(response.latency_ms)
+
     def to_dict(self) -> dict[str, float | int | str]:
         return {
             "mode": self.mode,
@@ -76,6 +104,13 @@ class Metrics:
             "shm_alloc_count": self.shm_alloc_count,
             "shm_attach_count": self.shm_attach_count,
             "shm_peak_bytes": self.shm_peak_bytes,
+            "llm_call_count": self.llm_call_count,
+            "llm_prompt_tokens": self.llm_prompt_tokens,
+            "llm_completion_tokens": self.llm_completion_tokens,
+            "llm_total_tokens": self.llm_total_tokens,
+            "llm_cached_tokens": self.llm_cached_tokens,
+            "llm_avg_latency_ms": self.llm_avg_latency_ms,
+            "llm_parse_failures": self.llm_parse_failures,
         }
 
     def merge(self, other: "Metrics") -> None:

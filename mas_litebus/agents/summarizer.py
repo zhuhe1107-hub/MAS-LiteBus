@@ -1,6 +1,10 @@
 from __future__ import annotations
 
 from mas_litebus.agents.base import AgentContext, BaseAgent
+from mas_litebus.eval.metrics import Metrics
+from mas_litebus.llm.base import LLMBackend
+from mas_litebus.llm.parse import extract_json
+from mas_litebus.llm.prompts import SUMMARIZER_SYSTEM, summarizer_user_prompt
 from mas_litebus.memory.store import SharedMemoryStore
 from mas_litebus.runtime.protocol import Capability
 from mas_litebus.state.embedding import StateStore
@@ -9,9 +13,15 @@ from mas_litebus.state.embedding import StateStore
 class SummarizerAgent(BaseAgent):
     name = "summarizer"
 
-    def __init__(self, memory: SharedMemoryStore, states: StateStore) -> None:
+    def __init__(
+        self,
+        memory: SharedMemoryStore,
+        states: StateStore,
+        llm: LLMBackend | None = None,
+    ) -> None:
         self.memory = memory
         self.states = states
+        self.llm = llm
 
     def capabilities(self) -> list[Capability]:
         return [
@@ -36,9 +46,30 @@ class SummarizerAgent(BaseAgent):
         execution: dict[str, object],
         memory_hits: list[dict[str, object]],
         write_memory: bool = True,
+        *,
+        llm_mode: str | None = None,
+        metrics: Metrics | None = None,
     ) -> dict[str, object]:
         artifact = execution["artifact"]
         evidence_titles = [str(item["title"]) for item in evidence]
+        if self.llm is not None and llm_mode in {"text", "protocol"}:
+            try:
+                return self._llm_summarize(ctx, evidence_titles, artifact, execution, memory_hits, write_memory, llm_mode, metrics)
+            except Exception:
+                if metrics is not None:
+                    metrics.llm_parse_failures += 1
+                # fall through to template
+        return self._template_summarize(ctx, evidence_titles, artifact, execution, memory_hits, write_memory)
+
+    def _template_summarize(
+        self,
+        ctx: AgentContext,
+        evidence_titles: list[str],
+        artifact: dict[str, object],
+        execution: dict[str, object],
+        memory_hits: list[dict[str, object]],
+        write_memory: bool,
+    ) -> dict[str, object]:
         reused = [hit["memory_id"] for hit in memory_hits]
         summary = (
             f"{ctx.topic}: 完成任务拆解、证据检索和执行验证。"
@@ -60,6 +91,49 @@ class SummarizerAgent(BaseAgent):
                 summary=full_memory_summary,
                 tags=ctx.tags + [str(artifact.get("kind"))],
                 evidence=evidence_titles + [str(execution["stdout"])],
+                vector=state.vector,
+            )
+            memory_id = memory.memory_id
+        return {
+            "summary": summary,
+            "strategy": strategy,
+            "memory_id": memory_id,
+            "state": state,
+        }
+
+    def _llm_summarize(
+        self,
+        ctx: AgentContext,
+        evidence_titles: list[str],
+        artifact: dict[str, object],
+        execution: dict[str, object],
+        memory_hits: list[dict[str, object]],
+        write_memory: bool,
+        llm_mode: str,
+        metrics: Metrics | None,
+    ) -> dict[str, object]:
+        assert self.llm is not None
+        stdout_text = str(execution.get("stdout", ""))
+        user = summarizer_user_prompt(
+            ctx, evidence_titles, str(artifact.get("kind", "")), stdout_text, memory_hits, llm_mode
+        )
+        resp = self.llm.chat(SUMMARIZER_SYSTEM, user, temperature=0.0, max_tokens=600)
+        if metrics is not None:
+            metrics.record_llm(resp)
+        data = extract_json(resp.text)
+        summary = str(data.get("summary", "")).strip()
+        strategy = str(data.get("strategy", "")).strip() or self._strategy_from_artifact(artifact)
+        extra_tags = [str(t) for t in data.get("tags", [])]
+        full_memory_summary = f"{summary} 可复用策略：{strategy}"
+        state = self.states.create(full_memory_summary, producer=self.name, task_id=ctx.task_id)
+        memory_id = ""
+        if write_memory:
+            memory = self.memory.write(
+                source_agent=self.name,
+                task_topic=ctx.topic,
+                summary=full_memory_summary,
+                tags=ctx.tags + [str(artifact.get("kind"))] + extra_tags,
+                evidence=evidence_titles + [stdout_text],
                 vector=state.vector,
             )
             memory_id = memory.memory_id

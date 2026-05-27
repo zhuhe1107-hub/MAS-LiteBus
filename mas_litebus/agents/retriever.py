@@ -3,6 +3,10 @@ from __future__ import annotations
 import hashlib
 
 from mas_litebus.agents.base import AgentContext, BaseAgent
+from mas_litebus.eval.metrics import Metrics
+from mas_litebus.llm.base import LLMBackend
+from mas_litebus.llm.parse import extract_json
+from mas_litebus.llm.prompts import RETRIEVER_SYSTEM, retriever_user_prompt
 from mas_litebus.memory.store import SharedMemoryStore
 from mas_litebus.runtime.protocol import Capability
 from mas_litebus.state.embedding import StateStore
@@ -45,9 +49,15 @@ CORPUS = [
 class RetrieverAgent(BaseAgent):
     name = "retriever"
 
-    def __init__(self, memory: SharedMemoryStore, states: StateStore) -> None:
+    def __init__(
+        self,
+        memory: SharedMemoryStore,
+        states: StateStore,
+        llm: LLMBackend | None = None,
+    ) -> None:
         self.memory = memory
         self.states = states
+        self.llm = llm
 
     def capabilities(self) -> list[Capability]:
         return [
@@ -65,29 +75,49 @@ class RetrieverAgent(BaseAgent):
             ),
         ]
 
-    def retrieve(self, ctx: AgentContext, use_memory: bool, skip_local: bool = False) -> dict[str, object]:
+    def retrieve(
+        self,
+        ctx: AgentContext,
+        use_memory: bool,
+        skip_local: bool = False,
+        *,
+        llm_mode: str | None = None,
+        plan_payload: object = None,
+        metrics: Metrics | None = None,
+    ) -> dict[str, object]:
         query_vector = self.states.embedder.encode(" ".join([ctx.topic, ctx.request, *ctx.tags]))
-        memory_hits = []
+        memory_hits_raw = []
         if use_memory:
-            memory_hits = self.memory.search(ctx.request, ctx.tags, query_vector, top_k=3)
+            memory_hits_raw = self.memory.search(ctx.request, ctx.tags, query_vector, top_k=3)
+
+        memory_hits = [
+            {
+                "memory_id": unit.memory_id,
+                "score": round(score, 4),
+                "reason": reason,
+                "summary": unit.summary,
+                "tags": unit.tags,
+            }
+            for unit, score, reason in memory_hits_raw
+        ]
 
         evidence = []
         if not skip_local:
             self._simulate_local_index_scan(ctx)
-            scored = []
-            task_words = set((ctx.topic + " " + ctx.request + " " + " ".join(ctx.tags)).lower().split())
-            tag_set = {tag.lower() for tag in ctx.tags}
-            for item in CORPUS:
-                haystack = " ".join([item["title"], item["text"], " ".join(item["tags"])]).lower()
-                keyword_score = sum(1 for word in task_words if word and word in haystack)
-                tag_score = len(tag_set.intersection({tag.lower() for tag in item["tags"]})) * 3
-                score = keyword_score + tag_score
-                if score > 0:
-                    scored.append((score, item))
-            scored.sort(key=lambda pair: pair[0], reverse=True)
-            evidence = [item for _, item in scored[:3]]
+            evidence = self._rank_corpus(ctx)
+            # Optional LLM rerank/selection. The scoring above runs first so
+            # the LLM never sees the full corpus — it picks from a 3-item
+            # shortlist, keeping the prompt length predictable.
+            if self.llm is not None and llm_mode in {"text", "protocol"} and evidence:
+                try:
+                    evidence = self._llm_select(ctx, evidence, memory_hits, plan_payload, llm_mode, metrics)
+                except Exception:
+                    if metrics is not None:
+                        metrics.llm_parse_failures += 1
+                    # keep keyword-scored evidence
+
         evidence_text = "\n".join(item["text"] for item in evidence)
-        memory_text = "\n".join(hit[0].summary for hit in memory_hits)
+        memory_text = "\n".join(hit["summary"] for hit in memory_hits)
         state = self.states.create(
             "\n".join([ctx.topic, evidence_text, memory_text]),
             producer=self.name,
@@ -95,18 +125,43 @@ class RetrieverAgent(BaseAgent):
         )
         return {
             "items": evidence,
-            "memory_hits": [
-                {
-                    "memory_id": unit.memory_id,
-                    "score": round(score, 4),
-                    "reason": reason,
-                    "summary": unit.summary,
-                    "tags": unit.tags,
-                }
-                for unit, score, reason in memory_hits
-            ],
+            "memory_hits": memory_hits,
             "state": state,
         }
+
+    def _rank_corpus(self, ctx: AgentContext) -> list[dict[str, object]]:
+        scored = []
+        task_words = set((ctx.topic + " " + ctx.request + " " + " ".join(ctx.tags)).lower().split())
+        tag_set = {tag.lower() for tag in ctx.tags}
+        for item in CORPUS:
+            haystack = " ".join([item["title"], item["text"], " ".join(item["tags"])]).lower()
+            keyword_score = sum(1 for word in task_words if word and word in haystack)
+            tag_score = len(tag_set.intersection({tag.lower() for tag in item["tags"]})) * 3
+            score = keyword_score + tag_score
+            if score > 0:
+                scored.append((score, item))
+        scored.sort(key=lambda pair: pair[0], reverse=True)
+        return [item for _, item in scored[:3]]
+
+    def _llm_select(
+        self,
+        ctx: AgentContext,
+        candidates: list[dict[str, object]],
+        memory_hits: list[dict[str, object]],
+        plan_payload: object,
+        llm_mode: str,
+        metrics: Metrics | None,
+    ) -> list[dict[str, object]]:
+        assert self.llm is not None
+        user = retriever_user_prompt(ctx, candidates, memory_hits, plan_payload, llm_mode)
+        resp = self.llm.chat(RETRIEVER_SYSTEM, user, temperature=0.0, max_tokens=400)
+        if metrics is not None:
+            metrics.record_llm(resp)
+        data = extract_json(resp.text)
+        selected_titles = [str(t) for t in data.get("selected_titles", [])]
+        by_title = {str(c["title"]): c for c in candidates}
+        chosen = [by_title[t] for t in selected_titles if t in by_title][:3]
+        return chosen or candidates
 
     def verbose_retrieval_text(self, ctx: AgentContext, result: dict[str, object]) -> str:
         items = result["items"]
